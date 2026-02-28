@@ -10,6 +10,17 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+<!-- MailerLite Universal -->
+<script>
+  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+  ml('account', '2149706');
+</script>
+<!-- End MailerLite Universal -->
+
 <style>
   :root {
     --gold: #A07828;
@@ -43,7 +54,7 @@
     z-index: 0;
   }
 
-  /* NAV */
+  /* ===== NAV ===== */
   nav {
     position: fixed;
     top: 0; width: 100%;
@@ -52,8 +63,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 5%;
-    background: rgba(10,10,10,0.93);
-    border-bottom: 1px solid rgba(201,146,12,0.25);
+    background: rgba(9,12,16,0.95);
+    border-bottom: 1px solid rgba(160,120,40,0.25);
     backdrop-filter: blur(10px);
   }
   .nav-logo {
@@ -65,10 +76,10 @@
     text-transform: uppercase;
     text-decoration: none;
   }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
   .nav-links a {
     font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     letter-spacing: 0.12em;
     color: var(--cream);
     text-decoration: none;
@@ -91,7 +102,7 @@
   }
   .nav-cta:hover { opacity: 0.85; }
 
-  /* HERO */
+  /* ===== HERO ===== */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -104,8 +115,7 @@
     overflow: hidden;
   }
   .hero-bg-lines {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background-image: repeating-linear-gradient(
       -45deg, transparent, transparent 60px,
       rgba(14,30,58,0.15) 60px, rgba(14,30,58,0.15) 61px
@@ -113,8 +123,7 @@
     pointer-events: none;
   }
   .hero-emblem {
-    width: 210px;
-    height: 210px;
+    width: 210px; height: 210px;
     border-radius: 50%;
     border: 3px solid var(--gold);
     box-shadow: 0 0 0 8px rgba(14,30,58,0.4), 0 0 60px rgba(160,120,40,0.25), 0 0 120px rgba(14,30,58,0.3);
@@ -123,212 +132,168 @@
     object-fit: cover;
   }
   @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 0 8px rgba(14,30,58,0.4), 0 0 60px rgba(160,120,40,0.25), 0 0 120px rgba(14,30,58,0.3); }
-    50% { box-shadow: 0 0 0 12px rgba(14,30,58,0.5), 0 0 80px rgba(160,120,40,0.4), 0 0 160px rgba(14,30,58,0.4); }
+    0%,100% { box-shadow: 0 0 0 8px rgba(14,30,58,0.4), 0 0 60px rgba(160,120,40,0.25), 0 0 120px rgba(14,30,58,0.3); }
+    50%      { box-shadow: 0 0 0 12px rgba(14,30,58,0.5), 0 0 80px rgba(160,120,40,0.4), 0 0 160px rgba(14,30,58,0.4); }
   }
   .hero-eyebrow {
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.4em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.3s forwards;
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.4em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem;
+    opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
   }
   .hero-title {
     font-family: 'Cinzel Decorative', serif;
     font-size: clamp(2.5rem, 7vw, 5.5rem);
-    font-weight: 900;
-    line-height: 1.05;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.5s forwards;
+    font-weight: 900; line-height: 1.05; color: var(--white);
+    margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
   }
   .hero-title span {
     background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-pale));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
   .hero-sub {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
-    letter-spacing: 0.3em;
-    color: var(--gold-light);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.7s forwards;
+    font-family: 'Cinzel', serif; font-size: clamp(0.9rem, 2vw, 1.2rem);
+    letter-spacing: 0.3em; color: var(--gold-light); text-transform: uppercase;
+    margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
   }
   .hero-divider {
-    width: 180px;
-    height: 2px;
+    width: 180px; height: 2px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 0 auto 2rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.9s forwards;
+    margin: 0 auto 2rem; opacity: 0; animation: fadeUp 0.8s 0.9s forwards;
   }
   .hero-tagline {
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: rgba(245,237,214,0.75);
-    max-width: 600px;
-    line-height: 1.8;
-    margin-bottom: 3rem;
-    letter-spacing: 0.03em;
-    opacity: 0;
-    animation: fadeUp 0.8s 1.1s forwards;
+    font-size: 1.05rem; font-weight: 300; color: rgba(232,220,200,0.75);
+    max-width: 600px; line-height: 1.8; margin-bottom: 3rem;
+    letter-spacing: 0.03em; opacity: 0; animation: fadeUp 0.8s 1.1s forwards;
   }
   .hero-tagline em { color: var(--gold-light); font-style: normal; }
   .hero-cta-group {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    opacity: 0;
-    animation: fadeUp 0.8s 1.3s forwards;
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    opacity: 0; animation: fadeUp 0.8s 1.3s forwards;
   }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* BUTTONS */
+  /* ===== BUTTONS ===== */
   .btn-primary {
-    font-family: 'Cinzel', serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
-    color: var(--dark);
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    border: none;
-    padding: 1rem 2.5rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
+    font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.18em;
+    color: var(--dark); background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    border: none; padding: 1rem 2.5rem; cursor: pointer; text-transform: uppercase;
+    font-weight: 700; text-decoration: none; display: inline-block;
     transition: transform 0.2s, box-shadow 0.2s;
     clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,146,12,0.4); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(160,120,40,0.4); }
   .btn-secondary {
-    font-family: 'Cinzel', serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
-    color: var(--gold-light);
-    background: transparent;
-    border: 1px solid var(--gold);
-    padding: 1rem 2.5rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
+    font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.18em;
+    color: var(--gold-light); background: transparent; border: 1px solid var(--gold);
+    padding: 1rem 2.5rem; cursor: pointer; text-transform: uppercase;
+    font-weight: 600; text-decoration: none; display: inline-block;
     transition: background 0.3s, color 0.3s;
   }
-  .btn-secondary:hover { background: rgba(201,146,12,0.1); color: var(--white); }
+  .btn-secondary:hover { background: rgba(160,120,40,0.1); color: var(--white); }
 
-  /* MOTTO BAND */
+  /* ===== STATS BAR ===== */
+  .stats-bar {
+    background: linear-gradient(135deg, #0A1020, #060D1A, #0A1020);
+    border-top: 1px solid rgba(160,120,40,0.2);
+    border-bottom: 1px solid rgba(160,120,40,0.2);
+    padding: 2rem 5%;
+  }
+  .stats-grid {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; text-align: center;
+  }
+  .stat-item { padding: 0.5rem; }
+  .stat-number {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    line-height: 1.1; margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-family: 'Cinzel', serif; font-size: 0.62rem;
+    letter-spacing: 0.3em; color: rgba(232,220,200,0.5); text-transform: uppercase;
+  }
+  .stat-divider {
+    width: 1px; background: rgba(160,120,40,0.2);
+    height: 100%; margin: 0 auto;
+  }
+
+  /* ===== MOTTO BAND ===== */
   .motto-band {
     background: linear-gradient(135deg, #6B4E10 0%, #3D2D08 50%, #6B4E10 100%);
-    padding: 1.2rem 5%;
-    overflow: hidden;
+    padding: 1.2rem 5%; overflow: hidden;
   }
   .motto-band-text {
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.5em;
-    color: var(--dark);
-    font-weight: 700;
-    text-transform: uppercase;
-    animation: marquee 22s linear infinite;
-    white-space: nowrap;
-    display: inline-block;
+    font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.5em;
+    color: var(--dark); font-weight: 700; text-transform: uppercase;
+    animation: marquee 22s linear infinite; white-space: nowrap; display: inline-block;
   }
   @keyframes marquee {
     from { transform: translateX(30%); }
-    to { transform: translateX(-100%); }
+    to   { transform: translateX(-100%); }
   }
 
-  /* SECTION BASE */
+  /* ===== SECTION BASE ===== */
   section { position: relative; z-index: 1; }
   .section-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5%; }
   .section-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.45em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1rem;
+    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.45em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 1rem;
   }
   .section-title {
     font-family: 'Cinzel Decorative', serif;
     font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
+    font-weight: 700; color: var(--white); margin-bottom: 1.5rem; line-height: 1.2;
   }
   .section-title span { color: var(--gold-light); }
   .gold-line {
-    width: 80px;
-    height: 3px;
+    width: 80px; height: 3px;
     background: linear-gradient(90deg, var(--gold), var(--gold-light));
     margin-bottom: 2rem;
   }
 
-  /* ABOUT */
+  /* ===== ABOUT ===== */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-  .about-text p { color: rgba(245,237,214,0.8); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1rem; font-weight: 300; }
+  .about-text p { color: rgba(232,220,200,0.8); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1rem; font-weight: 300; }
   .about-text strong { color: var(--gold-light); font-weight: 700; }
   .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
   .value-card {
     background: linear-gradient(135deg, rgba(14,30,58,0.5), rgba(14,30,58,0.2));
-    border: 1px solid rgba(160,120,40,0.2);
-    padding: 1.5rem;
+    border: 1px solid rgba(160,120,40,0.2); padding: 1.5rem;
     transition: border-color 0.3s, transform 0.3s;
   }
   .value-card:hover { border-color: var(--gold); transform: translateY(-4px); }
   .value-icon { font-size: 1.8rem; margin-bottom: 0.7rem; display: block; }
   .value-card h4 {
-    font-family: 'Cinzel', serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    color: var(--gold-light);
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.15em;
+    color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.5rem;
   }
-  .value-card p { font-size: 0.88rem; color: rgba(245,237,214,0.65); line-height: 1.6; }
+  .value-card p { font-size: 0.88rem; color: rgba(232,220,200,0.65); line-height: 1.6; }
   .about-visual { position: relative; display: flex; align-items: center; justify-content: center; }
   .about-emblem-wrap { position: relative; width: 320px; height: 320px; }
   .about-emblem-wrap img {
-    width: 280px; height: 280px;
-    border-radius: 50%;
-    object-fit: cover;
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    border: 4px solid var(--gold);
+    width: 280px; height: 280px; border-radius: 50%; object-fit: cover;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    z-index: 2; border: 4px solid var(--gold);
   }
   .ring {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid rgba(201,146,12,0.3);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    animation: spin 20s linear infinite;
+    position: absolute; border-radius: 50%; border: 1px solid rgba(160,120,40,0.3);
+    top: 50%; left: 50%; transform: translate(-50%,-50%); animation: spin 20s linear infinite;
   }
   .ring-1 { width: 300px; height: 300px; }
   .ring-2 { width: 320px; height: 320px; border-style: dashed; animation-direction: reverse; animation-duration: 30s; }
   @keyframes spin {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
+    from { transform: translate(-50%,-50%) rotate(0deg); }
+    to   { transform: translate(-50%,-50%) rotate(360deg); }
   }
 
-  /* ANTHEM */
+  /* ===== ANTHEM + AUDIO PLAYER ===== */
   .anthem-section {
     background: linear-gradient(180deg, var(--dark) 0%, #060D1A 50%, var(--dark) 100%);
     border-top: 1px solid rgba(160,120,40,0.15);
@@ -336,253 +301,278 @@
   }
   .anthem-inner { max-width: 800px; margin: 0 auto; padding: 6rem 5%; text-align: center; }
   .anthem-quote {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    font-weight: 400;
-    color: var(--gold-pale);
-    line-height: 2;
-    font-style: italic;
-    position: relative;
-    padding: 2rem 3rem;
+    font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 400; color: var(--gold-pale); line-height: 2; font-style: italic;
+    position: relative; padding: 2rem 3rem;
   }
   .anthem-quote::before, .anthem-quote::after {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 5rem;
-    color: rgba(201,146,12,0.2);
-    position: absolute;
-    line-height: 1;
+    font-family: 'Cinzel Decorative', serif; font-size: 5rem;
+    color: rgba(160,120,40,0.2); position: absolute; line-height: 1;
   }
   .anthem-quote::before { content: '"'; top: 0; left: 0; }
-  .anthem-quote::after { content: '"'; bottom: -1.5rem; right: 0; }
+  .anthem-quote::after  { content: '"'; bottom: -1.5rem; right: 0; }
   .anthem-quote span { color: var(--gold-light); font-style: normal; font-weight: 700; }
 
-  /* MEMBERSHIP */
+  /* Audio Player */
+  .audio-player {
+    display: flex; align-items: center; gap: 1.2rem;
+    margin: 2.5rem auto 0;
+    background: rgba(14,30,58,0.6);
+    border: 1px solid rgba(160,120,40,0.3);
+    padding: 1.2rem 1.8rem;
+    max-width: 440px;
+  }
+  .play-btn {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    border: none; cursor: pointer; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .play-btn:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(160,120,40,0.5); }
+  .play-btn svg { width: 18px; height: 18px; fill: #090C10; margin-left: 2px; }
+  .audio-info { flex: 1; text-align: left; }
+  .audio-title {
+    font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.15em;
+    color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.5rem;
+  }
+  .audio-progress-bar {
+    width: 100%; height: 4px; background: rgba(160,120,40,0.2);
+    cursor: pointer; border-radius: 2px; position: relative;
+  }
+  .audio-progress-fill {
+    height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    width: 0%; border-radius: 2px; pointer-events: none;
+    transition: width 0.3s linear;
+  }
+  .audio-time {
+    font-size: 0.62rem; color: rgba(232,220,200,0.4);
+    letter-spacing: 0.1em; margin-top: 0.4rem;
+  }
+
+  /* ===== FACEBOOK POST SECTION ===== */
+  .fb-post-section {
+    background: var(--dark-mid);
+    border-top: 1px solid rgba(160,120,40,0.12);
+    border-bottom: 1px solid rgba(160,120,40,0.12);
+  }
+  .fb-post-inner {
+    max-width: 1100px; margin: 0 auto; padding: 6rem 5%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .fb-post-text .section-label { margin-bottom: 1rem; }
+  .fb-post-text p {
+    color: rgba(232,220,200,0.75); line-height: 1.9; font-size: 1rem;
+    font-weight: 300; margin-bottom: 1.5rem;
+  }
+  .fb-post-text strong { color: var(--gold-light); }
+  .fb-post-embed {
+    display: flex; justify-content: center; align-items: flex-start;
+  }
+  .fb-post-embed iframe {
+    border-radius: 4px;
+    border: 1px solid rgba(160,120,40,0.2) !important;
+    max-width: 100%;
+  }
+
+  /* ===== MEMBERSHIP ===== */
   .membership-section { background: var(--dark-mid); }
   .membership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
   .membership-card {
     background: linear-gradient(160deg, #0E1829, #080E18);
     border: 1px solid rgba(160,120,40,0.2);
-    padding: 2.5rem 2rem;
-    text-align: center;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
+    padding: 2.5rem 2rem; text-align: center;
+    transition: all 0.3s; position: relative; overflow: hidden;
   }
   .membership-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    transform: scaleX(0);
-    transition: transform 0.4s;
+    transform: scaleX(0); transition: transform 0.4s;
   }
   .membership-card:hover::before { transform: scaleX(1); }
   .membership-card:hover { border-color: var(--gold); transform: translateY(-6px); }
   .card-num {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 3rem;
-    color: rgba(201,146,12,0.15);
-    font-weight: 900;
-    margin-bottom: 0.5rem;
+    font-family: 'Cinzel Decorative', serif; font-size: 3rem;
+    color: rgba(160,120,40,0.15); font-weight: 900; margin-bottom: 0.5rem;
   }
   .membership-card h3 {
-    font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    letter-spacing: 0.1em;
-    color: var(--gold-light);
-    margin-bottom: 1rem;
-    text-transform: uppercase;
+    font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.1em;
+    color: var(--gold-light); margin-bottom: 1rem; text-transform: uppercase;
   }
-  .membership-card p { font-size: 0.9rem; color: rgba(245,237,214,0.65); line-height: 1.75; }
+  .membership-card p { font-size: 0.9rem; color: rgba(232,220,200,0.65); line-height: 1.75; }
 
-  /* SPONSORS */
+  /* ===== SPONSORS ===== */
   #sponsors {
     background: var(--dark);
-    border-top: 1px solid rgba(201,146,12,0.15);
-    border-bottom: 1px solid rgba(201,146,12,0.15);
+    border-top: 1px solid rgba(160,120,40,0.15);
+    border-bottom: 1px solid rgba(160,120,40,0.15);
   }
   .sponsors-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5%; text-align: center; }
   .sponsors-tagline {
-    color: rgba(245,237,214,0.6);
-    font-size: 0.95rem;
-    line-height: 1.8;
-    margin: 0 auto 3.5rem;
-    font-weight: 300;
-    max-width: 560px;
+    color: rgba(232,220,200,0.6); font-size: 0.95rem; line-height: 1.8;
+    margin: 0 auto 3.5rem; font-weight: 300; max-width: 560px;
   }
   .sponsors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
   .sponsor-card {
     background: linear-gradient(160deg, #0E1829, #080E18);
     border: 1px solid rgba(160,120,40,0.18);
     padding: 1.8rem 1.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: space-between; gap: 1rem;
     transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    min-height: 220px;
+    text-decoration: none; position: relative; overflow: hidden; min-height: 220px;
   }
   .sponsor-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    transform: scaleX(0);
-    transition: transform 0.4s;
+    transform: scaleX(0); transition: transform 0.4s;
   }
   .sponsor-card:hover::before { transform: scaleX(1); }
-  .sponsor-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(201,146,12,0.15); }
+  .sponsor-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(160,120,40,0.15); }
   .logo-wrap {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0.5rem;
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    width: 100%; padding: 0.5rem;
   }
   .logo-wrap img {
-    max-width: 160px;
-    max-height: 90px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    filter: brightness(1.05);
-    transition: filter 0.3s;
+    max-width: 160px; max-height: 90px; width: auto; height: auto;
+    object-fit: contain; filter: brightness(1.05); transition: filter 0.3s;
   }
   .sponsor-card:hover .logo-wrap img { filter: brightness(1.15); }
   .sponsor-info { text-align: center; }
   .sponsor-name {
-    font-family: 'Cinzel', serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    color: rgba(245,237,214,0.7);
-    text-transform: uppercase;
-    margin-bottom: 0.6rem;
-    display: block;
+    font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.1em;
+    color: rgba(232,220,200,0.7); text-transform: uppercase; margin-bottom: 0.6rem; display: block;
   }
   .sponsor-cta {
-    display: inline-block;
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    border: 1px solid rgba(201,146,12,0.4);
-    padding: 0.4rem 1rem;
-    text-transform: uppercase;
-    transition: background 0.3s, color 0.3s;
+    display: inline-block; font-family: 'Cinzel', serif; font-size: 0.6rem;
+    letter-spacing: 0.2em; color: var(--gold); border: 1px solid rgba(160,120,40,0.4);
+    padding: 0.4rem 1rem; text-transform: uppercase; transition: background 0.3s, color 0.3s;
   }
-  .sponsor-card:hover .sponsor-cta { background: var(--gold); color: #0A0A0A; }
+  .sponsor-card:hover .sponsor-cta { background: var(--gold); color: #090C10; }
   .become-sponsor {
     background: linear-gradient(135deg, rgba(14,30,58,0.4), rgba(14,30,58,0.15));
     border: 1px dashed rgba(160,120,40,0.35);
-    padding: 2.5rem;
-    max-width: 560px;
-    margin: 0 auto;
+    padding: 2.5rem; max-width: 560px; margin: 0 auto;
   }
   .become-sponsor p {
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    color: rgba(201,146,12,0.6);
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
+    font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.15em;
+    color: rgba(160,120,40,0.6); text-transform: uppercase; margin-bottom: 1.2rem;
   }
   .become-sponsor p strong { display: block; font-size: 1rem; color: var(--gold-light); margin-bottom: 0.5rem; }
 
-  /* JOIN */
+  /* ===== NEWSLETTER (JOIN) ===== */
   .join-section {
     background: linear-gradient(135deg, #060D1A, #0D1829, #060D1A);
     border-top: 1px solid rgba(160,120,40,0.2);
     text-align: center;
   }
-  .join-inner { max-width: 750px; margin: 0 auto; padding: 7rem 5%; }
+  .join-inner { max-width: 680px; margin: 0 auto; padding: 7rem 5%; }
   .join-inner > p {
-    color: rgba(245,237,214,0.7);
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-bottom: 3rem;
-    font-weight: 300;
+    color: rgba(232,220,200,0.7); font-size: 1.05rem;
+    line-height: 1.8; margin-bottom: 3rem; font-weight: 300;
   }
-  .form-wrap {
-    background: linear-gradient(135deg, rgba(14,30,58,0.4), rgba(14,30,58,0.15));
-    border: 1px solid rgba(160,120,40,0.2);
-    padding: 3rem;
-    margin-bottom: 2rem;
-  }
-  .form-grid { display: grid; gap: 1.2rem; }
-  .form-input {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,146,12,0.25);
-    color: var(--cream);
-    padding: 0.9rem 1.2rem;
-    font-family: 'Lato', sans-serif;
-    font-size: 0.95rem;
-    outline: none;
-    width: 100%;
-    transition: border-color 0.3s;
-  }
-  .form-input:focus { border-color: var(--gold); }
-  select.form-input { background: #0E1829; }
-  textarea.form-input { resize: vertical; }
-  .form-submit {
-    font-family: 'Cinzel', serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.18em;
-    color: var(--dark);
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    border: none;
-    padding: 1.1rem;
-    width: 100%;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: opacity 0.3s;
-    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  }
-  .form-submit:hover { opacity: 0.85; }
+  /* MailerLite override to match site theme */
+  .ml-embedded { margin-top: 1rem; }
   .social-link {
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    color: var(--gold-light);
-    text-decoration: none;
-    text-transform: uppercase;
-    opacity: 0.8;
-    transition: opacity 0.3s;
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em;
+    color: var(--gold-light); text-decoration: none; text-transform: uppercase;
+    opacity: 0.8; transition: opacity 0.3s; display: inline-block; margin-top: 2rem;
   }
   .social-link:hover { opacity: 1; }
 
-  /* FOOTER */
+  /* ===== FOOTER ===== */
   footer {
-    background: #050505;
-    border-top: 1px solid rgba(201,146,12,0.15);
-    padding: 3rem 5%;
-    text-align: center;
+    background: #050508;
+    border-top: 1px solid rgba(160,120,40,0.15);
+    padding: 4rem 5% 2rem;
   }
-  .footer-logo { font-family: 'Cinzel Decorative', serif; font-size: 1.2rem; color: var(--gold-light); margin-bottom: 0.5rem; }
-  .footer-sub { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: rgba(201,146,12,0.5); text-transform: uppercase; margin-bottom: 1rem; }
-  .footer-motto { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.3em; color: var(--gold); font-style: italic; margin-bottom: 2rem; }
-  .footer-links { display: flex; justify-content: center; gap: 2rem; list-style: none; margin-bottom: 2rem; flex-wrap: wrap; }
-  .footer-links a { font-size: 0.8rem; color: rgba(245,237,214,0.4); text-decoration: none; letter-spacing: 0.1em; transition: color 0.3s; }
+  .footer-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand .footer-logo {
+    font-family: 'Cinzel Decorative', serif; font-size: 1.2rem;
+    color: var(--gold-light); margin-bottom: 0.5rem;
+  }
+  .footer-brand .footer-sub {
+    font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.3em;
+    color: rgba(160,120,40,0.5); text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .footer-brand .footer-motto {
+    font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.25em;
+    color: var(--gold); font-style: italic; margin-bottom: 1.5rem;
+  }
+  .footer-links-col h4 {
+    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem;
+  }
+  .footer-links {
+    display: flex; flex-direction: column; gap: 0.6rem; list-style: none;
+  }
+  .footer-links a {
+    font-size: 0.85rem; color: rgba(232,220,200,0.4); text-decoration: none;
+    letter-spacing: 0.05em; transition: color 0.3s;
+  }
   .footer-links a:hover { color: var(--gold-light); }
-  .footer-copy { font-size: 0.75rem; color: rgba(245,237,214,0.25); line-height: 2; }
+  .footer-fb {
+    border-top: 1px solid rgba(160,120,40,0.12);
+    padding-top: 2.5rem; margin-bottom: 2.5rem;
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  }
+  .footer-fb-label {
+    font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.35em;
+    color: rgba(160,120,40,0.5); text-transform: uppercase;
+  }
+  .footer-copy {
+    text-align: center; font-size: 0.72rem;
+    color: rgba(232,220,200,0.2); line-height: 2;
+    border-top: 1px solid rgba(160,120,40,0.08); padding-top: 1.5rem;
+    max-width: 1100px; margin: 0 auto;
+  }
 
-  /* SCROLL REVEAL */
+  /* ===== MESSENGER FLOAT ===== */
+  .messenger-float {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: linear-gradient(135deg, #0084FF, #0099FF);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,132,255,0.5);
+    cursor: pointer; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: floatPulse 3s ease-in-out infinite;
+  }
+  .messenger-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(0,132,255,0.6);
+  }
+  .messenger-float svg { width: 30px; height: 30px; fill: white; }
+  @keyframes floatPulse {
+    0%,100% { box-shadow: 0 4px 20px rgba(0,132,255,0.5); }
+    50%      { box-shadow: 0 4px 30px rgba(0,132,255,0.8), 0 0 0 8px rgba(0,132,255,0.1); }
+  }
+  .messenger-tooltip {
+    position: absolute; right: 70px; top: 50%; transform: translateY(-50%);
+    background: rgba(9,12,16,0.95); border: 1px solid rgba(160,120,40,0.3);
+    color: var(--cream); font-family: 'Cinzel', serif; font-size: 0.6rem;
+    letter-spacing: 0.1em; padding: 0.4rem 0.8rem; white-space: nowrap;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .messenger-float:hover .messenger-tooltip { opacity: 1; }
+
+  /* ===== SCROLL REVEAL ===== */
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* RESPONSIVE */
+  /* ===== RESPONSIVE ===== */
   @media (max-width: 900px) {
     .about-grid { grid-template-columns: 1fr; }
     .about-visual { display: none; }
     .membership-grid { grid-template-columns: 1fr; }
     .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
+    .fb-post-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .nav-links { display: none; }
   }
   @media (max-width: 560px) {
@@ -590,24 +580,36 @@
     .about-values { grid-template-columns: 1fr; }
     .hero-cta-group { flex-direction: column; align-items: center; }
     .anthem-quote { padding: 2rem 1rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ===== MESSENGER FLOAT ===== -->
+<a class="messenger-float"
+   href="https://m.me/61581058374151?text=Hi%21%20I%20saw%20your%20website%20and%20want%20to%20learn%20more."
+   target="_blank" rel="noopener" aria-label="Message us on Messenger">
+  <span class="messenger-tooltip">Message Us</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/>
+  </svg>
+</a>
+
+<!-- ===== NAV ===== -->
 <nav>
   <a href="#" class="nav-logo">Metro Sugbu Eagles</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#membership">Membership</a></li>
     <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
     <li><a href="#join">Contact</a></li>
   </ul>
   <a href="#join" class="nav-cta">Join Now</a>
 </nav>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-bg-lines"></div>
   <img src="Metro%20Sugbo%20Eagles.jpg" alt="Metro Sugbu Eagles Logo" class="hero-emblem" />
@@ -625,7 +627,29 @@
   </div>
 </section>
 
-<!-- MOTTO BAND -->
+<!-- ===== STATS BAR ===== -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-number">2</div>
+      <div class="stat-label">Years Strong</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">20+</div>
+      <div class="stat-label">Eagle Members</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">9</div>
+      <div class="stat-label">Proud Sponsors</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">1</div>
+      <div class="stat-label">City. One Mission.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MOTTO BAND ===== -->
 <div class="motto-band">
   <span class="motto-band-text">
     DEO ET PATRIA &nbsp;·&nbsp; EQUALITY &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; HUMANITY &nbsp;·&nbsp;
@@ -634,7 +658,7 @@
   </span>
 </div>
 
-<!-- ABOUT -->
+<!-- ===== ABOUT ===== -->
 <section id="about">
   <div class="section-inner">
     <div class="about-grid">
@@ -679,7 +703,7 @@
   </div>
 </section>
 
-<!-- ANTHEM -->
+<!-- ===== ANTHEM + MP3 ===== -->
 <section class="anthem-section">
   <div class="anthem-inner reveal">
     <div class="section-label" style="text-align:center;">Our Eagles Hymn</div>
@@ -689,11 +713,49 @@
       <em>Equality and unity, human care — we will share our lives too for humanity.<br>
       For Eagles, <span>the Philippine Eagles.</span></em>
     </div>
-    <p style="margin-top:3rem; font-size:0.8rem; letter-spacing:0.3em; color:rgba(201,146,12,0.5); font-family:'Cinzel',serif; text-transform:uppercase;">Eagles Hymn · IFOE Philippines</p>
+
+    <!-- Audio Player -->
+    <div class="audio-player">
+      <button class="play-btn" id="playBtn" onclick="togglePlay()" aria-label="Play/Pause">
+        <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="audio-info">
+        <div class="audio-title">Soar High — MSIEC Official Hymn</div>
+        <div class="audio-progress-bar" id="progressBar" onclick="seekAudio(event)">
+          <div class="audio-progress-fill" id="progressFill"></div>
+        </div>
+        <div class="audio-time" id="audioTime">0:00 / 0:00</div>
+      </div>
+    </div>
+
+    <audio id="eaglesAudio" src="Soar_High__MSIEC___Cover_.mp3" preload="metadata"></audio>
   </div>
 </section>
 
-<!-- MEMBERSHIP -->
+<!-- ===== FACEBOOK POST — CONSUL OF CEBU CITY ===== -->
+<section class="fb-post-section">
+  <div class="fb-post-inner">
+    <div class="fb-post-text reveal">
+      <div class="section-label">Eagles In The Community</div>
+      <h2 class="section-title">Reaching the <span>Heights</span> of Leadership</h2>
+      <div class="gold-line"></div>
+      <p>Metro Sugbu Eagles doesn't just talk about community — we live it. We are honored to welcome <strong>the Consul of Cebu City Government</strong> as our Kuya, a brother in our fraternity.</p>
+      <p>This is a testament to what the Eagles represent: <strong>people of integrity, influence, and genuine care for their city</strong> choosing to stand with us.</p>
+      <a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener" class="btn-secondary" style="margin-top:1rem;">Follow Our Page ↗</a>
+    </div>
+    <div class="fb-post-embed reveal">
+      <iframe
+        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0QMAa2t78FKfAj3MD6myXjbeYFgwbrySRfYLDEnJz3KxQXbePsdvCg5PkKt8x99Ail%26id%3D61581058374151&show_text=true&width=500"
+        width="500" height="500"
+        style="border:none;overflow:hidden;max-width:100%;"
+        scrolling="no" frameborder="0" allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEMBERSHIP ===== -->
 <section id="membership" class="membership-section">
   <div class="section-inner">
     <div class="section-label reveal">Join Our Aerie</div>
@@ -722,7 +784,7 @@
   </div>
 </section>
 
-<!-- SPONSORS -->
+<!-- ===== SPONSORS ===== -->
 <section id="sponsors">
   <div class="sponsors-inner">
     <div class="section-label reveal">Our Partners</div>
@@ -731,7 +793,6 @@
     <p class="sponsors-tagline reveal">These brands believe in what Metro Sugbu stands for.<br>Support them — they support us.</p>
 
     <div class="sponsors-grid">
-
       <a class="sponsor-card reveal" href="https://www.robleshipping.com" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="Roble.png" alt="Roble Shipping Inc."></div>
         <div class="sponsor-info">
@@ -739,7 +800,6 @@
           <span class="sponsor-cta">Visit Website ↗</span>
         </div>
       </a>
-
       <a class="sponsor-card reveal" href="https://lucira.ph/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="Lucira.png" alt="Lucira Renewable Ventures"></div>
         <div class="sponsor-info">
@@ -747,7 +807,6 @@
           <span class="sponsor-cta">Visit Website ↗</span>
         </div>
       </a>
-
       <a class="sponsor-card reveal" href="https://www.appleone.com.ph/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="apple%20one.png" alt="AppleOne Properties"></div>
         <div class="sponsor-info">
@@ -755,7 +814,6 @@
           <span class="sponsor-cta">Visit Website ↗</span>
         </div>
       </a>
-
       <a class="sponsor-card reveal" href="https://www.facebook.com/p/Lilah-Beauty-Salon-Spa-61576344771732/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="lilah%20beauty%20salo%20%26%20spa.jpg" alt="Lilah Beauty Salon & Spa"></div>
         <div class="sponsor-info">
@@ -763,7 +821,6 @@
           <span class="sponsor-cta">Follow on Facebook ↗</span>
         </div>
       </a>
-
       <a class="sponsor-card reveal" href="https://www.facebook.com/vionzph/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="Vionz.jpg" alt="Vionz"></div>
         <div class="sponsor-info">
@@ -771,7 +828,6 @@
           <span class="sponsor-cta">Follow on Facebook ↗</span>
         </div>
       </a>
-
       <a class="sponsor-card reveal" href="https://www.tanduay.com/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="Tanduay_logo.webp" alt="Tanduay Rhum"></div>
         <div class="sponsor-info">
@@ -779,7 +835,6 @@
           <span class="sponsor-cta">Visit Website ↗</span>
         </div>
       </a>
-
       <a class="sponsor-card reveal" href="https://www.facebook.com/groups/2044061439240660/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="lareina.png" alt="La Reina Security Agency"></div>
         <div class="sponsor-info">
@@ -787,7 +842,6 @@
           <span class="sponsor-cta">Follow on Facebook ↗</span>
         </div>
       </a>
-
       <a class="sponsor-card reveal" href="http://smartsyncservices.com/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="smartsync.jpg" alt="Smart Sync Services"></div>
         <div class="sponsor-info">
@@ -795,7 +849,6 @@
           <span class="sponsor-cta">Visit Website ↗</span>
         </div>
       </a>
-
       <a class="sponsor-card reveal" href="https://www.inlife.com.ph/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="inlife.jpg" alt="InLife – Insular Life"></div>
         <div class="sponsor-info">
@@ -803,7 +856,6 @@
           <span class="sponsor-cta">Visit Website ↗</span>
         </div>
       </a>
-
     </div>
 
     <div class="become-sponsor reveal">
@@ -813,55 +865,65 @@
   </div>
 </section>
 
-<!-- JOIN / CONTACT -->
+<!-- ===== NEWSLETTER ===== -->
 <section id="join" class="join-section">
   <div class="join-inner">
-    <div class="section-label reveal">Take Flight</div>
-    <h2 class="section-title reveal">Ready to Soar <span>With Us?</span></h2>
+    <div class="section-label reveal">Stay Connected</div>
+    <h2 class="section-title reveal">Join the <span>Eagles Circle</span></h2>
     <div class="gold-line reveal" style="margin:0 auto 2rem;"></div>
-    <p class="reveal">Whether you want to join our brotherhood, partner as a sponsor, or simply learn more about the Eagles — we'd love to hear from you.</p>
-    <div class="form-wrap reveal">
-      <div class="form-grid">
-        <input type="text" class="form-input" placeholder="Your Full Name" />
-        <input type="email" class="form-input" placeholder="Email Address" />
-        <input type="tel" class="form-input" placeholder="Phone Number (optional)" />
-        <select class="form-input">
-          <option value="">I'm interested in...</option>
-          <option>Joining as a Member</option>
-          <option>Becoming a Sponsor / Partner</option>
-          <option>General Inquiry</option>
-        </select>
-        <textarea class="form-input" rows="4" placeholder="Tell us about yourself or your inquiry..."></textarea>
-        <button class="form-submit" onclick="alert('Thank you! An Eagle will be in touch soon. 🦅')">Send Message</button>
-      </div>
-    </div>
+    <p class="reveal">Subscribe to our newsletter for updates on events, new members, community work, and Eagles news. Be the first to know when we soar.</p>
     <div class="reveal">
-      <a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener" class="social-link">
-        📘 &nbsp;Follow us on Facebook
-      </a>
+      <div class="ml-embedded" data-form="W7E0nL"></div>
     </div>
+    <a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener" class="social-link reveal">
+      📘 &nbsp;Follow us on Facebook
+    </a>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER ===== -->
 <footer>
-  <div class="footer-logo">Metro Sugbu Eagles</div>
-  <div class="footer-sub">International Eagles Club · Cebu, Philippines</div>
-  <div class="footer-motto">"Deo et Patria" — God and Country</div>
-  <ul class="footer-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#membership">Membership</a></li>
-    <li><a href="#sponsors">Sponsors</a></li>
-    <li><a href="#join">Join</a></li>
-    <li><a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank">Facebook</a></li>
-  </ul>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Metro Sugbu Eagles</div>
+      <div class="footer-sub">International Eagles Club · Cebu, Philippines</div>
+      <div class="footer-motto">"Deo et Patria" — God and Country</div>
+      <a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener" class="social-link" style="margin-top:0;">
+        📘 &nbsp;Facebook Page
+      </a>
+    </div>
+    <div class="footer-links-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#membership">Membership</a></li>
+        <li><a href="#sponsors">Our Sponsors</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="#join">Newsletter</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Facebook Page Feed -->
+  <div class="footer-fb">
+    <div class="footer-fb-label">Latest From Our Facebook Page</div>
+    <iframe
+      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61581058374151&tabs=timeline&width=500&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false"
+      width="500" height="400"
+      style="border:none;overflow:hidden;max-width:100%;"
+      scrolling="no" frameborder="0" allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+  </div>
+
   <div class="footer-copy">
     © 2025 Metro Sugbu International Eagles Club · A Chapter of IFOE Philippines<br>
-    <span style="color:rgba(201,146,12,0.3); font-size:0.65rem;">Equality · Unity · Humanity · Deo et Patria</span>
+    <span style="color:rgba(160,120,40,0.3); font-size:0.65rem;">Equality · Unity · Humanity · Deo et Patria</span>
   </div>
 </footer>
 
 <script>
+  // ===== SCROLL REVEAL =====
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -871,6 +933,55 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  // ===== AUDIO PLAYER =====
+  const audio = document.getElementById('eaglesAudio');
+  const playBtn = document.getElementById('playBtn');
+  const playIcon = document.getElementById('playIcon');
+  const progressFill = document.getElementById('progressFill');
+  const progressBar = document.getElementById('progressBar');
+  const audioTime = document.getElementById('audioTime');
+
+  const pauseSVG = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+  const playSVG  = '<path d="M8 5v14l11-7z"/>';
+
+  function formatTime(s) {
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+
+  function togglePlay() {
+    if (audio.paused) {
+      audio.play();
+      playIcon.innerHTML = pauseSVG;
+    } else {
+      audio.pause();
+      playIcon.innerHTML = playSVG;
+    }
+  }
+
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+      progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+      audioTime.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
+    }
+  });
+
+  audio.addEventListener('ended', () => {
+    playIcon.innerHTML = playSVG;
+    progressFill.style.width = '0%';
+  });
+
+  audio.addEventListener('loadedmetadata', () => {
+    audioTime.textContent = '0:00 / ' + formatTime(audio.duration);
+  });
+
+  function seekAudio(e) {
+    const rect = progressBar.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    audio.currentTime = pct * audio.duration;
+  }
 </script>
 
 </body>
