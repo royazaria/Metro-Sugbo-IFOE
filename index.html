@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Metro Sugbo | International Eagles Club</title>
+<title>Metro Sugbu | International Eagles Club</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -19,7 +19,6 @@
   (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
   ml('account', '2149706');
 </script>
-<!-- End MailerLite Universal -->
 
 <style>
   :root {
@@ -35,536 +34,189 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--dark);
-    color: var(--cream);
-    font-family: 'Lato', sans-serif;
-    overflow-x: hidden;
-  }
-
+  body { background: var(--dark); color: var(--cream); font-family: 'Lato', sans-serif; overflow-x: hidden; }
   body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 20%, rgba(14,30,58,0.5) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 80%, rgba(160,120,40,0.06) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
+    content: ''; position: fixed; inset: 0;
+    background: radial-gradient(ellipse at 20% 20%, rgba(14,30,58,0.5) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(160,120,40,0.06) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
   }
 
-  /* ===== NAV ===== */
+  /* NAV */
   nav {
-    position: fixed;
-    top: 0; width: 100%;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 5%;
-    background: rgba(9,12,16,0.95);
-    border-bottom: 1px solid rgba(160,120,40,0.25);
-    backdrop-filter: blur(10px);
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 5%; background: rgba(9,12,16,0.95);
+    border-bottom: 1px solid rgba(160,120,40,0.25); backdrop-filter: blur(10px);
   }
-  .nav-logo {
-    font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--gold-light);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
+  .nav-logo { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; color: var(--gold-light); letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; }
   .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-  .nav-links a {
-    font-family: 'Cinzel', serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    color: var(--cream);
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.12em; color: var(--cream); text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
   .nav-links a:hover { color: var(--gold-light); }
-  .nav-cta {
-    font-family: 'Cinzel', serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    color: var(--dark);
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    padding: 0.55rem 1.4rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: opacity 0.3s;
-    text-decoration: none;
-  }
+  .nav-cta { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--dark); background: linear-gradient(135deg, var(--gold-light), var(--gold)); padding: 0.55rem 1.4rem; cursor: pointer; text-transform: uppercase; font-weight: 700; transition: opacity 0.3s; text-decoration: none; }
   .nav-cta:hover { opacity: 0.85; }
 
-  /* ===== HERO ===== */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 7rem 5% 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-bg-lines {
-    position: absolute; inset: 0;
-    background-image: repeating-linear-gradient(
-      -45deg, transparent, transparent 60px,
-      rgba(14,30,58,0.15) 60px, rgba(14,30,58,0.15) 61px
-    );
-    pointer-events: none;
-  }
-  .hero-emblem {
-    width: 210px; height: 210px;
-    border-radius: 50%;
-    border: 3px solid var(--gold);
-    box-shadow: 0 0 0 8px rgba(14,30,58,0.4), 0 0 60px rgba(160,120,40,0.25), 0 0 120px rgba(14,30,58,0.3);
-    margin-bottom: 2.5rem;
-    animation: glowPulse 3s ease-in-out infinite;
-    object-fit: cover;
-  }
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 5% 5rem; position: relative; overflow: hidden; }
+  .hero-bg-lines { position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(14,30,58,0.15) 60px, rgba(14,30,58,0.15) 61px); pointer-events: none; }
+  .hero-emblem { width: 210px; height: 210px; border-radius: 50%; border: 3px solid var(--gold); box-shadow: 0 0 0 8px rgba(14,30,58,0.4), 0 0 60px rgba(160,120,40,0.25); margin-bottom: 2.5rem; animation: glowPulse 3s ease-in-out infinite; object-fit: cover; }
   @keyframes glowPulse {
-    0%,100% { box-shadow: 0 0 0 8px rgba(14,30,58,0.4), 0 0 60px rgba(160,120,40,0.25), 0 0 120px rgba(14,30,58,0.3); }
-    50%      { box-shadow: 0 0 0 12px rgba(14,30,58,0.5), 0 0 80px rgba(160,120,40,0.4), 0 0 160px rgba(14,30,58,0.4); }
+    0%,100% { box-shadow: 0 0 0 8px rgba(14,30,58,0.4), 0 0 60px rgba(160,120,40,0.25); }
+    50% { box-shadow: 0 0 0 12px rgba(14,30,58,0.5), 0 0 80px rgba(160,120,40,0.4); }
   }
-  .hero-eyebrow {
-    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.4em;
-    color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem;
-    opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
-  }
-  .hero-title {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: clamp(2.5rem, 7vw, 5.5rem);
-    font-weight: 900; line-height: 1.05; color: var(--white);
-    margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
-  }
-  .hero-title span {
-    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-pale));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .hero-sub {
-    font-family: 'Cinzel', serif; font-size: clamp(0.9rem, 2vw, 1.2rem);
-    letter-spacing: 0.3em; color: var(--gold-light); text-transform: uppercase;
-    margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
-  }
-  .hero-divider {
-    width: 180px; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 0 auto 2rem; opacity: 0; animation: fadeUp 0.8s 0.9s forwards;
-  }
-  .hero-tagline {
-    font-size: 1.05rem; font-weight: 300; color: rgba(232,220,200,0.75);
-    max-width: 600px; line-height: 1.8; margin-bottom: 3rem;
-    letter-spacing: 0.03em; opacity: 0; animation: fadeUp 0.8s 1.1s forwards;
-  }
+  .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; opacity: 0; animation: fadeUp 0.8s 0.3s forwards; }
+  .hero-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; color: var(--white); margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
+  .hero-title span { background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-pale)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-sub { font-family: 'Cinzel', serif; font-size: clamp(0.9rem, 2vw, 1.2rem); letter-spacing: 0.3em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.7s forwards; }
+  .hero-divider { width: 180px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 2rem; opacity: 0; animation: fadeUp 0.8s 0.9s forwards; }
+  .hero-tagline { font-size: 1.05rem; font-weight: 300; color: rgba(232,220,200,0.75); max-width: 600px; line-height: 1.8; margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.8s 1.1s forwards; }
   .hero-tagline em { color: var(--gold-light); font-style: normal; }
-  .hero-cta-group {
-    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-    opacity: 0; animation: fadeUp 0.8s 1.3s forwards;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; opacity: 0; animation: fadeUp 0.8s 1.3s forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* ===== BUTTONS ===== */
-  .btn-primary {
-    font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.18em;
-    color: var(--dark); background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    border: none; padding: 1rem 2.5rem; cursor: pointer; text-transform: uppercase;
-    font-weight: 700; text-decoration: none; display: inline-block;
-    transition: transform 0.2s, box-shadow 0.2s;
-    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  }
+  /* BUTTONS */
+  .btn-primary { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.18em; color: var(--dark); background: linear-gradient(135deg, var(--gold-light), var(--gold)); border: none; padding: 1rem 2.5rem; cursor: pointer; text-transform: uppercase; font-weight: 700; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(160,120,40,0.4); }
-  .btn-secondary {
-    font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.18em;
-    color: var(--gold-light); background: transparent; border: 1px solid var(--gold);
-    padding: 1rem 2.5rem; cursor: pointer; text-transform: uppercase;
-    font-weight: 600; text-decoration: none; display: inline-block;
-    transition: background 0.3s, color 0.3s;
-  }
+  .btn-secondary { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.18em; color: var(--gold-light); background: transparent; border: 1px solid var(--gold); padding: 1rem 2.5rem; cursor: pointer; text-transform: uppercase; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s, color 0.3s; }
   .btn-secondary:hover { background: rgba(160,120,40,0.1); color: var(--white); }
 
-  /* ===== STATS BAR ===== */
-  .stats-bar {
-    background: linear-gradient(135deg, #0A1020, #060D1A, #0A1020);
-    border-top: 1px solid rgba(160,120,40,0.2);
-    border-bottom: 1px solid rgba(160,120,40,0.2);
-    padding: 2rem 5%;
-  }
-  .stats-grid {
-    max-width: 900px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 1rem; text-align: center;
-  }
+  /* STATS */
+  .stats-bar { background: linear-gradient(135deg, #0A1020, #060D1A, #0A1020); border-top: 1px solid rgba(160,120,40,0.2); border-bottom: 1px solid rgba(160,120,40,0.2); padding: 2rem 5%; }
+  .stats-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
   .stat-item { padding: 0.5rem; }
-  .stat-number {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    line-height: 1.1; margin-bottom: 0.4rem;
-  }
-  .stat-label {
-    font-family: 'Cinzel', serif; font-size: 0.62rem;
-    letter-spacing: 0.3em; color: rgba(232,220,200,0.5); text-transform: uppercase;
-  }
-  .stat-divider {
-    width: 1px; background: rgba(160,120,40,0.2);
-    height: 100%; margin: 0 auto;
-  }
+  .stat-number { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; background: linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; margin-bottom: 0.4rem; }
+  .stat-label { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.3em; color: rgba(232,220,200,0.5); text-transform: uppercase; }
 
-  /* ===== MOTTO BAND ===== */
-  .motto-band {
-    background: linear-gradient(135deg, #6B4E10 0%, #3D2D08 50%, #6B4E10 100%);
-    padding: 1.2rem 5%; overflow: hidden;
-  }
-  .motto-band-text {
-    font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.5em;
-    color: var(--dark); font-weight: 700; text-transform: uppercase;
-    animation: marquee 22s linear infinite; white-space: nowrap; display: inline-block;
-  }
-  @keyframes marquee {
-    from { transform: translateX(30%); }
-    to   { transform: translateX(-100%); }
-  }
+  /* MOTTO */
+  .motto-band { background: linear-gradient(135deg, #6B4E10 0%, #3D2D08 50%, #6B4E10 100%); padding: 1.2rem 5%; overflow: hidden; }
+  .motto-band-text { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.5em; color: var(--dark); font-weight: 700; text-transform: uppercase; animation: marquee 22s linear infinite; white-space: nowrap; display: inline-block; }
+  @keyframes marquee { from { transform: translateX(30%); } to { transform: translateX(-100%); } }
 
-  /* ===== SECTION BASE ===== */
+  /* SECTIONS */
   section { position: relative; z-index: 1; }
   .section-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5%; }
-  .section-label {
-    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.45em;
-    color: var(--gold); text-transform: uppercase; margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 700; color: var(--white); margin-bottom: 1.5rem; line-height: 1.2;
-  }
+  .section-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.45em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+  .section-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; color: var(--white); margin-bottom: 1.5rem; line-height: 1.2; }
   .section-title span { color: var(--gold-light); }
-  .gold-line {
-    width: 80px; height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    margin-bottom: 2rem;
-  }
+  .gold-line { width: 80px; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin-bottom: 2rem; }
 
-  /* ===== ABOUT ===== */
+  /* ABOUT */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
   .about-text p { color: rgba(232,220,200,0.8); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1rem; font-weight: 300; }
   .about-text strong { color: var(--gold-light); font-weight: 700; }
   .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
-  .value-card {
-    background: linear-gradient(135deg, rgba(14,30,58,0.5), rgba(14,30,58,0.2));
-    border: 1px solid rgba(160,120,40,0.2); padding: 1.5rem;
-    transition: border-color 0.3s, transform 0.3s;
-  }
+  .value-card { background: linear-gradient(135deg, rgba(14,30,58,0.5), rgba(14,30,58,0.2)); border: 1px solid rgba(160,120,40,0.2); padding: 1.5rem; transition: border-color 0.3s, transform 0.3s; }
   .value-card:hover { border-color: var(--gold); transform: translateY(-4px); }
   .value-icon { font-size: 1.8rem; margin-bottom: 0.7rem; display: block; }
-  .value-card h4 {
-    font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.15em;
-    color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.5rem;
-  }
+  .value-card h4 { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.15em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.5rem; }
   .value-card p { font-size: 0.88rem; color: rgba(232,220,200,0.65); line-height: 1.6; }
   .about-visual { position: relative; display: flex; align-items: center; justify-content: center; }
   .about-emblem-wrap { position: relative; width: 320px; height: 320px; }
-  .about-emblem-wrap img {
-    width: 280px; height: 280px; border-radius: 50%; object-fit: cover;
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    z-index: 2; border: 4px solid var(--gold);
-  }
-  .ring {
-    position: absolute; border-radius: 50%; border: 1px solid rgba(160,120,40,0.3);
-    top: 50%; left: 50%; transform: translate(-50%,-50%); animation: spin 20s linear infinite;
-  }
+  .about-emblem-wrap img { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2; border: 4px solid var(--gold); }
+  .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(160,120,40,0.3); top: 50%; left: 50%; transform: translate(-50%,-50%); animation: spin 20s linear infinite; }
   .ring-1 { width: 300px; height: 300px; }
   .ring-2 { width: 320px; height: 320px; border-style: dashed; animation-direction: reverse; animation-duration: 30s; }
-  @keyframes spin {
-    from { transform: translate(-50%,-50%) rotate(0deg); }
-    to   { transform: translate(-50%,-50%) rotate(360deg); }
-  }
+  @keyframes spin { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
 
-  /* ===== ANTHEM + AUDIO PLAYER ===== */
-  .anthem-section {
-    background: linear-gradient(180deg, var(--dark) 0%, #060D1A 50%, var(--dark) 100%);
-    border-top: 1px solid rgba(160,120,40,0.15);
-    border-bottom: 1px solid rgba(160,120,40,0.15);
-  }
+  /* ANTHEM */
+  .anthem-section { background: linear-gradient(180deg, var(--dark) 0%, #060D1A 50%, var(--dark) 100%); border-top: 1px solid rgba(160,120,40,0.15); border-bottom: 1px solid rgba(160,120,40,0.15); }
   .anthem-inner { max-width: 800px; margin: 0 auto; padding: 6rem 5%; text-align: center; }
-  .anthem-quote {
-    font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    font-weight: 400; color: var(--gold-pale); line-height: 2; font-style: italic;
-    position: relative; padding: 2rem 3rem;
-  }
-  .anthem-quote::before, .anthem-quote::after {
-    font-family: 'Cinzel Decorative', serif; font-size: 5rem;
-    color: rgba(160,120,40,0.2); position: absolute; line-height: 1;
-  }
-  .anthem-quote::before { content: '"'; top: 0; left: 0; }
-  .anthem-quote::after  { content: '"'; bottom: -1.5rem; right: 0; }
+  .anthem-quote { font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 400; color: var(--gold-pale); line-height: 2; font-style: italic; position: relative; padding: 2rem 3rem; }
+  .anthem-quote::before, .anthem-quote::after { font-family: 'Cinzel Decorative', serif; font-size: 5rem; color: rgba(160,120,40,0.2); position: absolute; line-height: 1; }
+  .anthem-quote::before { content: '\201C'; top: 0; left: 0; }
+  .anthem-quote::after { content: '\201D'; bottom: -1.5rem; right: 0; }
   .anthem-quote span { color: var(--gold-light); font-style: normal; font-weight: 700; }
 
-  /* Audio Player */
-  .audio-player {
-    display: flex; align-items: center; gap: 1.2rem;
-    margin: 2.5rem auto 0;
-    background: rgba(14,30,58,0.6);
-    border: 1px solid rgba(160,120,40,0.3);
-    padding: 1.2rem 1.8rem;
-    max-width: 440px;
-  }
-  .play-btn {
-    width: 50px; height: 50px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    border: none; cursor: pointer; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .play-btn:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(160,120,40,0.5); }
-  .play-btn svg { width: 18px; height: 18px; fill: #090C10; margin-left: 2px; }
-  .audio-info { flex: 1; text-align: left; }
-  .audio-title {
-    font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.15em;
-    color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.5rem;
-  }
-  .audio-progress-bar {
-    width: 100%; height: 4px; background: rgba(160,120,40,0.2);
-    cursor: pointer; border-radius: 2px; position: relative;
-  }
-  .audio-progress-fill {
-    height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    width: 0%; border-radius: 2px; pointer-events: none;
-    transition: width 0.3s linear;
-  }
-  .audio-time {
-    font-size: 0.62rem; color: rgba(232,220,200,0.4);
-    letter-spacing: 0.1em; margin-top: 0.4rem;
-  }
-
-  /* ===== FACEBOOK POST SECTION ===== */
-  .fb-post-section {
-    background: var(--dark-mid);
-    border-top: 1px solid rgba(160,120,40,0.12);
-    border-bottom: 1px solid rgba(160,120,40,0.12);
-  }
-  .fb-post-inner {
-    max-width: 1100px; margin: 0 auto; padding: 6rem 5%;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-  }
-  .fb-post-text .section-label { margin-bottom: 1rem; }
-  .fb-post-text p {
-    color: rgba(232,220,200,0.75); line-height: 1.9; font-size: 1rem;
-    font-weight: 300; margin-bottom: 1.5rem;
-  }
+  /* FB POST */
+  .fb-post-section { background: var(--dark-mid); border-top: 1px solid rgba(160,120,40,0.12); border-bottom: 1px solid rgba(160,120,40,0.12); }
+  .fb-post-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .fb-post-text p { color: rgba(232,220,200,0.75); line-height: 1.9; font-size: 1rem; font-weight: 300; margin-bottom: 1.5rem; }
   .fb-post-text strong { color: var(--gold-light); }
-  .fb-post-embed {
-    display: flex; justify-content: center; align-items: flex-start;
-  }
-  .fb-post-embed iframe {
-    border-radius: 4px;
-    border: 1px solid rgba(160,120,40,0.2) !important;
-    max-width: 100%;
-  }
+  .fb-post-embed { display: flex; justify-content: center; align-items: flex-start; }
+  .fb-post-embed iframe { border-radius: 4px; border: 1px solid rgba(160,120,40,0.2) !important; max-width: 100%; }
 
-  /* ===== MEMBERSHIP ===== */
+  /* MEMBERSHIP */
   .membership-section { background: var(--dark-mid); }
   .membership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
-  .membership-card {
-    background: linear-gradient(160deg, #0E1829, #080E18);
-    border: 1px solid rgba(160,120,40,0.2);
-    padding: 2.5rem 2rem; text-align: center;
-    transition: all 0.3s; position: relative; overflow: hidden;
-  }
-  .membership-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    transform: scaleX(0); transition: transform 0.4s;
-  }
+  .membership-card { background: linear-gradient(160deg, #0E1829, #080E18); border: 1px solid rgba(160,120,40,0.2); padding: 2.5rem 2rem; text-align: center; transition: all 0.3s; position: relative; overflow: hidden; }
+  .membership-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transition: transform 0.4s; }
   .membership-card:hover::before { transform: scaleX(1); }
   .membership-card:hover { border-color: var(--gold); transform: translateY(-6px); }
-  .card-num {
-    font-family: 'Cinzel Decorative', serif; font-size: 3rem;
-    color: rgba(160,120,40,0.15); font-weight: 900; margin-bottom: 0.5rem;
-  }
-  .membership-card h3 {
-    font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.1em;
-    color: var(--gold-light); margin-bottom: 1rem; text-transform: uppercase;
-  }
+  .card-num { font-family: 'Cinzel Decorative', serif; font-size: 3rem; color: rgba(160,120,40,0.15); font-weight: 900; margin-bottom: 0.5rem; }
+  .membership-card h3 { font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.1em; color: var(--gold-light); margin-bottom: 1rem; text-transform: uppercase; }
   .membership-card p { font-size: 0.9rem; color: rgba(232,220,200,0.65); line-height: 1.75; }
 
-  /* ===== SPONSORS ===== */
-  #sponsors {
-    background: var(--dark);
-    border-top: 1px solid rgba(160,120,40,0.15);
-    border-bottom: 1px solid rgba(160,120,40,0.15);
-  }
+  /* ===== SPONSORS — UPGRADED ===== */
+  #sponsors { background: var(--dark); border-top: 1px solid rgba(160,120,40,0.15); border-bottom: 1px solid rgba(160,120,40,0.15); }
   .sponsors-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5%; text-align: center; }
-  .sponsors-tagline {
-    color: rgba(232,220,200,0.6); font-size: 0.95rem; line-height: 1.8;
-    margin: 0 auto 3.5rem; font-weight: 300; max-width: 560px;
-  }
+  .sponsors-tagline { color: rgba(232,220,200,0.6); font-size: 0.95rem; line-height: 1.8; margin: 0 auto 3.5rem; font-weight: 300; max-width: 560px; }
   .sponsors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+
   .sponsor-card {
     background: linear-gradient(160deg, #0E1829, #080E18);
     border: 1px solid rgba(160,120,40,0.18);
-    padding: 1.8rem 1.5rem 1.5rem;
+    padding: 2rem 1.8rem;
     display: flex; flex-direction: column; align-items: center;
-    justify-content: space-between; gap: 1rem;
+    text-decoration: none; position: relative; overflow: hidden;
     transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    text-decoration: none; position: relative; overflow: hidden; min-height: 220px;
-  }
-  .sponsor-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    transform: scaleX(0); transition: transform 0.4s;
-  }
-  .sponsor-card:hover::before { transform: scaleX(1); }
-  .sponsor-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(160,120,40,0.15); }
-  .logo-wrap {
-    flex: 1; display: flex; align-items: center; justify-content: center;
-    width: 100%; padding: 0.5rem;
-  }
-  .logo-wrap img {
-    max-width: 160px; max-height: 90px; width: auto; height: auto;
-    object-fit: contain; filter: brightness(1.05); transition: filter 0.3s;
-  }
-  .sponsor-card:hover .logo-wrap img { filter: brightness(1.15); }
-  .sponsor-info { text-align: center; }
-  .sponsor-name {
-    font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.1em;
-    color: rgba(232,220,200,0.7); text-transform: uppercase; margin-bottom: 0.6rem; display: block;
-  }
-  .sponsor-cta {
-    display: inline-block; font-family: 'Cinzel', serif; font-size: 0.6rem;
-    letter-spacing: 0.2em; color: var(--gold); border: 1px solid rgba(160,120,40,0.4);
-    padding: 0.4rem 1rem; text-transform: uppercase; transition: background 0.3s, color 0.3s;
-  }
-  .sponsor-card:hover .sponsor-cta { background: var(--gold); color: #090C10; }
-  .become-sponsor {
-    background: linear-gradient(135deg, rgba(14,30,58,0.4), rgba(14,30,58,0.15));
-    border: 1px dashed rgba(160,120,40,0.35);
-    padding: 2.5rem; max-width: 560px; margin: 0 auto;
-  }
-  .become-sponsor p {
-    font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.15em;
-    color: rgba(160,120,40,0.6); text-transform: uppercase; margin-bottom: 1.2rem;
-  }
-  .become-sponsor p strong { display: block; font-size: 1rem; color: var(--gold-light); margin-bottom: 0.5rem; }
-
-  /* ===== NEWSLETTER (JOIN) ===== */
-  .join-section {
-    background: linear-gradient(135deg, #060D1A, #0D1829, #060D1A);
-    border-top: 1px solid rgba(160,120,40,0.2);
     text-align: center;
   }
+  .sponsor-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transition: transform 0.4s; }
+  .sponsor-card:hover::before { transform: scaleX(1); }
+  .sponsor-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(160,120,40,0.15); }
+
+  .logo-wrap { width: 100%; display: flex; align-items: center; justify-content: center; height: 85px; margin-bottom: 1.2rem; }
+  .logo-wrap img { max-width: 150px; max-height: 75px; width: auto; height: auto; object-fit: contain; filter: brightness(1.05); transition: filter 0.3s; }
+  .sponsor-card:hover .logo-wrap img { filter: brightness(1.2); }
+
+  .sponsor-name { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.12em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.6rem; display: block; font-weight: 700; }
+
+  .sponsor-badge { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.18em; color: rgba(160,120,40,0.55); border: 1px solid rgba(160,120,40,0.2); padding: 0.2rem 0.7rem; text-transform: uppercase; margin-bottom: 1rem; }
+
+  .sponsor-desc { font-size: 0.83rem; color: rgba(232,220,200,0.58); line-height: 1.75; font-weight: 300; margin-bottom: 1.4rem; flex: 1; }
+
+  .sponsor-cta { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); border: 1px solid rgba(160,120,40,0.4); padding: 0.45rem 1.1rem; text-transform: uppercase; transition: background 0.3s, color 0.3s; margin-top: auto; }
+  .sponsor-card:hover .sponsor-cta { background: var(--gold); color: #090C10; }
+
+  .become-sponsor { background: linear-gradient(135deg, rgba(14,30,58,0.4), rgba(14,30,58,0.15)); border: 1px dashed rgba(160,120,40,0.35); padding: 2.5rem; max-width: 560px; margin: 0 auto; }
+  .become-sponsor p { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.15em; color: rgba(160,120,40,0.6); text-transform: uppercase; margin-bottom: 1.2rem; }
+  .become-sponsor p strong { display: block; font-size: 1rem; color: var(--gold-light); margin-bottom: 0.5rem; }
+
+  /* JOIN */
+  .join-section { background: linear-gradient(135deg, #060D1A, #0D1829, #060D1A); border-top: 1px solid rgba(160,120,40,0.2); text-align: center; }
   .join-inner { max-width: 680px; margin: 0 auto; padding: 7rem 5%; }
-  .join-inner > p {
-    color: rgba(232,220,200,0.7); font-size: 1.05rem;
-    line-height: 1.8; margin-bottom: 3rem; font-weight: 300;
-  }
-  /* MailerLite override to match site theme */
+  .join-inner > p { color: rgba(232,220,200,0.7); font-size: 1.05rem; line-height: 1.8; margin-bottom: 3rem; font-weight: 300; }
   .ml-embedded { margin-top: 1rem; }
-  .social-link {
-    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em;
-    color: var(--gold-light); text-decoration: none; text-transform: uppercase;
-    opacity: 0.8; transition: opacity 0.3s; display: inline-block; margin-top: 2rem;
-  }
+  .social-link { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--gold-light); text-decoration: none; text-transform: uppercase; opacity: 0.8; transition: opacity 0.3s; display: inline-block; margin-top: 2rem; }
   .social-link:hover { opacity: 1; }
 
-  /* ===== FOOTER ===== */
-  footer {
-    background: #050508;
-    border-top: 1px solid rgba(160,120,40,0.15);
-    padding: 4rem 5% 2rem;
-  }
-  .footer-grid {
-    max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-    margin-bottom: 3rem;
-  }
-  .footer-brand .footer-logo {
-    font-family: 'Cinzel Decorative', serif; font-size: 1.2rem;
-    color: var(--gold-light); margin-bottom: 0.5rem;
-  }
-  .footer-brand .footer-sub {
-    font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.3em;
-    color: rgba(160,120,40,0.5); text-transform: uppercase; margin-bottom: 1rem;
-  }
-  .footer-brand .footer-motto {
-    font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.25em;
-    color: var(--gold); font-style: italic; margin-bottom: 1.5rem;
-  }
-  .footer-links-col h4 {
-    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em;
-    color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem;
-  }
-  .footer-links {
-    display: flex; flex-direction: column; gap: 0.6rem; list-style: none;
-  }
-  .footer-links a {
-    font-size: 0.85rem; color: rgba(232,220,200,0.4); text-decoration: none;
-    letter-spacing: 0.05em; transition: color 0.3s;
-  }
+  /* FOOTER */
+  footer { background: #050508; border-top: 1px solid rgba(160,120,40,0.15); padding: 4rem 5% 2rem; }
+  .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+  .footer-brand .footer-logo { font-family: 'Cinzel Decorative', serif; font-size: 1.2rem; color: var(--gold-light); margin-bottom: 0.5rem; }
+  .footer-brand .footer-sub { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.3em; color: rgba(160,120,40,0.5); text-transform: uppercase; margin-bottom: 1rem; }
+  .footer-brand .footer-motto { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.25em; color: var(--gold); font-style: italic; margin-bottom: 1.5rem; }
+  .footer-links-col h4 { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; }
+  .footer-links { display: flex; flex-direction: column; gap: 0.6rem; list-style: none; }
+  .footer-links a { font-size: 0.85rem; color: rgba(232,220,200,0.4); text-decoration: none; transition: color 0.3s; }
   .footer-links a:hover { color: var(--gold-light); }
-  .footer-fb {
-    border-top: 1px solid rgba(160,120,40,0.12);
-    padding-top: 2.5rem; margin-bottom: 2.5rem;
-    display: flex; flex-direction: column; align-items: center; gap: 1rem;
-  }
-  .footer-fb-label {
-    font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.35em;
-    color: rgba(160,120,40,0.5); text-transform: uppercase;
-  }
-  .footer-copy {
-    text-align: center; font-size: 0.72rem;
-    color: rgba(232,220,200,0.2); line-height: 2;
-    border-top: 1px solid rgba(160,120,40,0.08); padding-top: 1.5rem;
-    max-width: 1100px; margin: 0 auto;
-  }
+  .footer-fb { border-top: 1px solid rgba(160,120,40,0.12); padding-top: 2.5rem; margin-bottom: 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+  .footer-fb-label { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.35em; color: rgba(160,120,40,0.5); text-transform: uppercase; }
+  .footer-copy { text-align: center; font-size: 0.72rem; color: rgba(232,220,200,0.2); line-height: 2; border-top: 1px solid rgba(160,120,40,0.08); padding-top: 1.5rem; max-width: 1100px; margin: 0 auto; }
 
-  /* ===== MESSENGER FLOAT ===== */
-  .messenger-float {
-    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
-    width: 58px; height: 58px; border-radius: 50%;
-    background: linear-gradient(135deg, #0084FF, #0099FF);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 20px rgba(0,132,255,0.5);
-    cursor: pointer; text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    animation: floatPulse 3s ease-in-out infinite;
-  }
-  .messenger-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 30px rgba(0,132,255,0.6);
-  }
+  /* MESSENGER */
+  .messenger-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; width: 58px; height: 58px; border-radius: 50%; background: linear-gradient(135deg, #0084FF, #0099FF); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,132,255,0.5); cursor: pointer; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; animation: floatPulse 3s ease-in-out infinite; }
+  .messenger-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(0,132,255,0.6); }
   .messenger-float svg { width: 30px; height: 30px; fill: white; }
-  @keyframes floatPulse {
-    0%,100% { box-shadow: 0 4px 20px rgba(0,132,255,0.5); }
-    50%      { box-shadow: 0 4px 30px rgba(0,132,255,0.8), 0 0 0 8px rgba(0,132,255,0.1); }
-  }
-  .messenger-tooltip {
-    position: absolute; right: 70px; top: 50%; transform: translateY(-50%);
-    background: rgba(9,12,16,0.95); border: 1px solid rgba(160,120,40,0.3);
-    color: var(--cream); font-family: 'Cinzel', serif; font-size: 0.6rem;
-    letter-spacing: 0.1em; padding: 0.4rem 0.8rem; white-space: nowrap;
-    opacity: 0; pointer-events: none; transition: opacity 0.3s;
-  }
+  @keyframes floatPulse { 0%,100% { box-shadow: 0 4px 20px rgba(0,132,255,0.5); } 50% { box-shadow: 0 4px 30px rgba(0,132,255,0.8), 0 0 0 8px rgba(0,132,255,0.1); } }
+  .messenger-tooltip { position: absolute; right: 70px; top: 50%; transform: translateY(-50%); background: rgba(9,12,16,0.95); border: 1px solid rgba(160,120,40,0.3); color: var(--cream); font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.1em; padding: 0.4rem 0.8rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
   .messenger-float:hover .messenger-tooltip { opacity: 1; }
 
-  /* ===== SCROLL REVEAL ===== */
+  /* REVEAL */
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ===== RESPONSIVE ===== */
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     .about-grid { grid-template-columns: 1fr; }
     .about-visual { display: none; }
@@ -575,57 +227,25 @@
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .nav-links { display: none; }
   }
-@media (max-width: 560px) {
-  /* Grids */
-  .sponsors-grid { grid-template-columns: 1fr; }
-  .about-values { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-
-  /* Hero */
-  .hero-cta-group { flex-direction: column; align-items: center; }
-  .hero-emblem { width: 160px; height: 160px; }
-  .anthem-quote { padding: 2rem 1rem; }
-
-  /* Reduce excessive vertical padding on mobile */
-  .section-inner { padding: 3.5rem 5%; }
-  .sponsors-inner { padding: 3.5rem 5%; }
-  .join-inner { padding: 3.5rem 5%; }
-  .anthem-inner { padding: 3.5rem 5%; }
-  .fb-post-inner { padding: 3.5rem 5%; }
-
-  /* Fix Facebook iframes overflowing on small screens */
-  .fb-post-embed iframe { width: 100% !important; min-width: unset; }
-  .footer-fb iframe { width: 100% !important; min-width: unset; }
-
-  /* Audio player */
-  .audio-player { padding: 1rem; gap: 0.8rem; }
-  .play-btn { width: 42px; height: 42px; }
-
-  /* Nav — show just logo + CTA */
-  .nav-logo { font-size: 0.8rem; }
-  .nav-cta { font-size: 0.65rem; padding: 0.5rem 1rem; }
-
-  /* Footer */
-  .footer-grid { gap: 1.5rem; }
-  .footer-fb iframe { height: 300px; }
-}
+  @media (max-width: 560px) {
+    .sponsors-grid { grid-template-columns: 1fr; }
+    .about-values { grid-template-columns: 1fr; }
+    .hero-cta-group { flex-direction: column; align-items: center; }
+    .anthem-quote { padding: 2rem 1rem; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ===== MESSENGER FLOAT ===== -->
-<a class="messenger-float"
-   href="https://m.me/61581058374151?text=Hi%21%20I%20saw%20your%20website%20and%20want%20to%20learn%20more."
-   target="_blank" rel="noopener" aria-label="Message us on Messenger">
+<!-- MESSENGER -->
+<a class="messenger-float" href="https://m.me/61581058374151?text=Hi%21%20I%20saw%20your%20website%20and%20want%20to%20learn%20more." target="_blank" rel="noopener" aria-label="Message us on Messenger">
   <span class="messenger-tooltip">Message Us</span>
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/>
-  </svg>
+  <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
 </a>
 
-<!-- ===== NAV ===== -->
+<!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Metro Sugbo Eagles</a>
+  <a href="#" class="nav-logo">Metro Sugbu Eagles</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#membership">Membership</a></li>
@@ -636,56 +256,37 @@
   <a href="#join" class="nav-cta">Join Now</a>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg-lines"></div>
   <img src="Metro%20Sugbo%20Eagles.jpg" alt="Metro Sugbu Eagles Logo" class="hero-emblem" />
   <div class="hero-eyebrow">Cebu, Philippines · IFOE Chapter</div>
-  <h1 class="hero-title">Metro <span>Sugbo</span></h1>
+  <h1 class="hero-title">Metro <span>Sugbu</span></h1>
   <div class="hero-sub">International Eagles Club</div>
   <div class="hero-divider"></div>
-  <p class="hero-tagline">
-    A brotherhood rooted in <em>equality, unity, and humanity</em>.<br>
-    Soaring together for a better Philippines and a stronger community.
-  </p>
+  <p class="hero-tagline">A brotherhood rooted in <em>equality, unity, and humanity</em>.<br>Soaring together for a better Philippines and a stronger community.</p>
   <div class="hero-cta-group">
     <a href="#join" class="btn-primary">Become an Eagle</a>
     <a href="#sponsors" class="btn-secondary">Our Sponsors</a>
   </div>
 </section>
 
-<!-- ===== STATS BAR ===== -->
+<!-- STATS -->
 <div class="stats-bar">
   <div class="stats-grid">
-    <div class="stat-item reveal">
-      <div class="stat-number">2</div>
-      <div class="stat-label">Years Strong</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-number">25+</div>
-      <div class="stat-label">Club Memebers</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-number">9</div>
-      <div class="stat-label">Proud Sponsors</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-number">1</div>
-      <div class="stat-label">City. One Mission.</div>
-    </div>
+    <div class="stat-item reveal"><div class="stat-number">2</div><div class="stat-label">Years Strong</div></div>
+    <div class="stat-item reveal"><div class="stat-number">20+</div><div class="stat-label">Eagle Members</div></div>
+    <div class="stat-item reveal"><div class="stat-number">9</div><div class="stat-label">Proud Sponsors</div></div>
+    <div class="stat-item reveal"><div class="stat-number">1</div><div class="stat-label">City. One Mission.</div></div>
   </div>
 </div>
 
-<!-- ===== MOTTO BAND ===== -->
+<!-- MOTTO -->
 <div class="motto-band">
-  <span class="motto-band-text">
-    DEO ET PATRIA &nbsp;·&nbsp; EQUALITY &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; HUMANITY &nbsp;·&nbsp;
-    DEO ET PATRIA &nbsp;·&nbsp; EQUALITY &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; HUMANITY &nbsp;·&nbsp;
-    DEO ET PATRIA &nbsp;·&nbsp; EQUALITY &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; HUMANITY
-  </span>
+  <span class="motto-band-text">DEO ET PATRIA &nbsp;·&nbsp; EQUALITY &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; HUMANITY &nbsp;·&nbsp; DEO ET PATRIA &nbsp;·&nbsp; EQUALITY &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; HUMANITY &nbsp;·&nbsp; DEO ET PATRIA &nbsp;·&nbsp; EQUALITY &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; HUMANITY</span>
 </div>
 
-<!-- ===== ABOUT ===== -->
+<!-- ABOUT -->
 <section id="about">
   <div class="section-inner">
     <div class="about-grid">
@@ -693,30 +294,14 @@
         <div class="section-label">Who We Are</div>
         <h2 class="section-title">Eagles Fly <span>Together</span></h2>
         <div class="gold-line"></div>
-        <p>Metro Sugbo is a proud chapter of the <strong>International Fraternal Order of Eagles (IFOE)</strong> — one of the world's most respected fraternal organizations, now soaring across the Philippines with purpose and pride.</p>
+        <p>Metro Sugbu is a proud chapter of the <strong>International Fraternal Order of Eagles (IFOE)</strong> — one of the world's most respected fraternal organizations, now soaring across the Philippines with purpose and pride.</p>
         <p>We are a community of men and women bound by a shared commitment to <strong>service, brotherhood, and the upliftment of our society</strong>. Based in the heart of Cebu, we bring together professionals, leaders, and passionate individuals who believe in making a difference.</p>
         <p>Our motto — <strong>"Deo et Patria"</strong> (God and Country) — is not just words. It is the way we live, lead, and love.</p>
         <div class="about-values">
-          <div class="value-card">
-            <span class="value-icon">🦅</span>
-            <h4>Brotherhood</h4>
-            <p>A bond beyond friendship — a lifelong fraternity of mutual respect and support.</p>
-          </div>
-          <div class="value-card">
-            <span class="value-icon">⚖️</span>
-            <h4>Equality</h4>
-            <p>Every Eagle is equal. We rise together, leaving no one behind.</p>
-          </div>
-          <div class="value-card">
-            <span class="value-icon">🤝</span>
-            <h4>Community</h4>
-            <p>We serve the people of Cebu through outreach, advocacy, and action.</p>
-          </div>
-          <div class="value-card">
-            <span class="value-icon">🌏</span>
-            <h4>Humanity</h4>
-            <p>We share our lives in service to others, inspired by our Eagles Hymn.</p>
-          </div>
+          <div class="value-card"><span class="value-icon">🦅</span><h4>Brotherhood</h4><p>A bond beyond friendship — a lifelong fraternity of mutual respect and support.</p></div>
+          <div class="value-card"><span class="value-icon">⚖️</span><h4>Equality</h4><p>Every Eagle is equal. We rise together, leaving no one behind.</p></div>
+          <div class="value-card"><span class="value-icon">🤝</span><h4>Community</h4><p>We serve the people of Cebu through outreach, advocacy, and action.</p></div>
+          <div class="value-card"><span class="value-icon">🌏</span><h4>Humanity</h4><p>We share our lives in service to others, inspired by our Eagles Hymn.</p></div>
         </div>
       </div>
       <div class="about-visual">
@@ -730,75 +315,49 @@
   </div>
 </section>
 
-<!-- ===== ANTHEM + MP3 ===== -->
+<!-- ANTHEM -->
 <section class="anthem-section">
   <div class="anthem-inner reveal">
     <div class="section-label" style="text-align:center;">Our Eagles Hymn</div>
-    <h2 class="section-title" style="text-align:center;">The <span>Song</span> of Metro Sugbo Club</h2>
+    <h2 class="section-title" style="text-align:center;">The <span>Song</span> of Eagles</h2>
     <div class="gold-line" style="margin:0 auto 3rem;"></div>
     <div class="anthem-quote">
       <em>Equality and unity, human care — we will share our lives too for humanity.<br>
       For Eagles, <span>the Philippine Eagles.</span></em>
     </div>
-
-<!-- YouTube Hymn Embed -->
     <div style="max-width:720px; margin:2.5rem auto 0; border:1px solid rgba(160,120,40,0.3); overflow:hidden; aspect-ratio:16/9;">
-      <iframe
-        width="100%" height="100%"
-        src="https://www.youtube.com/embed/8O_1iF50fWc?rel=0&showinfo=0"
-        title="Soar High — MSIEC Official Hymn"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8O_1iF50fWc?rel=0&showinfo=0" title="Soar High — MSIEC Official Hymn" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+  </div>
 </section>
 
-<!-- ===== FACEBOOK POST — CONSUL OF CEBU CITY ===== -->
+<!-- FB POST -->
 <section class="fb-post-section">
   <div class="fb-post-inner">
     <div class="fb-post-text reveal">
       <div class="section-label">Eagles In The Community</div>
       <h2 class="section-title">Reaching the <span>Heights</span> of Leadership</h2>
       <div class="gold-line"></div>
-      <p>Metro Sugbo Eagles doesn't just talk about community — we live it. We are honored to welcome <strong>Cebu City Councilor, Police Brigadier General, Paul Labra II</strong> as our Kuya, a brother in our fraternity.</p>
+      <p>Metro Sugbu Eagles doesn't just talk about community — we live it. We are honored to welcome <strong>the Consul of Cebu City Government</strong> as our Kuya, a brother in our fraternity.</p>
       <p>This is a testament to what the Eagles represent: <strong>people of integrity, influence, and genuine care for their city</strong> choosing to stand with us.</p>
       <a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener" class="btn-secondary" style="margin-top:1rem;">Follow Our Page ↗</a>
     </div>
     <div class="fb-post-embed reveal">
-      <iframe
-        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0QMAa2t78FKfAj3MD6myXjbeYFgwbrySRfYLDEnJz3KxQXbePsdvCg5PkKt8x99Ail%26id%3D61581058374151&show_text=true&width=500"
-        width="500" height="500"
-        style="border:none;overflow:hidden;max-width:100%;"
-        scrolling="no" frameborder="0" allowfullscreen="true"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-      </iframe>
+      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0QMAa2t78FKfAj3MD6myXjbeYFgwbrySRfYLDEnJz3KxQXbePsdvCg5PkKt8x99Ail%26id%3D61581058374151&show_text=true&width=500" width="500" height="500" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
   </div>
 </section>
 
-<!-- ===== MEMBERSHIP ===== -->
+<!-- MEMBERSHIP -->
 <section id="membership" class="membership-section">
   <div class="section-inner">
     <div class="section-label reveal">Join Our Aerie</div>
     <h2 class="section-title reveal">Why Become an <span>Eagle</span>?</h2>
     <div class="gold-line reveal"></div>
     <div class="membership-grid">
-      <div class="membership-card reveal">
-        <div class="card-num">01</div>
-        <h3>Lifelong Brotherhood</h3>
-        <p>Connect with a network of like-minded individuals who share your values. Eagles support each other in business, in life, and in purpose.</p>
-      </div>
-      <div class="membership-card reveal">
-        <div class="card-num">02</div>
-        <h3>Community Impact</h3>
-        <p>Be part of events, outreach programs, and advocacy campaigns that directly uplift the lives of people in Metro Cebu and beyond.</p>
-      </div>
-      <div class="membership-card reveal">
-        <div class="card-num">03</div>
-        <h3>Global Recognition</h3>
-        <p>As a member of the IFOE, you join a worldwide fraternity recognized across multiple countries — your Eagle wings know no borders.</p>
-      </div>
+      <div class="membership-card reveal"><div class="card-num">01</div><h3>Lifelong Brotherhood</h3><p>Connect with a network of like-minded individuals who share your values. Eagles support each other in business, in life, and in purpose.</p></div>
+      <div class="membership-card reveal"><div class="card-num">02</div><h3>Community Impact</h3><p>Be part of events, outreach programs, and advocacy campaigns that directly uplift the lives of people in Metro Cebu and beyond.</p></div>
+      <div class="membership-card reveal"><div class="card-num">03</div><h3>Global Recognition</h3><p>As a member of the IFOE, you join a worldwide fraternity recognized across multiple countries — your Eagle wings know no borders.</p></div>
     </div>
     <div style="text-align:center; margin-top:3.5rem;" class="reveal">
       <a href="#join" class="btn-primary">Apply for Membership</a>
@@ -812,107 +371,120 @@
     <div class="section-label reveal">Our Partners</div>
     <h2 class="section-title reveal">Proud <span>Sponsors</span></h2>
     <div class="gold-line reveal" style="margin:0 auto;"></div>
-    <p class="sponsors-tagline reveal">These brands believe in what Metro Sugbo stands for.<br>Support them — they support us.</p>
+    <p class="sponsors-tagline reveal">These brands believe in what Metro Sugbu stands for.<br>They invest in our community — support them in return.</p>
 
     <div class="sponsors-grid">
+
+      <!-- 1. Roble Shipping -->
       <a class="sponsor-card reveal" href="https://www.robleshipping.com" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="Roble.png" alt="Roble Shipping Inc."></div>
-        <div class="sponsor-info">
-          <span class="sponsor-name">Roble Shipping Inc.</span>
-          <span class="sponsor-cta">Visit Website ↗</span>
-        </div>
+        <span class="sponsor-name">Roble Shipping Inc.</span>
+        <span class="sponsor-badge">Shipping &amp; Maritime</span>
+        <p class="sponsor-desc">Founded in 1985 by a Cebuano entrepreneur, Roble Shipping connects the Visayas, Mindanao, and beyond with a fleet of 21 vessels. For four decades, they've been moving people and cargo across the Philippine seas with reliability and Cebuano pride.</p>
+        <span class="sponsor-cta">Visit Website ↗</span>
       </a>
+
+      <!-- 2. Lucira -->
       <a class="sponsor-card reveal" href="https://lucira.ph/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="Lucira.png" alt="Lucira Renewable Ventures"></div>
-        <div class="sponsor-info">
-          <span class="sponsor-name">Lucira Renewable Ventures</span>
-          <span class="sponsor-cta">Visit Website ↗</span>
-        </div>
+        <span class="sponsor-name">Lucira Renewable Ventures</span>
+        <span class="sponsor-badge">Solar Energy</span>
+        <p class="sponsor-desc">Switch to solar with no upfront cost. Lucira's Power Purchase Agreement helps Filipino homes and businesses slash their electricity bills by up to 50% — making clean, renewable energy simple and accessible for everyone.</p>
+        <span class="sponsor-cta">Visit Website ↗</span>
       </a>
+
+      <!-- 3. AppleOne -->
       <a class="sponsor-card reveal" href="https://www.appleone.com.ph/" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="apple%20one.png" alt="AppleOne Properties"></div>
-        <div class="sponsor-info">
-          <span class="sponsor-name">AppleOne Properties</span>
-          <span class="sponsor-cta">Visit Website ↗</span>
-        </div>
+        <div class="logo-wrap"><img src="apple_one.png" alt="AppleOne Properties"></div>
+        <span class="sponsor-name">AppleOne Properties</span>
+        <span class="sponsor-badge">Real Estate</span>
+        <p class="sponsor-desc">AppleOne Properties is one of Cebu's trusted real estate developers, creating residential and commercial spaces that Cebuanos are proud to call home. Building communities with quality and vision at their core.</p>
+        <span class="sponsor-cta">Visit Website ↗</span>
       </a>
+
+      <!-- 4. Lilah Beauty -->
       <a class="sponsor-card reveal" href="https://www.facebook.com/p/Lilah-Beauty-Salon-Spa-61576344771732/" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="lilah%20beauty%20salo%20%26%20spa.jpg" alt="Lilah Beauty Salon & Spa"></div>
-        <div class="sponsor-info">
-          <span class="sponsor-name">Lilah Beauty Salon &amp; Spa</span>
-          <span class="sponsor-cta">Follow on Facebook ↗</span>
-        </div>
+        <div class="logo-wrap"><img src="lilah_beauty_salo___spa.jpg" alt="Lilah Beauty Salon & Spa"></div>
+        <span class="sponsor-name">Lilah Beauty Salon &amp; Spa</span>
+        <span class="sponsor-badge">Beauty &amp; Wellness</span>
+        <p class="sponsor-desc">Your Cebu sanctuary for beauty and self-care. Lilah offers professional hair, nail, and spa treatments delivered with a warm Filipino touch — because looking and feeling your best is something you deserve every single day.</p>
+        <span class="sponsor-cta">Follow on Facebook ↗</span>
       </a>
+
+      <!-- 5. Vionz -->
       <a class="sponsor-card reveal" href="https://www.facebook.com/vionzph/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="Vionz.jpg" alt="Vionz"></div>
-        <div class="sponsor-info">
-          <span class="sponsor-name">Vionz</span>
-          <span class="sponsor-cta">Follow on Facebook ↗</span>
-        </div>
+        <span class="sponsor-name">Vionz</span>
+        <span class="sponsor-badge">Cebu Local Brand</span>
+        <p class="sponsor-desc">Vionz is a homegrown Cebu brand building a loyal community one customer at a time. Follow them on Facebook to discover their latest offerings and be part of a brand with genuine roots in the Queen City of the South.</p>
+        <span class="sponsor-cta">Follow on Facebook ↗</span>
       </a>
+
+      <!-- 6. Tanduay -->
       <a class="sponsor-card reveal" href="https://www.tanduay.com/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="Tanduay_logo.webp" alt="Tanduay Rhum"></div>
-        <div class="sponsor-info">
-          <span class="sponsor-name">Tanduay — The No. 1 Rhum</span>
-          <span class="sponsor-cta">Visit Website ↗</span>
-        </div>
+        <span class="sponsor-name">Tanduay — The No. 1 Rhum</span>
+        <span class="sponsor-badge">Beverages</span>
+        <p class="sponsor-desc">Tanduay is the world's best-selling rum — a title earned by generations of Filipinos. Crafted from Philippine sugarcane since 1854, Tanduay is the spirit of celebration, camaraderie, and unapologetic Filipino pride.</p>
+        <span class="sponsor-cta">Visit Website ↗</span>
       </a>
+
+      <!-- 7. La Reina -->
       <a class="sponsor-card reveal" href="https://www.facebook.com/groups/2044061439240660/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="lareina.png" alt="La Reina Security Agency"></div>
-        <div class="sponsor-info">
-          <span class="sponsor-name">La Reina Security Agency</span>
-          <span class="sponsor-cta">Follow on Facebook ↗</span>
-        </div>
+        <span class="sponsor-name">La Reina Security Agency</span>
+        <span class="sponsor-badge">Security Services</span>
+        <p class="sponsor-desc">La Reina Security Agency provides professional security solutions across Cebu — protecting businesses, events, and communities with trained, dedicated personnel who take safety as seriously as you do.</p>
+        <span class="sponsor-cta">Follow on Facebook ↗</span>
       </a>
+
+      <!-- 8. Smart Sync -->
       <a class="sponsor-card reveal" href="http://smartsyncservices.com/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="smartsync.jpg" alt="Smart Sync Services"></div>
-        <div class="sponsor-info">
-          <span class="sponsor-name">Smart Sync Services</span>
-          <span class="sponsor-cta">Visit Website ↗</span>
-        </div>
+        <span class="sponsor-name">Smart Sync Services</span>
+        <span class="sponsor-badge">IT &amp; Business Solutions</span>
+        <p class="sponsor-desc">Smart Sync Services helps Cebu organizations run smarter through technology and business process solutions. From IT support to operations management, they're the reliable partner keeping businesses running at their best.</p>
+        <span class="sponsor-cta">Visit Website ↗</span>
       </a>
+
+      <!-- 9. InLife -->
       <a class="sponsor-card reveal" href="https://www.inlife.com.ph/" target="_blank" rel="noopener">
         <div class="logo-wrap"><img src="inlife.jpg" alt="InLife – Insular Life"></div>
-        <div class="sponsor-info">
-          <span class="sponsor-name">InLife – Insular Life</span>
-          <span class="sponsor-cta">Visit Website ↗</span>
-        </div>
+        <span class="sponsor-name">InLife – Insular Life</span>
+        <span class="sponsor-badge">Life Insurance</span>
+        <p class="sponsor-desc">The Philippines' first and largest Filipino life insurance company, trusted since 1910. As the country's only mutual insurer owned by its own policyholders, InLife has one mission: protecting Filipino families and helping them build a secure future.</p>
+        <span class="sponsor-cta">Visit Website ↗</span>
       </a>
+
     </div>
 
     <div class="become-sponsor reveal">
-      <p><strong>Want your brand here?</strong>Partner with Metro Sugbo and get featured in front of our growing Eagles community.</p>
+      <p><strong>Want your brand here?</strong>Partner with Metro Sugbu and get featured in front of our growing Eagles community.</p>
       <a href="#join" class="btn-primary">Become a Sponsor</a>
     </div>
   </div>
 </section>
 
-<!-- ===== NEWSLETTER ===== -->
+<!-- NEWSLETTER -->
 <section id="join" class="join-section">
   <div class="join-inner">
     <div class="section-label reveal">Stay Connected</div>
     <h2 class="section-title reveal">Join the <span>Eagles Circle</span></h2>
     <div class="gold-line reveal" style="margin:0 auto 2rem;"></div>
     <p class="reveal">Subscribe to our newsletter for updates on events, new members, community work, and Eagles news. Be the first to know when we soar.</p>
-    <div class="reveal">
-      <div class="ml-embedded" data-form="W7E0nL"></div>
-    </div>
-    <a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener" class="social-link reveal">
-      📘 &nbsp;Follow us on Facebook
-    </a>
+    <div class="reveal"><div class="ml-embedded" data-form="W7E0nL"></div></div>
+    <a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener" class="social-link reveal">📘 &nbsp;Follow us on Facebook</a>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="footer-logo">Metro Sugbo Eagles</div>
+      <div class="footer-logo">Metro Sugbu Eagles</div>
       <div class="footer-sub">International Eagles Club · Cebu, Philippines</div>
       <div class="footer-motto">"Deo et Patria" — God and Country</div>
-      <a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener" class="social-link" style="margin-top:0;">
-        📘 &nbsp;Facebook Page
-      </a>
+      <a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener" class="social-link" style="margin-top:0;">📘 &nbsp;Facebook Page</a>
     </div>
     <div class="footer-links-col">
       <h4>Navigation</h4>
@@ -925,37 +497,24 @@
       </ul>
     </div>
   </div>
-
-  <!-- Facebook Page Feed -->
   <div class="footer-fb">
     <div class="footer-fb-label">Latest From Our Facebook Page</div>
-    <iframe
-      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61581058374151&tabs=timeline&width=500&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false"
-      width="500" height="400"
-      style="border:none;overflow:hidden;max-width:100%;"
-      scrolling="no" frameborder="0" allowfullscreen="true"
-      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-    </iframe>
+    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61581058374151&tabs=timeline&width=500&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" width="500" height="400" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
   </div>
-
   <div class="footer-copy">
-    © 2025 Metro Sugbo International Eagles Club · A Chapter of IFOE Philippines<br>
+    © 2025 Metro Sugbu International Eagles Club · A Chapter of IFOE Philippines<br>
     <span style="color:rgba(160,120,40,0.3); font-size:0.65rem;">Equality · Unity · Humanity · Deo et Patria</span>
   </div>
 </footer>
 
 <script>
-  // ===== SCROLL REVEAL =====
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      }
+      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80);
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
