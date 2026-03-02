@@ -64,6 +64,11 @@
     0%,100% { box-shadow: 0 0 0 8px rgba(14,30,58,0.4), 0 0 60px rgba(160,120,40,0.25); }
     50% { box-shadow: 0 0 0 12px rgba(14,30,58,0.5), 0 0 80px rgba(160,120,40,0.4); }
   }
+  .emblem-cluster { display: flex; align-items: center; justify-content: center; margin-bottom: 2.5rem; }
+  .hero-emblem { margin-bottom: 0; flex-shrink: 0; }
+  .emblem-side { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(160,120,40,0.2); flex-shrink: 0; }
+  .emblem-left { margin-right: -18px; z-index: 0; }
+  .emblem-right { margin-left: -18px; z-index: 0; }
   .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; opacity: 0; animation: fadeUp 0.8s 0.3s forwards; }
   .hero-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; color: var(--white); margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
   .hero-title span { background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-pale)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -259,7 +264,11 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-lines"></div>
-  <img src="Metro%20Sugbo%20Eagles.jpg" alt="Metro Sugbu Eagles Logo" class="hero-emblem" />
+  <div class="emblem-cluster">
+    <img src="a7eb25d5-49bf-4eff-aa65-408bbb11330a.jpg" alt="Central Visayas Eagles Region" class="emblem-side emblem-left" />
+    <img src="Metro%20Sugbo%20Eagles.jpg" alt="Metro Sugbu Eagles Logo" class="hero-emblem" />
+    <img src="1fb869a9-6c26-40ef-9f97-c5e33b5f50af.jpg" alt="IFOE Philippine Eagles" class="emblem-side emblem-right" />
+  </div>
   <div class="hero-eyebrow">Cebu, Philippines · IFOE Chapter</div>
   <h1 class="hero-title">Metro <span>Sugbu</span></h1>
   <div class="hero-sub">International Eagles Club</div>
