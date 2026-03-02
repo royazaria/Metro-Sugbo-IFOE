@@ -7,6 +7,16 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+<!-- MailerLite Universal -->
+<script>
+  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+  ml('account', '2149706');
+</script>
+
 <style>
   :root {
     --gold: #A07828;
@@ -30,11 +40,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     overflow-x: hidden;
   }
 
-  /* Background atmosphere */
   body::before {
     content: '';
     position: fixed; inset: 0;
@@ -91,8 +99,9 @@
     box-shadow: 0 0 15px rgba(160,120,40,0.15);
     object-fit: cover; flex-shrink: 0; z-index: 1;
   }
-  .emblem-left { margin-right: -14px; }
+  .emblem-left  { margin-right: -14px; }
   .emblem-right { margin-left: -14px; }
+
   @keyframes glowPulse {
     0%,100% { box-shadow: 0 0 0 6px rgba(14,30,58,0.5), 0 0 40px rgba(160,120,40,0.3); }
     50%      { box-shadow: 0 0 0 9px rgba(14,30,58,0.6), 0 0 60px rgba(160,120,40,0.5); }
@@ -125,11 +134,9 @@
   .org-tagline {
     font-size: 0.82rem; color: rgba(232,220,200,0.55); font-weight: 300;
     text-align: center; letter-spacing: 0.05em; line-height: 1.6;
-    margin-bottom: 0.5rem;
     opacity: 0; animation: fadeUp 0.7s 0.55s forwards;
   }
 
-  /* Divider */
   .divider {
     width: 120px; height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
@@ -179,25 +186,19 @@
   }
   .link-card:hover { border-color: rgba(160,120,40,0.55); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 2px 0 rgba(160,120,40,0.2); }
   .link-card:hover::before { transform: scaleX(1); }
-  .link-card:hover::after { opacity: 1; }
+  .link-card:hover::after  { opacity: 1; }
 
-  /* Icon circle */
   .link-icon {
     width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.1rem; z-index: 1;
     border: 1px solid rgba(160,120,40,0.25);
   }
-  .link-icon.gold   { background: linear-gradient(135deg, rgba(160,120,40,0.3), rgba(160,120,40,0.1)); }
-  .link-icon.blue   { background: linear-gradient(135deg, rgba(0,100,200,0.3), rgba(0,80,160,0.1)); }
-  .link-icon.red    { background: linear-gradient(135deg, rgba(200,0,0,0.25), rgba(160,0,0,0.1)); }
-  .link-icon.green  { background: linear-gradient(135deg, rgba(0,160,80,0.25), rgba(0,120,60,0.1)); }
-  .link-icon.purple { background: linear-gradient(135deg, rgba(100,0,200,0.25), rgba(80,0,160,0.1)); }
+  .link-icon.gold { background: linear-gradient(135deg, rgba(160,120,40,0.3), rgba(160,120,40,0.1)); }
+  .link-icon.blue { background: linear-gradient(135deg, rgba(0,100,200,0.3), rgba(0,80,160,0.1)); }
+  .link-icon.red  { background: linear-gradient(135deg, rgba(200,0,0,0.25), rgba(160,0,0,0.1)); }
+  .link-icon svg  { width: 20px; height: 20px; }
 
-  /* SVG icons */
-  .link-icon svg { width: 20px; height: 20px; }
-
-  /* Text */
   .link-text { flex: 1; z-index: 1; }
   .link-title {
     font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.12em;
@@ -209,21 +210,49 @@
     font-weight: 300; line-height: 1.4;
   }
 
-  /* Arrow */
   .link-arrow {
     font-size: 0.9rem; color: rgba(160,120,40,0.4);
     transition: color 0.3s, transform 0.3s; z-index: 1; flex-shrink: 0;
   }
   .link-card:hover .link-arrow { color: var(--gold-light); transform: translateX(4px); }
 
-  /* ===== HIGHLIGHT CARD (primary CTA) ===== */
   .link-card.highlight {
     background: linear-gradient(135deg, rgba(160,120,40,0.15), rgba(14,30,58,0.6));
     border-color: rgba(160,120,40,0.4);
   }
   .link-card.highlight .link-title { color: var(--white); }
 
-  /* ===== FOOTER ===== */
+  /* ===== NEWSLETTER SECTION ===== */
+  #newsletter-section {
+    width: 100%;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(160,120,40,0.25);
+    background: linear-gradient(160deg, rgba(14,30,58,0.5), rgba(8,14,24,0.8));
+    padding: 2rem 1.8rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #newsletter-section::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .newsletter-label {
+    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.4em;
+    color: var(--gold); text-transform: uppercase; text-align: center;
+    margin-bottom: 0.4rem;
+  }
+  .newsletter-title {
+    font-family: 'Cinzel Decorative', serif; font-size: 1.1rem;
+    color: var(--white); text-align: center; margin-bottom: 0.6rem;
+  }
+  .newsletter-title span { color: var(--gold-light); }
+  .newsletter-note {
+    font-size: 0.75rem; color: rgba(232,220,200,0.45); text-align: center;
+    line-height: 1.7; margin-bottom: 1.4rem; font-weight: 300;
+  }
+  .newsletter-note strong { color: var(--gold-light); font-weight: 600; }
+
+  /* ===== PAGE FOOTER ===== */
   .page-footer {
     margin-top: 2.5rem; text-align: center;
   }
@@ -234,10 +263,6 @@
   .footer-copy {
     font-size: 0.65rem; color: rgba(232,220,200,0.2); line-height: 2;
   }
-  .footer-copy a {
-    color: rgba(160,120,40,0.4); text-decoration: none; transition: color 0.3s;
-  }
-  .footer-copy a:hover { color: var(--gold-light); }
 </style>
 </head>
 <body>
@@ -254,7 +279,7 @@
     <img src="1fb869a9-6c26-40ef-9f97-c5e33b5f50af.jpg" alt="IFOE Philippine Eagles" class="emblem-side emblem-right" />
   </div>
 
-  <!-- Header text -->
+  <!-- Header -->
   <div class="org-eyebrow">Cebu, Philippines</div>
   <h1 class="org-name">Metro <span>Sugbu</span></h1>
   <div class="org-acronym">International Eagles Club &nbsp;·&nbsp; CVIER-IFOE-PE</div>
@@ -266,7 +291,6 @@
   <div class="section-label">Follow Us</div>
   <div class="links-group">
 
-    <!-- Facebook -->
     <a class="link-card" href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener">
       <div class="link-icon blue">
         <svg viewBox="0 0 24 24" fill="#4F87FF"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
@@ -278,7 +302,6 @@
       <span class="link-arrow">→</span>
     </a>
 
-    <!-- YouTube -->
     <a class="link-card" href="https://www.youtube.com/@MetroSugboInternationalEaglesC" target="_blank" rel="noopener">
       <div class="link-icon red">
         <svg viewBox="0 0 24 24" fill="#FF4444"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
@@ -296,17 +319,15 @@
   <div class="section-label" style="margin-top:1.2rem;">Get Involved</div>
   <div class="links-group">
 
-    <!-- Become a Member -->
     <a class="link-card highlight" href="https://m.me/61581058374151?text=Hi%21%20I%27m%20interested%20in%20becoming%20a%20member%20of%20Metro%20Sugbu%20International%20Eagles%20Club.%20Can%20you%20tell%20me%20more%3F" target="_blank" rel="noopener">
       <div class="link-icon gold">🦅</div>
       <div class="link-text">
         <span class="link-title">Become a Member</span>
-        <span class="link-desc">Apply to join our brotherhood — message us directly on Messenger</span>
+        <span class="link-desc">Apply to join our brotherhood — message us on Messenger</span>
       </div>
       <span class="link-arrow">→</span>
     </a>
 
-    <!-- Become a Sponsor -->
     <a class="link-card" href="https://m.me/61581058374151?text=Hi%21%20I%27m%20interested%20in%20becoming%20a%20sponsor%20for%20Metro%20Sugbu%20International%20Eagles%20Club.%20Can%20you%20tell%20me%20more%3F" target="_blank" rel="noopener">
       <div class="link-icon gold">🤝</div>
       <div class="link-text">
@@ -316,7 +337,7 @@
       <span class="link-arrow">→</span>
     </a>
 
-<!-- Newsletter — scrolls to embedded form at bottom -->
+    <!-- Newsletter card — anchor scrolls to the form below -->
     <a class="link-card" href="#newsletter-section">
       <div class="link-icon gold">📬</div>
       <div class="link-text">
@@ -326,13 +347,12 @@
       <span class="link-arrow">↓</span>
     </a>
 
-    <div id="newsletter-section">
+  </div>
 
   <!-- ===== CONTACT ===== -->
   <div class="section-label" style="margin-top:1.2rem;">Contact</div>
   <div class="links-group">
 
-    <!-- General Message -->
     <a class="link-card" href="https://m.me/61581058374151?text=Hi%21%20I%20have%20a%20question%20about%20Metro%20Sugbu%20International%20Eagles%20Club." target="_blank" rel="noopener">
       <div class="link-icon blue">
         <svg viewBox="0 0 24 24" fill="#4F87FF"><path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
@@ -344,7 +364,6 @@
       <span class="link-arrow">→</span>
     </a>
 
-    <!-- Visit Website -->
     <a class="link-card" href="index.html">
       <div class="link-icon gold">🌐</div>
       <div class="link-text">
@@ -354,6 +373,17 @@
       <span class="link-arrow">→</span>
     </a>
 
+  </div>
+
+  <!-- ===== NEWSLETTER FORM — always visible at bottom ===== -->
+  <div id="newsletter-section">
+    <div class="newsletter-label">Eagles Newsletter</div>
+    <h2 class="newsletter-title">Join the <span>Eagles Circle</span></h2>
+    <p class="newsletter-note">
+      Get our events, outreach updates, and Eagles news delivered to your inbox.<br>
+      <strong>This is our newsletter — not a membership application.</strong>
+    </p>
+    <div class="ml-embedded" data-form="W7E0nL"></div>
   </div>
 
   <!-- Footer -->
