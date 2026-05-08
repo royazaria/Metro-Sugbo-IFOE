@@ -4,5 +4,15 @@
   "compatibility_date": "2026-05-08",
   "assets": {
     "directory": "./"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "metrosugbu.com/*",
+      "zone_name": "metrosugbu.com"
+    },
+    {
+      "pattern": "www.metrosugbu.com/*",
+      "zone_name": "metrosugbu.com"
+    }
+  ]
 }
