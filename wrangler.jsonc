@@ -5,5 +5,8 @@
   "assets": {
     "directory": "./"
   },
-  "custom_domains": ["metrosugbu.com", "www.metrosugbu.com"]
+  "routes": [
+    { "pattern": "metrosugbu.com/*", "custom_domain": true },
+    { "pattern": "www.metrosugbu.com/*", "custom_domain": true }
+  ]
 }
