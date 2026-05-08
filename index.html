@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#090C10">
+<meta name="description" content="Metro Sugbu International Eagles Club — a Cebu chapter of the IFOE bound by brotherhood, service, and Cebuano pride. Eagles Cup, Soar High concert, community outreach, and more.">
 <title>Metro Sugbu | International Eagles Club</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
 <!-- MailerLite Universal -->
@@ -30,93 +34,134 @@
     --dark-mid: #0D1219;
     --cream: #E8DCC8;
     --white: #F5F0E8;
+    --nav-h: 68px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--dark); color: var(--cream); font-family: 'Lato', sans-serif; overflow-x: hidden; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { background: var(--dark); color: var(--cream); font-family: 'Lato', sans-serif; overflow-x: hidden; line-height: 1.5; }
+  body.no-scroll { overflow: hidden; }
   body::before {
     content: ''; position: fixed; inset: 0;
     background: radial-gradient(ellipse at 20% 20%, rgba(14,30,58,0.5) 0%, transparent 60%),
                 radial-gradient(ellipse at 80% 80%, rgba(160,120,40,0.06) 0%, transparent 60%);
     pointer-events: none; z-index: 0;
   }
+  img { max-width: 100%; display: block; }
+  a, button { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+  /* SCROLL PROGRESS */
+  .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); z-index: 200; transition: width 0.1s; }
 
   /* NAV */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 5%; background: rgba(9,12,16,0.95);
-    border-bottom: 1px solid rgba(160,120,40,0.25); backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.9rem clamp(1rem, 5%, 5%); background: rgba(9,12,16,0.92);
+    border-bottom: 1px solid rgba(160,120,40,0.25); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    min-height: var(--nav-h);
   }
- .nav-logo { font-family: 'Cinzel', serif; font-size: clamp(0.45rem, 1.2vw, 0.72rem); font-weight: 700; color: var(--gold-light); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; line-height: 1.4; max-width: 320px; }
-  .nav-links a { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.12em; color: var(--cream); text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
+  .nav-logo { font-family: 'Cinzel', serif; font-size: clamp(0.55rem, 1.2vw, 0.72rem); font-weight: 700; color: var(--gold-light); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; line-height: 1.4; max-width: 320px; }
+  .nav-logo .nav-logo-acronym { font-size: 0.85em; color: var(--gold); letter-spacing: 0.12em; }
+  .nav-links { display: flex; gap: 1.6rem; list-style: none; align-items: center; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.12em; color: var(--cream); text-decoration: none; text-transform: uppercase; transition: color 0.3s; padding: 0.4rem 0; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--gold-light); transform: scaleX(0); transition: transform 0.3s; transform-origin: center; }
   .nav-links a:hover { color: var(--gold-light); }
-  .nav-cta { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--dark); background: linear-gradient(135deg, var(--gold-light), var(--gold)); padding: 0.55rem 1.4rem; cursor: pointer; text-transform: uppercase; font-weight: 700; transition: opacity 0.3s; text-decoration: none; }
-  .nav-cta:hover { opacity: 0.85; }
-  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-cta { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--dark); background: linear-gradient(135deg, var(--gold-light), var(--gold)); padding: 0.6rem 1.4rem; cursor: pointer; text-transform: uppercase; font-weight: 700; transition: opacity 0.3s, transform 0.2s; text-decoration: none; flex-shrink: 0; }
+  .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* HAMBURGER */
+  .nav-toggle { display: none; background: transparent; border: 1px solid rgba(160,120,40,0.3); width: 42px; height: 42px; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; flex-shrink: 0; transition: border-color 0.3s; }
+  .nav-toggle:hover { border-color: var(--gold); }
+  .nav-toggle span { display: block; width: 18px; height: 2px; background: var(--gold-light); transition: transform 0.3s, opacity 0.3s; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE DRAWER */
+  .mobile-drawer {
+    position: fixed; top: var(--nav-h); right: 0; bottom: 0; width: min(85%, 340px);
+    background: linear-gradient(180deg, rgba(9,12,16,0.98), rgba(13,24,41,0.98));
+    border-left: 1px solid rgba(160,120,40,0.3);
+    transform: translateX(100%); transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+    z-index: 99; padding: 2rem 1.6rem; overflow-y: auto;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .mobile-drawer.open { transform: translateX(0); }
+  .mobile-drawer a { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.18em; color: var(--cream); text-decoration: none; text-transform: uppercase; padding: 1rem 0.4rem; border-bottom: 1px solid rgba(160,120,40,0.12); transition: color 0.2s, padding 0.2s; }
+  .mobile-drawer a:hover { color: var(--gold-light); padding-left: 0.8rem; }
+  .mobile-drawer .drawer-cta { background: linear-gradient(135deg, var(--gold-light), var(--gold)); color: var(--dark); font-weight: 700; text-align: center; margin-top: 1rem; padding: 1rem; border: none; }
+  .mobile-drawer .drawer-cta:hover { padding-left: 1rem; }
+  .mobile-drawer .drawer-section { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.4em; color: rgba(160,120,40,0.55); text-transform: uppercase; padding: 1.5rem 0.4rem 0.4rem; }
+  .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 98; backdrop-filter: blur(2px); }
+  .drawer-overlay.open { opacity: 1; pointer-events: all; }
 
   /* HERO */
-  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 5% 5rem; position: relative; overflow: hidden; }
+  .hero { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: calc(var(--nav-h) + 3rem) 5% 4rem; position: relative; overflow: hidden; }
   .hero-bg-lines { position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(14,30,58,0.15) 60px, rgba(14,30,58,0.15) 61px); pointer-events: none; }
-  .hero-emblem { width: 210px; height: 210px; border-radius: 50%; border: 3px solid var(--gold); box-shadow: 0 0 0 8px rgba(14,30,58,0.4), 0 0 60px rgba(160,120,40,0.25); margin-bottom: 2.5rem; animation: glowPulse 3s ease-in-out infinite; object-fit: cover; }
+  .emblem-cluster { display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; }
+  .hero-emblem { width: clamp(140px, 26vw, 210px); height: clamp(140px, 26vw, 210px); border-radius: 50%; border: 3px solid var(--gold); box-shadow: 0 0 0 8px rgba(14,30,58,0.4), 0 0 60px rgba(160,120,40,0.25); animation: glowPulse 3s ease-in-out infinite; object-fit: cover; flex-shrink: 0; }
   @keyframes glowPulse {
     0%,100% { box-shadow: 0 0 0 8px rgba(14,30,58,0.4), 0 0 60px rgba(160,120,40,0.25); }
     50% { box-shadow: 0 0 0 12px rgba(14,30,58,0.5), 0 0 80px rgba(160,120,40,0.4); }
   }
-  .emblem-cluster { display: flex; align-items: center; justify-content: center; margin-bottom: 2.5rem; }
-  .hero-emblem { margin-bottom: 0; flex-shrink: 0; }
-  .emblem-side { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(160,120,40,0.2); flex-shrink: 0; }
-  .emblem-left { margin-right: -18px; z-index: 0; }
-  .emblem-right { margin-left: -18px; z-index: 0; }
-  .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; opacity: 0; animation: fadeUp 0.8s 0.3s forwards; }
-  .hero-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; color: var(--white); margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
+  .emblem-side { width: clamp(80px, 14vw, 120px); height: clamp(80px, 14vw, 120px); border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(160,120,40,0.2); flex-shrink: 0; }
+  .emblem-left { margin-right: -14px; z-index: 0; }
+  .emblem-right { margin-left: -14px; z-index: 0; }
+  .hero-eyebrow { font-family: 'Cinzel', serif; font-size: clamp(0.6rem, 1.3vw, 0.7rem); letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; opacity: 0; animation: fadeUp 0.8s 0.3s forwards; padding: 0 1rem; }
+  .hero-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(2.2rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; color: var(--white); margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
   .hero-title span { background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-pale)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .hero-sub { font-family: 'Cinzel', serif; font-size: clamp(0.9rem, 2vw, 1.2rem); letter-spacing: 0.3em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.7s forwards; }
+  .hero-sub { font-family: 'Cinzel', serif; font-size: clamp(0.85rem, 2vw, 1.2rem); letter-spacing: 0.3em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.7s forwards; }
   .hero-divider { width: 180px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 2rem; opacity: 0; animation: fadeUp 0.8s 0.9s forwards; }
-  .hero-tagline { font-size: 1.05rem; font-weight: 300; color: rgba(232,220,200,0.75); max-width: 600px; line-height: 1.8; margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.8s 1.1s forwards; }
-  .hero-tagline em { color: var(--gold-light); font-style: normal; }
-  .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; opacity: 0; animation: fadeUp 0.8s 1.3s forwards; }
+  .hero-tagline { font-size: clamp(0.95rem, 1.6vw, 1.05rem); font-weight: 300; color: rgba(232,220,200,0.8); max-width: 600px; line-height: 1.8; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 1.1s forwards; padding: 0 0.5rem; }
+  .hero-tagline em { color: var(--gold-light); font-style: normal; font-weight: 400; }
+  .hero-cta-group { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; opacity: 0; animation: fadeUp 0.8s 1.3s forwards; padding: 0 1rem; }
+  .hero-scroll-hint { position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%); font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.4em; color: rgba(160,120,40,0.5); text-transform: uppercase; opacity: 0; animation: fadeIn 1s 1.8s forwards; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+  .hero-scroll-hint::after { content: ''; width: 1px; height: 18px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollHint 2s ease-in-out infinite; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes scrollHint { 0% { transform: translateY(-6px); opacity: 0.3; } 50% { opacity: 1; } 100% { transform: translateY(6px); opacity: 0.3; } }
 
   /* BUTTONS */
-  .btn-primary { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.18em; color: var(--dark); background: linear-gradient(135deg, var(--gold-light), var(--gold)); border: none; padding: 1rem 2.5rem; cursor: pointer; text-transform: uppercase; font-weight: 700; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); }
+  .btn-primary { font-family: 'Cinzel', serif; font-size: clamp(0.72rem, 1.3vw, 0.78rem); letter-spacing: 0.18em; color: var(--dark); background: linear-gradient(135deg, var(--gold-light), var(--gold)); border: none; padding: 1rem 2.2rem; cursor: pointer; text-transform: uppercase; font-weight: 700; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); white-space: nowrap; }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(160,120,40,0.4); }
-  .btn-secondary { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.18em; color: var(--gold-light); background: transparent; border: 1px solid var(--gold); padding: 1rem 2.5rem; cursor: pointer; text-transform: uppercase; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s, color 0.3s; }
+  .btn-secondary { font-family: 'Cinzel', serif; font-size: clamp(0.72rem, 1.3vw, 0.78rem); letter-spacing: 0.18em; color: var(--gold-light); background: transparent; border: 1px solid var(--gold); padding: 1rem 2.2rem; cursor: pointer; text-transform: uppercase; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s, color 0.3s; white-space: nowrap; }
   .btn-secondary:hover { background: rgba(160,120,40,0.1); color: var(--white); }
 
   /* STATS */
-  .stats-bar { background: linear-gradient(135deg, #0A1020, #060D1A, #0A1020); border-top: 1px solid rgba(160,120,40,0.2); border-bottom: 1px solid rgba(160,120,40,0.2); padding: 2rem 5%; }
+  .stats-bar { background: linear-gradient(135deg, #0A1020, #060D1A, #0A1020); border-top: 1px solid rgba(160,120,40,0.2); border-bottom: 1px solid rgba(160,120,40,0.2); padding: 2.2rem 5%; }
   .stats-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
   .stat-item { padding: 0.5rem; }
-  .stat-number { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; background: linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; margin-bottom: 0.4rem; }
-  .stat-label { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.3em; color: rgba(232,220,200,0.5); text-transform: uppercase; }
+  .stat-number { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 700; background: linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; margin-bottom: 0.4rem; }
+  .stat-label { font-family: 'Cinzel', serif; font-size: clamp(0.55rem, 1vw, 0.62rem); letter-spacing: 0.28em; color: rgba(232,220,200,0.5); text-transform: uppercase; line-height: 1.4; }
 
   /* MOTTO */
-  .motto-band { background: linear-gradient(135deg, #6B4E10 0%, #3D2D08 50%, #6B4E10 100%); padding: 1.2rem 5%; overflow: hidden; }
+  .motto-band { background: linear-gradient(135deg, #6B4E10 0%, #3D2D08 50%, #6B4E10 100%); padding: 1.2rem 0; overflow: hidden; }
   .motto-band-text { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.5em; color: var(--dark); font-weight: 700; text-transform: uppercase; animation: marquee 22s linear infinite; white-space: nowrap; display: inline-block; }
   @keyframes marquee { from { transform: translateX(30%); } to { transform: translateX(-100%); } }
 
   /* SECTIONS */
   section { position: relative; z-index: 1; }
-  .section-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5%; }
+  .section-inner { max-width: 1200px; margin: 0 auto; padding: clamp(4rem, 9vw, 6rem) 5%; }
   .section-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.45em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
-  .section-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; color: var(--white); margin-bottom: 1.5rem; line-height: 1.2; }
+  .section-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.7rem, 4vw, 3rem); font-weight: 700; color: var(--white); margin-bottom: 1.5rem; line-height: 1.2; }
   .section-title span { color: var(--gold-light); }
   .gold-line { width: 80px; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin-bottom: 2rem; }
 
   /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
   .about-text p { color: rgba(232,220,200,0.8); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1rem; font-weight: 300; }
   .about-text strong { color: var(--gold-light); font-weight: 700; }
-  .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
-  .value-card { background: linear-gradient(135deg, rgba(14,30,58,0.5), rgba(14,30,58,0.2)); border: 1px solid rgba(160,120,40,0.2); padding: 1.5rem; transition: border-color 0.3s, transform 0.3s; }
+  .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.5rem; }
+  .value-card { background: linear-gradient(135deg, rgba(14,30,58,0.5), rgba(14,30,58,0.2)); border: 1px solid rgba(160,120,40,0.2); padding: 1.4rem; transition: border-color 0.3s, transform 0.3s; }
   .value-card:hover { border-color: var(--gold); transform: translateY(-4px); }
   .value-icon { font-size: 1.8rem; margin-bottom: 0.7rem; display: block; }
   .value-card h4 { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.15em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.5rem; }
   .value-card p { font-size: 0.88rem; color: rgba(232,220,200,0.65); line-height: 1.6; }
   .about-visual { position: relative; display: flex; align-items: center; justify-content: center; }
-  .about-emblem-wrap { position: relative; width: 320px; height: 320px; }
+  .about-emblem-wrap { position: relative; width: 320px; height: 320px; max-width: 100%; }
   .about-emblem-wrap img { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2; border: 4px solid var(--gold); }
   .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(160,120,40,0.3); top: 50%; left: 50%; transform: translate(-50%,-50%); animation: spin 20s linear infinite; }
   .ring-1 { width: 300px; height: 300px; }
@@ -125,42 +170,62 @@
 
   /* ANTHEM */
   .anthem-section { background: linear-gradient(180deg, var(--dark) 0%, #060D1A 50%, var(--dark) 100%); border-top: 1px solid rgba(160,120,40,0.15); border-bottom: 1px solid rgba(160,120,40,0.15); }
-  .anthem-inner { max-width: 800px; margin: 0 auto; padding: 6rem 5%; text-align: center; }
-  .anthem-quote { font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 400; color: var(--gold-pale); line-height: 2; font-style: italic; position: relative; padding: 2rem 3rem; }
-  .anthem-quote::before, .anthem-quote::after { font-family: 'Cinzel Decorative', serif; font-size: 5rem; color: rgba(160,120,40,0.2); position: absolute; line-height: 1; }
+  .anthem-inner { max-width: 800px; margin: 0 auto; padding: clamp(4rem, 9vw, 6rem) 5%; text-align: center; }
+  .anthem-quote { font-family: 'Cinzel', serif; font-size: clamp(1rem, 2.4vw, 1.5rem); font-weight: 400; color: var(--gold-pale); line-height: 2; font-style: italic; position: relative; padding: 2rem clamp(1rem, 4vw, 3rem); }
+  .anthem-quote::before, .anthem-quote::after { font-family: 'Cinzel Decorative', serif; font-size: clamp(3rem, 8vw, 5rem); color: rgba(160,120,40,0.2); position: absolute; line-height: 1; }
   .anthem-quote::before { content: '\201C'; top: 0; left: 0; }
   .anthem-quote::after { content: '\201D'; bottom: -1.5rem; right: 0; }
   .anthem-quote span { color: var(--gold-light); font-style: normal; font-weight: 700; }
 
   /* FB POST */
   .fb-post-section { background: var(--dark-mid); border-top: 1px solid rgba(160,120,40,0.12); border-bottom: 1px solid rgba(160,120,40,0.12); }
-  .fb-post-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .fb-post-inner { max-width: 1100px; margin: 0 auto; padding: clamp(4rem, 9vw, 6rem) 5%; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
   .fb-post-text p { color: rgba(232,220,200,0.75); line-height: 1.9; font-size: 1rem; font-weight: 300; margin-bottom: 1.5rem; }
   .fb-post-text strong { color: var(--gold-light); }
   .fb-post-embed { display: flex; justify-content: center; align-items: flex-start; }
   .fb-post-embed iframe { border-radius: 4px; border: 1px solid rgba(160,120,40,0.2) !important; max-width: 100%; }
 
+  /* EVENTS */
+  .events-section { background: linear-gradient(180deg, var(--dark) 0%, #060D1A 60%, var(--dark) 100%); border-top: 1px solid rgba(160,120,40,0.18); border-bottom: 1px solid rgba(160,120,40,0.18); position: relative; }
+  .events-section::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 30% 20%, rgba(160,120,40,0.05), transparent 40%), radial-gradient(circle at 70% 80%, rgba(14,30,58,0.5), transparent 50%); pointer-events: none; }
+  .events-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; margin-top: 2.5rem; }
+  .event-card { position: relative; background: linear-gradient(160deg, #0E1829, #060B14); border: 1px solid rgba(160,120,40,0.25); padding: 0; overflow: hidden; transition: border-color 0.3s, transform 0.4s, box-shadow 0.4s; display: flex; flex-direction: column; min-height: 480px; }
+  .event-card:hover { border-color: var(--gold); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(160,120,40,0.2); }
+  .event-card-art { position: relative; height: 220px; overflow: hidden; flex-shrink: 0; }
+  .event-card-art-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.6s; }
+  .event-card:hover .event-card-art-bg { transform: scale(1.06); }
+  .event-card-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(9,12,16,0.3) 60%, rgba(9,12,16,0.95) 100%); }
+  .event-card-tag { position: absolute; top: 1rem; left: 1rem; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.3em; color: var(--gold-light); text-transform: uppercase; background: rgba(9,12,16,0.85); border: 1px solid rgba(160,120,40,0.4); padding: 0.4rem 0.8rem; backdrop-filter: blur(6px); z-index: 2; }
+  .event-card-body { padding: 1.8rem 1.6rem 1.8rem; display: flex; flex-direction: column; flex: 1; }
+  .event-card h3 { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.4rem, 2.6vw, 1.8rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 0.6rem; }
+  .event-card h3 span { color: var(--gold-light); }
+  .event-card .event-meta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1rem; }
+  .event-meta-pill { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.18em; color: var(--gold-pale); text-transform: uppercase; border: 1px solid rgba(160,120,40,0.25); padding: 0.32rem 0.7rem; }
+  .event-card p { color: rgba(232,220,200,0.7); font-size: 0.92rem; line-height: 1.75; font-weight: 300; margin-bottom: 1.4rem; flex: 1; }
+  .event-card-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: auto; }
+  .event-card .btn-primary, .event-card .btn-secondary { font-size: 0.66rem; padding: 0.85rem 1.3rem; flex: 1; min-width: 130px; text-align: center; }
+
   /* MEMBERSHIP */
   .membership-section { background: var(--dark-mid); }
-  .membership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
-  .membership-card { background: linear-gradient(160deg, #0E1829, #080E18); border: 1px solid rgba(160,120,40,0.2); padding: 2.5rem 2rem; text-align: center; transition: all 0.3s; position: relative; overflow: hidden; }
+  .membership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .membership-card { background: linear-gradient(160deg, #0E1829, #080E18); border: 1px solid rgba(160,120,40,0.2); padding: 2.2rem 1.8rem; text-align: center; transition: all 0.3s; position: relative; overflow: hidden; }
   .membership-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transition: transform 0.4s; }
   .membership-card:hover::before { transform: scaleX(1); }
   .membership-card:hover { border-color: var(--gold); transform: translateY(-6px); }
-  .card-num { font-family: 'Cinzel Decorative', serif; font-size: 3rem; color: rgba(160,120,40,0.15); font-weight: 900; margin-bottom: 0.5rem; }
+  .card-num { font-family: 'Cinzel Decorative', serif; font-size: 3rem; color: rgba(160,120,40,0.15); font-weight: 900; margin-bottom: 0.5rem; line-height: 1; }
   .membership-card h3 { font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.1em; color: var(--gold-light); margin-bottom: 1rem; text-transform: uppercase; }
   .membership-card p { font-size: 0.9rem; color: rgba(232,220,200,0.65); line-height: 1.75; }
 
-  /* ===== SPONSORS — UPGRADED ===== */
+  /* SPONSORS */
   #sponsors { background: var(--dark); border-top: 1px solid rgba(160,120,40,0.15); border-bottom: 1px solid rgba(160,120,40,0.15); }
-  .sponsors-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5%; text-align: center; }
+  .sponsors-inner { max-width: 1200px; margin: 0 auto; padding: clamp(4rem, 9vw, 6rem) 5%; text-align: center; }
   .sponsors-tagline { color: rgba(232,220,200,0.6); font-size: 0.95rem; line-height: 1.8; margin: 0 auto 3.5rem; font-weight: 300; max-width: 560px; }
-  .sponsors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+  .sponsors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem; margin-bottom: 3rem; }
 
   .sponsor-card {
     background: linear-gradient(160deg, #0E1829, #080E18);
     border: 1px solid rgba(160,120,40,0.18);
-    padding: 2rem 1.8rem;
+    padding: 1.8rem 1.6rem;
     display: flex; flex-direction: column; align-items: center;
     text-decoration: none; position: relative; overflow: hidden;
     transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -175,91 +240,130 @@
   .sponsor-card:hover .logo-wrap img { filter: brightness(1.2); }
 
   .sponsor-name { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.12em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.6rem; display: block; font-weight: 700; }
-
   .sponsor-badge { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.18em; color: rgba(160,120,40,0.55); border: 1px solid rgba(160,120,40,0.2); padding: 0.2rem 0.7rem; text-transform: uppercase; margin-bottom: 1rem; }
-
   .sponsor-desc { font-size: 0.83rem; color: rgba(232,220,200,0.58); line-height: 1.75; font-weight: 300; margin-bottom: 1.4rem; flex: 1; }
-
   .sponsor-cta { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); border: 1px solid rgba(160,120,40,0.4); padding: 0.45rem 1.1rem; text-transform: uppercase; transition: background 0.3s, color 0.3s; margin-top: auto; }
   .sponsor-card:hover .sponsor-cta { background: var(--gold); color: #090C10; }
 
-  .become-sponsor { background: linear-gradient(135deg, rgba(14,30,58,0.4), rgba(14,30,58,0.15)); border: 1px dashed rgba(160,120,40,0.35); padding: 2.5rem; max-width: 560px; margin: 0 auto; }
+  .become-sponsor { background: linear-gradient(135deg, rgba(14,30,58,0.4), rgba(14,30,58,0.15)); border: 1px dashed rgba(160,120,40,0.35); padding: 2.2rem 1.6rem; max-width: 560px; margin: 0 auto; }
   .become-sponsor p { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.15em; color: rgba(160,120,40,0.6); text-transform: uppercase; margin-bottom: 1.2rem; }
-  .become-sponsor p strong { display: block; font-size: 1rem; color: var(--gold-light); margin-bottom: 0.5rem; }
+  .become-sponsor p strong { display: block; font-size: 1rem; color: var(--gold-light); margin-bottom: 0.5rem; letter-spacing: 0.1em; }
 
   /* JOIN */
   .join-section { background: linear-gradient(135deg, #060D1A, #0D1829, #060D1A); border-top: 1px solid rgba(160,120,40,0.2); text-align: center; }
-  .join-inner { max-width: 680px; margin: 0 auto; padding: 7rem 5%; }
-  .join-inner > p { color: rgba(232,220,200,0.7); font-size: 1.05rem; line-height: 1.8; margin-bottom: 3rem; font-weight: 300; }
+  .join-inner { max-width: 680px; margin: 0 auto; padding: clamp(4rem, 11vw, 7rem) 5%; }
+  .join-inner > p { color: rgba(232,220,200,0.7); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; }
   .ml-embedded { margin-top: 1rem; }
-  .social-link { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--gold-light); text-decoration: none; text-transform: uppercase; opacity: 0.8; transition: opacity 0.3s; display: inline-block; margin-top: 2rem; }
+  .social-link { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--gold-light); text-decoration: none; text-transform: uppercase; opacity: 0.85; transition: opacity 0.3s; display: inline-block; margin-top: 2rem; }
   .social-link:hover { opacity: 1; }
 
   /* FOOTER */
   footer { background: #050508; border-top: 1px solid rgba(160,120,40,0.15); padding: 4rem 5% 2rem; }
-  .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+  .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
   .footer-brand .footer-logo { font-family: 'Cinzel Decorative', serif; font-size: 1.2rem; color: var(--gold-light); margin-bottom: 0.5rem; }
   .footer-brand .footer-sub { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.3em; color: rgba(160,120,40,0.5); text-transform: uppercase; margin-bottom: 1rem; }
   .footer-brand .footer-motto { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.25em; color: var(--gold); font-style: italic; margin-bottom: 1.5rem; }
   .footer-links-col h4 { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; }
   .footer-links { display: flex; flex-direction: column; gap: 0.6rem; list-style: none; }
-  .footer-links a { font-size: 0.85rem; color: rgba(232,220,200,0.4); text-decoration: none; transition: color 0.3s; }
+  .footer-links a { font-size: 0.85rem; color: rgba(232,220,200,0.55); text-decoration: none; transition: color 0.3s; }
   .footer-links a:hover { color: var(--gold-light); }
   .footer-fb { border-top: 1px solid rgba(160,120,40,0.12); padding-top: 2.5rem; margin-bottom: 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
   .footer-fb-label { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.35em; color: rgba(160,120,40,0.5); text-transform: uppercase; }
-  .footer-copy { text-align: center; font-size: 0.72rem; color: rgba(232,220,200,0.2); line-height: 2; border-top: 1px solid rgba(160,120,40,0.08); padding-top: 1.5rem; max-width: 1100px; margin: 0 auto; }
+  .footer-copy { text-align: center; font-size: 0.72rem; color: rgba(232,220,200,0.3); line-height: 2; border-top: 1px solid rgba(160,120,40,0.08); padding-top: 1.5rem; max-width: 1100px; margin: 0 auto; }
 
   /* MESSENGER */
-  .messenger-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; width: 58px; height: 58px; border-radius: 50%; background: linear-gradient(135deg, #0084FF, #0099FF); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,132,255,0.5); cursor: pointer; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; animation: floatPulse 3s ease-in-out infinite; }
-  .messenger-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(0,132,255,0.6); }
-  .messenger-float svg { width: 30px; height: 30px; fill: white; }
+  .messenger-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 90; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #0084FF, #0099FF); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,132,255,0.5); cursor: pointer; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; animation: floatPulse 3s ease-in-out infinite; }
+  .messenger-float:hover { transform: scale(1.08); box-shadow: 0 8px 30px rgba(0,132,255,0.6); }
+  .messenger-float svg { width: 28px; height: 28px; fill: white; }
   @keyframes floatPulse { 0%,100% { box-shadow: 0 4px 20px rgba(0,132,255,0.5); } 50% { box-shadow: 0 4px 30px rgba(0,132,255,0.8), 0 0 0 8px rgba(0,132,255,0.1); } }
   .messenger-tooltip { position: absolute; right: 70px; top: 50%; transform: translateY(-50%); background: rgba(9,12,16,0.95); border: 1px solid rgba(160,120,40,0.3); color: var(--cream); font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.1em; padding: 0.4rem 0.8rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
   .messenger-float:hover .messenger-tooltip { opacity: 1; }
 
   /* REVEAL */
-  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
 
   /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
   @media (max-width: 900px) {
-    .about-grid { grid-template-columns: 1fr; }
-    .about-visual { display: none; }
-    .membership-grid { grid-template-columns: 1fr; }
-    .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
-    .fb-post-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-toggle { display: flex; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { order: -1; }
+    .about-emblem-wrap { width: 240px; height: 240px; margin: 0 auto; }
+    .about-emblem-wrap img { width: 210px; height: 210px; }
+    .ring-1 { width: 224px; height: 224px; }
+    .ring-2 { width: 240px; height: 240px; }
+    .membership-grid { grid-template-columns: 1fr; }
+    .events-grid { grid-template-columns: 1fr; }
+    .fb-post-inner { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   }
   @media (max-width: 560px) {
-    .sponsors-grid { grid-template-columns: 1fr; }
     .about-values { grid-template-columns: 1fr; }
-    .hero-cta-group { flex-direction: column; align-items: center; }
-    .anthem-quote { padding: 2rem 1rem; }
+    .hero-cta-group { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+    .hero-cta-group a { width: 100%; }
+    .anthem-quote { padding: 1.5rem 0.5rem; }
+    .anthem-quote::before { font-size: 3rem; }
+    .anthem-quote::after { font-size: 3rem; bottom: -1rem; }
+    .messenger-float { bottom: 1rem; right: 1rem; width: 52px; height: 52px; }
+    .messenger-float svg { width: 24px; height: 24px; }
+    .event-card { min-height: 0; }
+    .event-card-art { height: 180px; }
+    .stats-bar { padding: 1.6rem 5%; }
+    .footer-fb iframe { width: 100% !important; }
   }
 </style>
 </head>
 <body>
 
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <!-- MESSENGER -->
-<a class="messenger-float" href="https://www.facebook.com/messages/t/61581058374151" target="_blank" rel="noopener" aria-label="Message us on Messenger">
+<a class="messenger-float" href="https://m.me/61581058374151" target="_blank" rel="noopener" aria-label="Message us on Messenger">
   <span class="messenger-tooltip">Message Us</span>
-  <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
 </a>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Metro Sugbu International Eagles Club<br><span style="font-size:0.85em; color:var(--gold); letter-spacing:0.12em;">(CVIER-IFOE-PE)</span></a>
+  <a href="#" class="nav-logo">Metro Sugbu International Eagles Club<br><span class="nav-logo-acronym">(CVIER-IFOE-PE)</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#events">Events</a></li>
     <li><a href="#membership">Membership</a></li>
     <li><a href="#sponsors">Sponsors</a></li>
     <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="#join">Contact</a></li>
   </ul>
-  <a href="https://www.facebook.com/messages/t/61581058374151?text=Hi%21%20I%27m%20interested%20in%20joining%20Metro%20Sugbu%20International%20Eagles%20Club.%20Can%20you%20tell%20me%20more%3F target="_blank rel="noopener" class="nav-cta">Join Now</a>
+  <a href="https://m.me/61581058374151?text=Hi%21%20I%27m%20interested%20in%20joining%20Metro%20Sugbu%20International%20Eagles%20Club.%20Can%20you%20tell%20me%20more%3F" target="_blank" rel="noopener" class="nav-cta">Join Now</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="drawer-section">Explore</div>
+  <a href="#about">About Us</a>
+  <a href="#events">Upcoming Events</a>
+  <a href="#membership">Membership</a>
+  <a href="#sponsors">Sponsors</a>
+  <a href="gallery.html">Gallery</a>
+  <div class="drawer-section">Events</div>
+  <a href="basketball-tickets.html">🏀 Eagles Cup — Tickets</a>
+  <a href="basketball-sponsor.html">🏀 Eagles Cup — Sponsor</a>
+  <a href="band-show.html">🎸 Soar High Concert</a>
+  <a class="drawer-cta" href="https://m.me/61581058374151?text=Hi%21%20I%27m%20interested%20in%20joining%20Metro%20Sugbu%20International%20Eagles%20Club.%20Can%20you%20tell%20me%20more%3F" target="_blank" rel="noopener">Join the Eagles</a>
+</aside>
 
 <!-- HERO -->
 <section class="hero">
@@ -275,9 +379,10 @@
   <div class="hero-divider"></div>
   <p class="hero-tagline">A brotherhood rooted in <em>equality, unity, and humanity</em>.<br>Soaring together for a better Philippines and a stronger community.</p>
   <div class="hero-cta-group">
-    <a href="#join" class="btn-primary">Become an Eagle</a>
-    <a href="#sponsors" class="btn-secondary">Our Sponsors</a>
+    <a href="#events" class="btn-primary">See What's Coming</a>
+    <a href="#about" class="btn-secondary">Meet the Eagles</a>
   </div>
+  <div class="hero-scroll-hint">Scroll</div>
 </section>
 
 <!-- STATS -->
@@ -291,7 +396,7 @@
 </div>
 
 <!-- MOTTO -->
-<div class="motto-band">
+<div class="motto-band" aria-hidden="true">
   <span class="motto-band-text">DEO ET PATRIA &nbsp;·&nbsp; EQUALITY &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; HUMANITY &nbsp;·&nbsp; DEO ET PATRIA &nbsp;·&nbsp; EQUALITY &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; HUMANITY &nbsp;·&nbsp; DEO ET PATRIA &nbsp;·&nbsp; EQUALITY &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; HUMANITY</span>
 </div>
 
@@ -307,13 +412,13 @@
         <p>We are a community of men and women bound by a shared commitment to <strong>service, brotherhood, and the upliftment of our society</strong>. Based in the heart of Cebu, we bring together professionals, leaders, and passionate individuals who believe in making a difference.</p>
         <p>Our motto — <strong>"Deo et Patria"</strong> (God and Country) — is not just words. It is the way we live, lead, and love.</p>
         <div class="about-values">
-          <div class="value-card"><span class="value-icon">🦅</span><h4>Brotherhood</h4><p>A bond beyond friendship — a lifelong fraternity of mutual respect and support.</p></div>
-          <div class="value-card"><span class="value-icon">⚖️</span><h4>Equality</h4><p>Every Eagle is equal. We rise together, leaving no one behind.</p></div>
-          <div class="value-card"><span class="value-icon">🤝</span><h4>Community</h4><p>We serve the people of Cebu through outreach, advocacy, and action.</p></div>
-          <div class="value-card"><span class="value-icon">🌏</span><h4>Humanity</h4><p>We share our lives in service to others, inspired by our Eagles Hymn.</p></div>
+          <div class="value-card"><span class="value-icon" aria-hidden="true">🦅</span><h4>Brotherhood</h4><p>A bond beyond friendship — a lifelong fraternity of mutual respect and support.</p></div>
+          <div class="value-card"><span class="value-icon" aria-hidden="true">⚖️</span><h4>Equality</h4><p>Every Eagle is equal. We rise together, leaving no one behind.</p></div>
+          <div class="value-card"><span class="value-icon" aria-hidden="true">🤝</span><h4>Community</h4><p>We serve the people of Cebu through outreach, advocacy, and action.</p></div>
+          <div class="value-card"><span class="value-icon" aria-hidden="true">🌏</span><h4>Humanity</h4><p>We share our lives in service to others, inspired by our Eagles Hymn.</p></div>
         </div>
       </div>
-      <div class="about-visual">
+      <div class="about-visual reveal">
         <div class="about-emblem-wrap">
           <div class="ring ring-1"></div>
           <div class="ring ring-2"></div>
@@ -335,7 +440,65 @@
       For Eagles, <span>the Philippine Eagles.</span></em>
     </div>
     <div style="max-width:720px; margin:2.5rem auto 0; border:1px solid rgba(160,120,40,0.3); overflow:hidden; aspect-ratio:16/9;">
-      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8O_1iF50fWc?rel=0&showinfo=0" title="Soar High — MSIEC Official Hymn" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8O_1iF50fWc?rel=0&showinfo=0" title="Soar High — MSIEC Official Hymn" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EVENTS ===== -->
+<section id="events" class="events-section">
+  <div class="section-inner" style="position:relative;">
+    <div style="text-align:center;">
+      <div class="section-label reveal">Upcoming Events</div>
+      <h2 class="section-title reveal">Where the Eagles <span>Show Up</span></h2>
+      <div class="gold-line reveal" style="margin:0 auto 1rem;"></div>
+      <p class="reveal" style="max-width:600px; margin:0 auto 0; color:rgba(232,220,200,0.7); font-size:1rem; line-height:1.8; font-weight:300;">Two events. One mission. Whether you're chasing the buzzer or singing along — every ticket, every sponsorship, every cheer goes back into the community we serve.</p>
+    </div>
+
+    <div class="events-grid">
+
+      <!-- BASKETBALL EVENT -->
+      <article class="event-card reveal">
+        <div class="event-card-art">
+          <div class="event-card-art-bg" style="background-image: linear-gradient(135deg, rgba(14,30,58,0.6), rgba(160,120,40,0.3)), url('https://images.pexels.com/photos/2304484/pexels-photo-2304484.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+          <span class="event-card-tag">Basketball · 2026</span>
+        </div>
+        <div class="event-card-body">
+          <h3>Eagles Invitational <span>Cup</span></h3>
+          <div class="event-meta">
+            <span class="event-meta-pill">Cebu City</span>
+            <span class="event-meta-pill">16 Teams</span>
+            <span class="event-meta-pill">Open League</span>
+          </div>
+          <p>Cebu's hardcourt brotherhood, hosted by the Eagles. Sixteen teams, one trophy, three weekends of basketball — and every peso raised goes back to community outreach. Bring your team, bring your brand, or bring your seatmates.</p>
+          <div class="event-card-actions">
+            <a href="basketball-tickets.html" class="btn-primary">Get Tickets</a>
+            <a href="basketball-sponsor.html" class="btn-secondary">Sponsor It</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BAND SHOW EVENT -->
+      <article class="event-card reveal">
+        <div class="event-card-art">
+          <div class="event-card-art-bg" style="background-image: linear-gradient(135deg, rgba(14,30,58,0.55), rgba(160,120,40,0.25)), url('https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+          <span class="event-card-tag">Concert · For a Cause</span>
+        </div>
+        <div class="event-card-body">
+          <h3>Soar High: <span>A Concert for a Cause</span></h3>
+          <div class="event-meta">
+            <span class="event-meta-pill">Live Music</span>
+            <span class="event-meta-pill">All Ages</span>
+            <span class="event-meta-pill">100% to Charity</span>
+          </div>
+          <p>One stage. Many bands. Every peso for the cause. The Eagles bring Cebu's musicians together for a night of sound that means something — feed the room, feed the mission. Come watch. Come play.</p>
+          <div class="event-card-actions">
+            <a href="band-show.html" class="btn-primary">Reserve Seats</a>
+            <a href="band-show.html#perform" class="btn-secondary">Apply to Play</a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -352,7 +515,7 @@
       <a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener" class="btn-secondary" style="margin-top:1rem;">Follow Our Page ↗</a>
     </div>
     <div class="fb-post-embed reveal">
-      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0QMAa2t78FKfAj3MD6myXjbeYFgwbrySRfYLDEnJz3KxQXbePsdvCg5PkKt8x99Ail%26id%3D61581058374151&show_text=true&width=500" width="500" height="500" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0QMAa2t78FKfAj3MD6myXjbeYFgwbrySRfYLDEnJz3KxQXbePsdvCg5PkKt8x99Ail%26id%3D61581058374151&show_text=true&width=500" width="500" height="500" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -368,9 +531,9 @@
       <div class="membership-card reveal"><div class="card-num">02</div><h3>Community Impact</h3><p>Be part of events, outreach programs, and advocacy campaigns that directly uplift the lives of people in Metro Cebu and beyond.</p></div>
       <div class="membership-card reveal"><div class="card-num">03</div><h3>Global Recognition</h3><p>As a member of the IFOE, you join a worldwide fraternity recognized across multiple countries — your Eagle wings know no borders.</p></div>
     </div>
-    <div style="text-align:center; margin-top:3.5rem;" class="reveal">
-  <a href="https://www.facebook.com/messages/t/61581058374151?text=Hi%21%20I%27m%20interested%20in%20becoming%20a%20member%20of%20Metro%20Sugbu%20Eagles.%20Can%20you%20tell%20me%20more%3F" target="_blank" rel="noopener" class="btn-primary">Apply via Messenger ↗</a>
-</div>
+    <div style="text-align:center; margin-top:3rem;" class="reveal">
+      <a href="https://m.me/61581058374151?text=Hi%21%20I%27m%20interested%20in%20becoming%20a%20member%20of%20Metro%20Sugbu%20Eagles.%20Can%20you%20tell%20me%20more%3F" target="_blank" rel="noopener" class="btn-primary">Apply via Messenger ↗</a>
+    </div>
   </div>
 </section>
 
@@ -386,7 +549,7 @@
 
       <!-- 10. Gaia Studios -->
       <a class="sponsor-card reveal" href="https://gaiastudio.ph" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="GAIA STUDIOS.png" alt="Gaia Studios"></div>
+        <div class="logo-wrap"><img src="GAIA STUDIOS.png" alt="Gaia Studios" loading="lazy"></div>
         <span class="sponsor-badge">Furniture &amp; Craftsmanship</span>
         <span class="sponsor-name">Gaia Studios</span>
         <p class="sponsor-desc">100% solid mahogany furniture, handcrafted in the Philippines. Gaia Studios creates heirloom-quality pieces built to last a lifetime — timeless in design, uncompromising in wood quality, and proudly made by Filipino craftsmen who let the grain tell the story.</p>
@@ -396,17 +559,17 @@
       <!-- 11. PainFree Global / Patient Bed -->
       <a class="sponsor-card reveal" href="https://painfree-global.com/" target="_blank" rel="noopener">
         <div class="logo-wrap" style="height:120px;">
-          <img src="patient-bed.JPG" alt="PainFree Global – PEMF Therapy" style="max-width:100%; max-height:120px; width:auto; height:auto; object-fit:contain;">
+          <img src="patient-bed.JPG" alt="PainFree Global – PEMF Therapy" style="max-width:100%; max-height:120px; width:auto; height:auto; object-fit:contain;" loading="lazy">
         </div>
         <span class="sponsor-badge">Pain Therapy Technology</span>
         <span class="sponsor-name">PainFree Global — PEMF Therapy</span>
         <p class="sponsor-desc">PEMF (Pulsed Electromagnetic Field) therapy — the gold standard in non-invasive chronic pain treatment, now available in the Philippines. PainFree Global sells these clinical-grade FDA approved medical device to smart entrepreneurs and private clinics who want to be among the first in the country to offer this breakthrough technology to their patients.</p>
         <span class="sponsor-cta">Discover PainFree ↗</span>
       </a>
-      
+
       <!-- 1. Roble Shipping -->
       <a class="sponsor-card reveal" href="https://www.robleshipping.com" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="Roble.png" alt="Roble Shipping Inc."></div>
+        <div class="logo-wrap"><img src="Roble.png" alt="Roble Shipping Inc." loading="lazy"></div>
         <span class="sponsor-name">Roble Shipping Inc.</span>
         <span class="sponsor-badge">Shipping &amp; Maritime</span>
         <p class="sponsor-desc">Founded in 1985 by a Cebuano entrepreneur, Roble Shipping connects the Visayas, Mindanao, and beyond with a fleet of 21 vessels. For four decades, they've been moving people and cargo across the Philippine seas with reliability and Cebuano pride.</p>
@@ -415,7 +578,7 @@
 
       <!-- 2. Lucira -->
       <a class="sponsor-card reveal" href="https://lucira.ph/" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="Lucira.png" alt="Lucira Renewable Ventures"></div>
+        <div class="logo-wrap"><img src="Lucira.png" alt="Lucira Renewable Ventures" loading="lazy"></div>
         <span class="sponsor-name">Lucira Renewable Ventures</span>
         <span class="sponsor-badge">Solar Energy</span>
         <p class="sponsor-desc">Switch to solar with no upfront cost. Lucira's Power Purchase Agreement helps Filipino homes and businesses slash their electricity bills by up to 50% — making clean, renewable energy simple and accessible for everyone.</p>
@@ -424,7 +587,7 @@
 
       <!-- 3. AppleOne -->
       <a class="sponsor-card reveal" href="https://www.appleone.com.ph/" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="apple%20one.png" alt="AppleOne Properties"></div>
+        <div class="logo-wrap"><img src="apple%20one.png" alt="AppleOne Properties" loading="lazy"></div>
         <span class="sponsor-name">AppleOne Properties</span>
         <span class="sponsor-badge">Real Estate</span>
         <p class="sponsor-desc">AppleOne Properties is one of Cebu's trusted real estate developers, creating residential and commercial spaces that Cebuanos are proud to call home. Building communities with quality and vision at their core.</p>
@@ -433,7 +596,7 @@
 
       <!-- 4. Lilah Beauty -->
       <a class="sponsor-card reveal" href="https://www.facebook.com/p/Lilah-Beauty-Salon-Spa-61576344771732/" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="lilah%20beauty%20salo%20%26%20spa.jpg" alt="Lilah Beauty Salon & Spa"></div>
+        <div class="logo-wrap"><img src="lilah%20beauty%20salo%20%26%20spa.jpg" alt="Lilah Beauty Salon & Spa" loading="lazy"></div>
         <span class="sponsor-name">Lilah Beauty Salon &amp; Spa</span>
         <span class="sponsor-badge">Beauty &amp; Wellness</span>
         <p class="sponsor-desc">Your Cebu sanctuary for beauty and self-care. Lilah offers professional hair, nail, and spa treatments delivered with a warm Filipino touch — because looking and feeling your best is something you deserve every single day.</p>
@@ -442,7 +605,7 @@
 
       <!-- 5. Vionz -->
       <a class="sponsor-card reveal" href="https://www.facebook.com/vionzph/" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="Vionz.jpg" alt="Vionz"></div>
+        <div class="logo-wrap"><img src="Vionz.jpg" alt="Vionz" loading="lazy"></div>
         <span class="sponsor-name">Vionz</span>
         <span class="sponsor-badge">Cebu Local Brand</span>
         <p class="sponsor-desc">Vionz is a homegrown Cebu brand building a loyal community one customer at a time. Follow them on Facebook to discover their latest offerings and be part of a brand with genuine roots in the Queen City of the South.</p>
@@ -451,7 +614,7 @@
 
       <!-- 6. Tanduay -->
       <a class="sponsor-card reveal" href="https://www.tanduay.com/" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="Tanduay_logo.webp" alt="Tanduay Rhum"></div>
+        <div class="logo-wrap"><img src="Tanduay_logo.webp" alt="Tanduay Rhum" loading="lazy"></div>
         <span class="sponsor-name">Tanduay — The No. 1 Rhum</span>
         <span class="sponsor-badge">Beverages</span>
         <p class="sponsor-desc">Tanduay is the world's best-selling rum — a title earned by generations of Filipinos. Crafted from Philippine sugarcane since 1854, Tanduay is the spirit of celebration, camaraderie, and unapologetic Filipino pride.</p>
@@ -460,7 +623,7 @@
 
       <!-- 7. La Reina -->
       <a class="sponsor-card reveal" href="https://www.facebook.com/groups/2044061439240660/" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="lareina.png" alt="La Reina Security Agency"></div>
+        <div class="logo-wrap"><img src="lareina.png" alt="La Reina Security Agency" loading="lazy"></div>
         <span class="sponsor-name">La Reina Security Agency</span>
         <span class="sponsor-badge">Security Services</span>
         <p class="sponsor-desc">La Reina Security Agency provides professional security solutions across Cebu — protecting businesses, events, and communities with trained, dedicated personnel who take safety as seriously as you do.</p>
@@ -469,7 +632,7 @@
 
       <!-- 8. Smart Sync -->
       <a class="sponsor-card reveal" href="http://smartsyncservices.com/" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="smartsync.jpg" alt="Smart Sync Services"></div>
+        <div class="logo-wrap"><img src="smartsync.jpg" alt="Smart Sync Services" loading="lazy"></div>
         <span class="sponsor-name">Smart Sync Services</span>
         <span class="sponsor-badge">IT &amp; Business Solutions</span>
         <p class="sponsor-desc">Smart Sync Services helps Cebu organizations run smarter through technology and business process solutions. From IT support to operations management, they're the reliable partner keeping businesses running at their best.</p>
@@ -478,7 +641,7 @@
 
       <!-- 9. InLife -->
       <a class="sponsor-card reveal" href="https://www.inlife.com.ph/" target="_blank" rel="noopener">
-        <div class="logo-wrap"><img src="inlife.jpg" alt="InLife – Insular Life"></div>
+        <div class="logo-wrap"><img src="inlife.jpg" alt="InLife – Insular Life" loading="lazy"></div>
         <span class="sponsor-name">InLife – Insular Life</span>
         <span class="sponsor-badge">Life Insurance</span>
         <p class="sponsor-desc">The Philippines' first and largest Filipino life insurance company, trusted since 1910. As the country's only mutual insurer owned by its own policyholders, InLife has one mission: protecting Filipino families and helping them build a secure future.</p>
@@ -488,9 +651,9 @@
     </div>
 
     <div class="become-sponsor reveal">
-  <p><strong>Want your brand here?</strong>Get your business in front of our growing Eagles community and align your brand with brotherhood, service, and Cebuano pride.</p>
-  <a href="https://www.facebook.com/messages/t/61581058374151?text=Hi%21%20I%27m%20interested%20in%20becoming%20a%20sponsor%20for%20Metro%20Sugbu%20Eagles.%20Can%20you%20tell%20me%20more%3F" target="_blank" rel="noopener" class="btn-primary">Inquire via Messenger ↗</a>
-</div>
+      <p><strong>Want your brand here?</strong>Get your business in front of our growing Eagles community and align your brand with brotherhood, service, and Cebuano pride.</p>
+      <a href="https://m.me/61581058374151?text=Hi%21%20I%27m%20interested%20in%20becoming%20a%20sponsor%20for%20Metro%20Sugbu%20Eagles.%20Can%20you%20tell%20me%20more%3F" target="_blank" rel="noopener" class="btn-primary">Inquire via Messenger ↗</a>
+    </div>
   </div>
 </section>
 
@@ -519,31 +682,75 @@
       <h4>Navigation</h4>
       <ul class="footer-links">
         <li><a href="#about">About Us</a></li>
+        <li><a href="#events">Events</a></li>
         <li><a href="#membership">Membership</a></li>
         <li><a href="#sponsors">Our Sponsors</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="#join">Newsletter</a></li>
       </ul>
     </div>
+    <div class="footer-links-col">
+      <h4>Events</h4>
+      <ul class="footer-links">
+        <li><a href="basketball-tickets.html">Eagles Cup — Tickets</a></li>
+        <li><a href="basketball-sponsor.html">Eagles Cup — Sponsor</a></li>
+        <li><a href="band-show.html">Soar High Concert — Tickets</a></li>
+        <li><a href="band-show.html#perform">Soar High Concert — Apply to Play</a></li>
+      </ul>
+    </div>
   </div>
   <div class="footer-fb">
     <div class="footer-fb-label">Latest From Our Facebook Page</div>
-    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61581058374151&tabs=timeline&width=500&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" width="500" height="400" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61581058374151&tabs=timeline&width=500&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" width="500" height="400" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
   </div>
   <div class="footer-copy">
     © 2025 Metro Sugbu International Eagles Club · A Chapter of IFOE Philippines<br>
-    <span style="color:rgba(160,120,40,0.3); font-size:0.65rem;">Equality · Unity · Humanity · Deo et Patria</span>
+    <span style="color:rgba(160,120,40,0.4); font-size:0.65rem;">Equality · Unity · Humanity · Deo et Patria</span>
   </div>
 </footer>
 
 <script>
+  // SCROLL REVEAL
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
-      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  // SCROLL PROGRESS
+  const progress = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    progress.style.width = scrolled + '%';
+  }, { passive: true });
+
+  // MOBILE DRAWER
+  const navToggle = document.getElementById('navToggle');
+  const drawer = document.getElementById('mobileDrawer');
+  const overlay = document.getElementById('drawerOverlay');
+  const body = document.body;
+
+  function setDrawer(open) {
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    drawer.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    body.classList.toggle('no-scroll', open);
+  }
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+    setDrawer(!isOpen);
+  });
+  overlay.addEventListener('click', () => setDrawer(false));
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setDrawer(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setDrawer(false); });
 </script>
 </body>
 </html>
