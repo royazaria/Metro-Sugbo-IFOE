@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json.schemastore.org/wrangler.json",
+  "name": "metro-sugbo",
+  "compatibility_date": "2026-05-08",
+  "assets": {
+    "directory": "./"
+  }
+}
