@@ -6,7 +6,7 @@
     "directory": "./"
   },
   "routes": [
-    { "pattern": "metrosugbu.com/*", "custom_domain": true },
-    { "pattern": "www.metrosugbu.com/*", "custom_domain": true }
+    { "pattern": "metrosugbu.com", "custom_domain": true },
+    { "pattern": "www.metrosugbu.com", "custom_domain": true }
   ]
 }
