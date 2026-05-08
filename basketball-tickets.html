@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#090C10">
+<meta name="description" content="Get tickets for the Eagles Invitational Cup — Cebu's hardcourt tournament hosted by Metro Sugbu Eagles. General admission, VIP, and courtside seats. Three weekends of basketball, all proceeds to community outreach.">
+<title>Get Tickets — Eagles Cup | Metro Sugbu Eagles</title>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #A07828;
+    --gold-light: #C9A84C;
+    --gold-pale: #E8D5A3;
+    --navy: #0E1E3A;
+    --court: #B8541A;
+    --dark: #090C10;
+    --dark-mid: #0D1219;
+    --cream: #E8DCC8;
+    --white: #F5F0E8;
+    --nav-h: 68px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { background: var(--dark); color: var(--cream); font-family: 'Lato', sans-serif; overflow-x: hidden; line-height: 1.5; }
+  body.no-scroll { overflow: hidden; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background: radial-gradient(ellipse at 20% 20%, rgba(14,30,58,0.5) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(184,84,26,0.05) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+  img { max-width: 100%; display: block; }
+  a, button { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.9rem clamp(1rem, 5%, 5%); background: rgba(9,12,16,0.92);
+    border-bottom: 1px solid rgba(160,120,40,0.25); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    min-height: var(--nav-h);
+  }
+  .nav-logo { font-family: 'Cinzel', serif; font-size: clamp(0.55rem, 1.2vw, 0.72rem); font-weight: 700; color: var(--gold-light); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; line-height: 1.4; max-width: 320px; }
+  .nav-logo .nav-logo-acronym { font-size: 0.85em; color: var(--gold); letter-spacing: 0.12em; }
+  .nav-links { display: flex; gap: 1.6rem; list-style: none; align-items: center; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.12em; color: var(--cream); text-decoration: none; text-transform: uppercase; transition: color 0.3s; padding: 0.4rem 0; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--gold-light); transform: scaleX(0); transition: transform 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-cta { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--dark); background: linear-gradient(135deg, var(--gold-light), var(--gold)); padding: 0.6rem 1.4rem; cursor: pointer; text-transform: uppercase; font-weight: 700; transition: opacity 0.3s, transform 0.2s; text-decoration: none; flex-shrink: 0; }
+  .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+  .nav-toggle { display: none; background: transparent; border: 1px solid rgba(160,120,40,0.3); width: 42px; height: 42px; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; flex-shrink: 0; transition: border-color 0.3s; }
+  .nav-toggle:hover { border-color: var(--gold); }
+  .nav-toggle span { display: block; width: 18px; height: 2px; background: var(--gold-light); transition: transform 0.3s, opacity 0.3s; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE DRAWER */
+  .mobile-drawer {
+    position: fixed; top: var(--nav-h); right: 0; bottom: 0; width: min(85%, 340px);
+    background: linear-gradient(180deg, rgba(9,12,16,0.98), rgba(13,24,41,0.98));
+    border-left: 1px solid rgba(160,120,40,0.3);
+    transform: translateX(100%); transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+    z-index: 99; padding: 2rem 1.6rem; overflow-y: auto;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .mobile-drawer.open { transform: translateX(0); }
+  .mobile-drawer a { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.18em; color: var(--cream); text-decoration: none; text-transform: uppercase; padding: 1rem 0.4rem; border-bottom: 1px solid rgba(160,120,40,0.12); transition: color 0.2s, padding 0.2s; }
+  .mobile-drawer a:hover { color: var(--gold-light); padding-left: 0.8rem; }
+  .mobile-drawer a.active { color: var(--gold-light); }
+  .mobile-drawer .drawer-cta { background: linear-gradient(135deg, var(--gold-light), var(--gold)); color: var(--dark); font-weight: 700; text-align: center; margin-top: 1rem; padding: 1rem; border: none; }
+  .mobile-drawer .drawer-section { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.4em; color: rgba(160,120,40,0.55); text-transform: uppercase; padding: 1.5rem 0.4rem 0.4rem; }
+  .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 98; backdrop-filter: blur(2px); }
+  .drawer-overlay.open { opacity: 1; pointer-events: all; }
+
+  /* HERO */
+  .event-hero { position: relative; min-height: 86vh; min-height: 86svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: calc(var(--nav-h) + 4rem) 5% 5rem; overflow: hidden; }
+  .event-hero-bg { position: absolute; inset: 0; background-image: linear-gradient(135deg, rgba(9,12,16,0.85), rgba(184,84,26,0.25), rgba(14,30,58,0.85)), url('https://images.pexels.com/photos/2304484/pexels-photo-2304484.jpeg?auto=compress&cs=tinysrgb&w=1600'); background-size: cover; background-position: center; }
+  .event-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, var(--dark) 95%); }
+  .event-hero-content { position: relative; z-index: 2; max-width: 880px; }
+  .event-back { position: absolute; top: calc(var(--nav-h) + 1rem); left: 5%; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: rgba(232,220,200,0.7); text-decoration: none; text-transform: uppercase; transition: color 0.3s; z-index: 3; }
+  .event-back:hover { color: var(--gold-light); }
+  .event-back::before { content: '←'; margin-right: 0.4em; }
+  .event-eyebrow { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.45em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 1.4rem; opacity: 0; animation: fadeUp 0.7s 0.2s forwards; }
+  .event-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(2.2rem, 7vw, 5.2rem); font-weight: 900; line-height: 1.05; color: var(--white); margin-bottom: 1rem; opacity: 0; animation: fadeUp 0.7s 0.4s forwards; }
+  .event-title span { background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-pale)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .event-tagline { font-family: 'Cinzel', serif; font-size: clamp(0.95rem, 1.8vw, 1.2rem); letter-spacing: 0.18em; color: var(--gold-pale); text-transform: uppercase; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.7s 0.6s forwards; line-height: 1.6; }
+  .event-meta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.7s 0.8s forwards; }
+  .event-meta-row .pill { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.22em; color: var(--gold-light); text-transform: uppercase; border: 1px solid rgba(160,120,40,0.4); padding: 0.5rem 1rem; background: rgba(9,12,16,0.5); backdrop-filter: blur(6px); }
+  .event-cta-row { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s 1s forwards; }
+
+  /* COUNTDOWN */
+  .countdown-strip { background: linear-gradient(135deg, #0A1020, #060D1A, #0A1020); border-bottom: 1px solid rgba(160,120,40,0.25); padding: 1.6rem 5%; }
+  .countdown-grid { max-width: 760px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .countdown-cell { text-align: center; }
+  .countdown-num { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; background: linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 0.4rem; }
+  .countdown-label { font-family: 'Cinzel', serif; font-size: clamp(0.55rem, 1vw, 0.65rem); letter-spacing: 0.3em; color: rgba(232,220,200,0.5); text-transform: uppercase; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* BUTTONS */
+  .btn-primary { font-family: 'Cinzel', serif; font-size: clamp(0.72rem, 1.3vw, 0.78rem); letter-spacing: 0.18em; color: var(--dark); background: linear-gradient(135deg, var(--gold-light), var(--gold)); border: none; padding: 1rem 2rem; cursor: pointer; text-transform: uppercase; font-weight: 700; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); white-space: nowrap; text-align: center; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(160,120,40,0.4); }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+  .btn-secondary { font-family: 'Cinzel', serif; font-size: clamp(0.72rem, 1.3vw, 0.78rem); letter-spacing: 0.18em; color: var(--gold-light); background: transparent; border: 1px solid var(--gold); padding: 1rem 2rem; cursor: pointer; text-transform: uppercase; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s, color 0.3s; white-space: nowrap; text-align: center; }
+  .btn-secondary:hover { background: rgba(160,120,40,0.1); color: var(--white); }
+
+  /* SECTIONS */
+  section { position: relative; z-index: 1; }
+  .section-inner { max-width: 1200px; margin: 0 auto; padding: clamp(3.5rem, 8vw, 6rem) 5%; }
+  .section-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.45em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+  .section-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.7rem, 4vw, 3rem); font-weight: 700; color: var(--white); margin-bottom: 1.2rem; line-height: 1.2; }
+  .section-title span { color: var(--gold-light); }
+  .gold-line { width: 80px; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin-bottom: 2rem; }
+
+  /* TICKET TYPES */
+  .tickets-section { background: linear-gradient(180deg, var(--dark), #060B14); border-bottom: 1px solid rgba(160,120,40,0.15); }
+  .ticket-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; align-items: stretch; }
+  .ticket-card { position: relative; background: linear-gradient(160deg, #0E1829, #060B14); border: 1px solid rgba(160,120,40,0.25); padding: 2rem 1.6rem; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; overflow: hidden; }
+  .ticket-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--ticket-color, var(--gold)); transform: scaleX(0.4); transition: transform 0.4s; transform-origin: left; }
+  .ticket-card:hover { border-color: var(--ticket-color, var(--gold)); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+  .ticket-card:hover::before { transform: scaleX(1); }
+  .ticket-card.featured { border-color: var(--ticket-color); box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.25); }
+  .ticket-card.featured::before { transform: scaleX(1); }
+  .ticket-flag { position: absolute; top: 1rem; right: 1rem; font-family: 'Cinzel', serif; font-size: 0.5rem; letter-spacing: 0.25em; color: var(--dark); background: var(--ticket-color, var(--gold)); padding: 0.25rem 0.6rem; text-transform: uppercase; font-weight: 700; }
+  .ticket-name-wrap { display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .ticket-name { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.4rem, 2.4vw, 1.7rem); color: var(--white); font-weight: 700; line-height: 1.1; }
+  .ticket-badge { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.3em; color: var(--ticket-color, var(--gold-light)); text-transform: uppercase; font-weight: 700; }
+  .ticket-price-row { display: flex; align-items: baseline; gap: 0.6rem; margin-top: 0.6rem; margin-bottom: 0.2rem; }
+  .ticket-price { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--gold-pale); font-weight: 700; }
+  .ticket-price .ticket-price-currency { font-size: 0.65em; color: var(--gold); margin-right: 0.2em; }
+  .ticket-price-old { font-family: 'Lato', sans-serif; font-size: 0.95rem; color: rgba(232,220,200,0.4); text-decoration: line-through; }
+  .ticket-price-note { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.2em; color: rgba(232,220,200,0.4); text-transform: uppercase; margin-bottom: 1.2rem; }
+  .ticket-divider { height: 1px; background: linear-gradient(90deg, var(--ticket-color, rgba(160,120,40,0.4)), transparent); margin-bottom: 1.2rem; }
+  .ticket-perks { list-style: none; margin-bottom: 1.4rem; flex: 1; }
+  .ticket-perks li { font-size: 0.85rem; color: rgba(232,220,200,0.72); line-height: 1.6; margin-bottom: 0.6rem; padding-left: 1.4rem; position: relative; }
+  .ticket-perks li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--ticket-color, var(--gold)); font-weight: 700; font-family: 'Cinzel', serif; }
+  .ticket-perks li.muted { color: rgba(232,220,200,0.35); text-decoration: line-through; }
+  .ticket-perks li.muted::before { content: '✕'; color: rgba(232,220,200,0.3); }
+
+  /* QTY SELECTOR */
+  .qty-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-bottom: 1rem; padding: 0.6rem 0.8rem; background: rgba(9,12,16,0.5); border: 1px solid rgba(160,120,40,0.18); }
+  .qty-label { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold-light); text-transform: uppercase; }
+  .qty-controls { display: flex; align-items: center; gap: 0.5rem; }
+  .qty-btn { width: 30px; height: 30px; background: transparent; border: 1px solid rgba(160,120,40,0.4); color: var(--gold-light); font-size: 1.1rem; cursor: pointer; line-height: 1; transition: background 0.2s; font-family: 'Cinzel', serif; display: flex; align-items: center; justify-content: center; }
+  .qty-btn:hover:not(:disabled) { background: rgba(160,120,40,0.15); }
+  .qty-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .qty-display { font-family: 'Cinzel', serif; min-width: 28px; text-align: center; color: var(--white); font-weight: 700; font-size: 0.95rem; }
+
+  .ticket-cta { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--dark); background: var(--ticket-color, var(--gold-light)); padding: 0.95rem 1.2rem; cursor: pointer; text-transform: uppercase; font-weight: 700; text-decoration: none; text-align: center; display: block; transition: opacity 0.3s, transform 0.2s; border: none; width: 100%; }
+  .ticket-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* COLORS */
+  .ticket-card.ga { --ticket-color: #C9A84C; }
+  .ticket-card.vip { --ticket-color: #E8D5A3; }
+  .ticket-card.courtside { --ticket-color: #B8541A; }
+
+  /* CART */
+  .cart-bar { position: sticky; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, rgba(9,12,16,0.98), rgba(9,12,16,1)); border-top: 1px solid rgba(160,120,40,0.4); padding: 1rem 5%; z-index: 50; transform: translateY(100%); transition: transform 0.4s cubic-bezier(.2,.8,.2,1); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; backdrop-filter: blur(10px); }
+  .cart-bar.visible { transform: translateY(0); }
+  .cart-summary { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; flex: 1; min-width: 0; }
+  .cart-count { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.18em; color: rgba(232,220,200,0.7); text-transform: uppercase; }
+  .cart-count strong { color: var(--gold-light); font-weight: 700; }
+  .cart-total { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--white); font-weight: 700; }
+  .cart-total span { color: var(--gold-light); }
+
+  /* SCHEDULE */
+  .schedule-section { background: var(--dark-mid); border-top: 1px solid rgba(160,120,40,0.15); border-bottom: 1px solid rgba(160,120,40,0.15); }
+  .schedule-list { max-width: 800px; margin: 3rem auto 0; }
+  .schedule-row { display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem; align-items: center; padding: 1.4rem 0; border-bottom: 1px solid rgba(160,120,40,0.15); transition: padding 0.3s; }
+  .schedule-row:hover { padding-left: 0.6rem; }
+  .schedule-row:last-child { border-bottom: none; }
+  .schedule-date { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--gold-light); font-weight: 700; line-height: 1; }
+  .schedule-date small { display: block; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.3em; color: rgba(160,120,40,0.6); text-transform: uppercase; margin-top: 0.3rem; }
+  .schedule-info h4 { font-family: 'Cinzel', serif; font-size: 0.95rem; color: var(--white); margin-bottom: 0.3rem; letter-spacing: 0.05em; }
+  .schedule-info p { font-size: 0.84rem; color: rgba(232,220,200,0.6); font-weight: 300; }
+  .schedule-tag { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; border: 1px solid rgba(160,120,40,0.3); padding: 0.35rem 0.8rem; }
+
+  /* INFO STRIP */
+  .info-section { background: linear-gradient(180deg, var(--dark), #060B14); }
+  .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; }
+  .info-card { background: linear-gradient(160deg, rgba(14,30,58,0.5), rgba(8,14,24,0.7)); border: 1px solid rgba(160,120,40,0.2); padding: 1.8rem 1.4rem; transition: border-color 0.3s, transform 0.3s; }
+  .info-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .info-icon { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+  .info-card h4 { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.15em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.6rem; }
+  .info-card p { font-size: 0.88rem; color: rgba(232,220,200,0.7); line-height: 1.7; font-weight: 300; }
+
+  /* FAQ */
+  .faq-section { background: var(--dark); border-top: 1px solid rgba(160,120,40,0.15); }
+  .faq-list { max-width: 760px; margin: 2.5rem auto 0; }
+  .faq-item { border-bottom: 1px solid rgba(160,120,40,0.18); }
+  .faq-item summary { padding: 1.2rem 0; font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.06em; color: var(--gold-light); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: color 0.3s; }
+  .faq-item summary:hover { color: var(--white); }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--gold); transition: transform 0.3s; flex-shrink: 0; }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { padding: 0 0 1.4rem; color: rgba(232,220,200,0.7); line-height: 1.8; font-size: 0.95rem; font-weight: 300; }
+
+  /* CHECKOUT MODAL */
+  .modal-bg { position: fixed; inset: 0; background: rgba(5,5,8,0.85); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; padding: 1rem; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .modal-bg.open { opacity: 1; pointer-events: all; }
+  .modal { width: 100%; max-width: 540px; max-height: 90vh; overflow-y: auto; background: linear-gradient(160deg, #0E1829, #060B14); border: 1px solid rgba(160,120,40,0.4); padding: clamp(1.6rem, 4vw, 2.4rem); transform: scale(0.96); transition: transform 0.3s; position: relative; }
+  .modal-bg.open .modal { transform: scale(1); }
+  .modal-close { position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px; background: rgba(9,12,16,0.6); border: 1px solid rgba(160,120,40,0.3); color: var(--gold); cursor: pointer; font-family: 'Cinzel', serif; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+  .modal-close:hover { background: rgba(160,120,40,0.2); color: var(--white); }
+  .modal h3 { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.3rem, 2.5vw, 1.6rem); color: var(--white); margin-bottom: 0.4rem; }
+  .modal h3 span { color: var(--gold-light); }
+  .modal-eyebrow { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.6rem; }
+  .modal-summary { background: rgba(9,12,16,0.5); border: 1px solid rgba(160,120,40,0.2); padding: 1rem 1.2rem; margin: 1.2rem 0; }
+  .modal-summary-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.4rem 0; font-size: 0.9rem; }
+  .modal-summary-row:not(:last-child) { border-bottom: 1px solid rgba(160,120,40,0.1); }
+  .modal-summary-row .name { color: rgba(232,220,200,0.8); }
+  .modal-summary-row .qty { color: rgba(160,120,40,0.7); font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.15em; padding: 0 0.6rem; }
+  .modal-summary-row .price { color: var(--gold-light); font-family: 'Cinzel', serif; font-weight: 700; }
+  .modal-summary-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 0.7rem; margin-top: 0.5rem; border-top: 2px solid var(--gold); font-family: 'Cinzel Decorative', serif; font-size: 1.2rem; }
+  .modal-summary-total .name { color: var(--white); }
+  .modal-summary-total .price { color: var(--gold-light); }
+  .form-field { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.9rem; }
+  .form-field label { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.22em; color: var(--gold-light); text-transform: uppercase; font-weight: 700; }
+  .form-field input, .form-field select { background: rgba(9,12,16,0.5); border: 1px solid rgba(160,120,40,0.25); color: var(--cream); padding: 0.85rem 1rem; font-family: 'Lato', sans-serif; font-size: 0.95rem; transition: border-color 0.3s; }
+  .form-field input:focus, .form-field select:focus { outline: none; border-color: var(--gold); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .placeholder-banner { background: linear-gradient(135deg, rgba(184,84,26,0.12), rgba(160,120,40,0.08)); border: 1px dashed rgba(160,120,40,0.4); padding: 0.9rem 1rem; font-size: 0.78rem; color: rgba(232,220,200,0.7); line-height: 1.6; margin: 1.2rem 0; }
+  .placeholder-banner strong { color: var(--gold-light); display: block; margin-bottom: 0.2rem; letter-spacing: 0.05em; }
+
+  /* FOOTER */
+  footer { background: #050508; border-top: 1px solid rgba(160,120,40,0.15); padding: 3rem 5% 2rem; text-align: center; }
+  .footer-logo { font-family: 'Cinzel Decorative', serif; font-size: 1.1rem; color: var(--gold-light); margin-bottom: 0.4rem; }
+  .footer-sub { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: rgba(160,120,40,0.45); text-transform: uppercase; margin-bottom: 1.4rem; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; list-style: none; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.78rem; color: rgba(232,220,200,0.45); text-decoration: none; letter-spacing: 0.1em; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-copy { font-size: 0.7rem; color: rgba(232,220,200,0.25); }
+
+  /* MESSENGER */
+  .messenger-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 90; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #0084FF, #0099FF); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,132,255,0.5); cursor: pointer; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s; animation: floatPulse 3s ease-in-out infinite; }
+  .messenger-float:hover { transform: scale(1.08); box-shadow: 0 8px 30px rgba(0,132,255,0.6); }
+  .messenger-float svg { width: 28px; height: 28px; fill: white; }
+  .messenger-float.cart-active { transform: translateY(-70px); }
+  @keyframes floatPulse { 0%,100% { box-shadow: 0 4px 20px rgba(0,132,255,0.5); } 50% { box-shadow: 0 4px 30px rgba(0,132,255,0.8), 0 0 0 8px rgba(0,132,255,0.1); } }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .ticket-grid { grid-template-columns: 1fr; max-width: 480px; margin: 3rem auto 0; }
+  }
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-toggle { display: flex; }
+    .info-grid { grid-template-columns: 1fr; }
+    .schedule-row { grid-template-columns: auto 1fr; }
+    .schedule-row .schedule-tag { grid-column: 1 / -1; justify-self: start; }
+  }
+  @media (max-width: 560px) {
+    .countdown-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .event-cta-row .btn-primary, .event-cta-row .btn-secondary { width: 100%; max-width: 320px; }
+    .event-cta-row { flex-direction: column; align-items: center; }
+    .messenger-float { bottom: 1rem; right: 1rem; width: 52px; height: 52px; }
+    .messenger-float svg { width: 24px; height: 24px; }
+    .messenger-float.cart-active { transform: translateY(-80px); }
+    .cart-summary { gap: 0.6rem; }
+    .cart-bar { padding: 0.8rem 5%; }
+    .cart-bar .btn-primary { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MESSENGER -->
+<a class="messenger-float" id="messengerFloat" href="https://m.me/61581058374151?text=Hi%21%20I%20have%20a%20question%20about%20Eagles%20Cup%20tickets." target="_blank" rel="noopener" aria-label="Message us about tickets">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Metro Sugbu International Eagles Club<br><span class="nav-logo-acronym">(CVIER-IFOE-PE)</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#events" class="active">Events</a></li>
+    <li><a href="index.html#sponsors">Sponsors</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="basketball-sponsor.html" class="nav-cta">Sponsor Us</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="drawer-section">Explore</div>
+  <a href="index.html#about">About Us</a>
+  <a href="index.html#events">Upcoming Events</a>
+  <a href="index.html#membership">Membership</a>
+  <a href="index.html#sponsors">Sponsors</a>
+  <a href="gallery.html">Gallery</a>
+  <div class="drawer-section">Events</div>
+  <a href="basketball-tickets.html" class="active">🏀 Eagles Cup — Tickets</a>
+  <a href="basketball-sponsor.html">🏀 Eagles Cup — Sponsor</a>
+  <a href="band-show.html">🎸 Soar High Concert</a>
+  <a class="drawer-cta" href="#tickets">Pick Your Seat</a>
+</aside>
+
+<!-- HERO -->
+<section class="event-hero">
+  <div class="event-hero-bg" aria-hidden="true"></div>
+  <a class="event-back" href="index.html#events">Back to Events</a>
+  <div class="event-hero-content">
+    <div class="event-eyebrow">Eagles Invitational Cup · 2026</div>
+    <h1 class="event-title">Pick Your <span>Court.</span><br>Pick Your Side.</h1>
+    <p class="event-tagline">Doors open. Cebu shows up.<br>Don't watch this one from a screen.</p>
+    <div class="event-meta-row">
+      <span class="pill">📅 Q3 2026</span>
+      <span class="pill">📍 Cebu City</span>
+      <span class="pill">🏀 16 Teams</span>
+      <span class="pill">⭐ All Ages</span>
+    </div>
+    <div class="event-cta-row">
+      <a href="#tickets" class="btn-primary">Get Tickets</a>
+      <a href="#schedule" class="btn-secondary">See the Schedule</a>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<div class="countdown-strip">
+  <div class="countdown-grid" id="countdown" aria-label="Countdown to opening night">
+    <div class="countdown-cell">
+      <div class="countdown-num" id="cd-days">--</div>
+      <div class="countdown-label">Days</div>
+    </div>
+    <div class="countdown-cell">
+      <div class="countdown-num" id="cd-hours">--</div>
+      <div class="countdown-label">Hours</div>
+    </div>
+    <div class="countdown-cell">
+      <div class="countdown-num" id="cd-mins">--</div>
+      <div class="countdown-label">Minutes</div>
+    </div>
+    <div class="countdown-cell">
+      <div class="countdown-num" id="cd-secs">--</div>
+      <div class="countdown-label">Seconds</div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKETS -->
+<section id="tickets" class="tickets-section">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <div class="section-label reveal">The Tickets</div>
+      <h2 class="section-title reveal">Three <span>Seats.</span> One Story.</h2>
+      <div class="gold-line reveal" style="margin:0 auto 1rem;"></div>
+      <p class="reveal" style="max-width:600px; margin:0 auto; color:rgba(232,220,200,0.65); font-size:0.95rem; line-height:1.8;">All tickets cover the full tournament — three weekends of basketball. Every peso goes back to the community. Choose how close you want to be.</p>
+    </div>
+
+    <div class="ticket-grid">
+
+      <!-- GENERAL ADMISSION -->
+      <article class="ticket-card ga reveal" data-id="ga" data-price="200" data-name="General Admission">
+        <div class="ticket-name-wrap">
+          <span class="ticket-badge">General</span>
+        </div>
+        <h3 class="ticket-name">General Admission</h3>
+        <div class="ticket-price-row">
+          <div class="ticket-price"><span class="ticket-price-currency">₱</span>200</div>
+          <div class="ticket-price-old">₱300</div>
+        </div>
+        <div class="ticket-price-note">Early bird · per weekend</div>
+        <div class="ticket-divider"></div>
+        <ul class="ticket-perks">
+          <li>Entry to all general seating</li>
+          <li>Open seating, first come first served</li>
+          <li>Access to food &amp; drink stalls</li>
+          <li>Tournament program (digital)</li>
+          <li class="muted">Reserved seat</li>
+          <li class="muted">VIP lounge access</li>
+        </ul>
+        <div class="qty-row">
+          <span class="qty-label">Qty</span>
+          <div class="qty-controls">
+            <button type="button" class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+            <span class="qty-display">0</span>
+            <button type="button" class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+          </div>
+        </div>
+        <button type="button" class="ticket-cta" data-action="add">Add to Cart</button>
+      </article>
+
+      <!-- VIP -->
+      <article class="ticket-card vip featured reveal" data-id="vip" data-price="600" data-name="VIP">
+        <div class="ticket-flag">Most Popular</div>
+        <div class="ticket-name-wrap">
+          <span class="ticket-badge">VIP</span>
+        </div>
+        <h3 class="ticket-name">VIP Reserved</h3>
+        <div class="ticket-price-row">
+          <div class="ticket-price"><span class="ticket-price-currency">₱</span>600</div>
+          <div class="ticket-price-old">₱800</div>
+        </div>
+        <div class="ticket-price-note">Early bird · per weekend</div>
+        <div class="ticket-divider"></div>
+        <ul class="ticket-perks">
+          <li>Reserved seat — choose your section</li>
+          <li>Express entry, no queue</li>
+          <li>VIP lounge access</li>
+          <li>Welcome drink &amp; light snacks</li>
+          <li>Tournament program (printed)</li>
+          <li>Eagles Cup wristband</li>
+        </ul>
+        <div class="qty-row">
+          <span class="qty-label">Qty</span>
+          <div class="qty-controls">
+            <button type="button" class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+            <span class="qty-display">0</span>
+            <button type="button" class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+          </div>
+        </div>
+        <button type="button" class="ticket-cta" data-action="add">Add to Cart</button>
+      </article>
+
+      <!-- COURTSIDE -->
+      <article class="ticket-card courtside reveal" data-id="courtside" data-price="1500" data-name="Courtside">
+        <div class="ticket-name-wrap">
+          <span class="ticket-badge">Courtside</span>
+        </div>
+        <h3 class="ticket-name">Courtside Premium</h3>
+        <div class="ticket-price-row">
+          <div class="ticket-price"><span class="ticket-price-currency">₱</span>1,500</div>
+          <div class="ticket-price-old">₱2,000</div>
+        </div>
+        <div class="ticket-price-note">Early bird · per weekend</div>
+        <div class="ticket-divider"></div>
+        <ul class="ticket-perks">
+          <li>Front-row courtside seat</li>
+          <li>Closest to the action — feel it</li>
+          <li>Premium VIP lounge access</li>
+          <li>Full F&amp;B service at your seat</li>
+          <li>Photo opp with the champions</li>
+          <li>Eagles Cup merch bundle</li>
+          <li>Dedicated parking pass</li>
+        </ul>
+        <div class="qty-row">
+          <span class="qty-label">Qty</span>
+          <div class="qty-controls">
+            <button type="button" class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+            <span class="qty-display">0</span>
+            <button type="button" class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+          </div>
+        </div>
+        <button type="button" class="ticket-cta" data-action="add">Add to Cart</button>
+      </article>
+
+    </div>
+
+    <p style="text-align:center; margin-top: 2.5rem; color: rgba(232,220,200,0.5); font-size: 0.85rem; font-weight: 300;" class="reveal">
+      Buying for a group of 10+? <a href="https://m.me/61581058374151?text=Hi%21%20I%27m%20interested%20in%20group%20tickets%20for%20the%20Eagles%20Cup." target="_blank" rel="noopener" style="color: var(--gold-light); text-decoration: none; border-bottom: 1px solid var(--gold);">Message us for group rates ↗</a>
+    </p>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="schedule-section">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <div class="section-label reveal">Game Schedule</div>
+      <h2 class="section-title reveal">Three Weekends. <span>One Trophy.</span></h2>
+      <div class="gold-line reveal" style="margin:0 auto;"></div>
+    </div>
+
+    <div class="schedule-list">
+      <div class="schedule-row reveal">
+        <div class="schedule-date">Aug 8<small>Saturday</small></div>
+        <div class="schedule-info">
+          <h4>Opening Night &amp; Group Stage Round 1</h4>
+          <p>Tip-off ceremony, anthem, first 4 games. The night sets the tone — bring your colors.</p>
+        </div>
+        <span class="schedule-tag">Weekend 1</span>
+      </div>
+      <div class="schedule-row reveal">
+        <div class="schedule-date">Aug 9<small>Sunday</small></div>
+        <div class="schedule-info">
+          <h4>Group Stage Round 2</h4>
+          <p>Four more games. Standings start to tell the story.</p>
+        </div>
+        <span class="schedule-tag">Weekend 1</span>
+      </div>
+      <div class="schedule-row reveal">
+        <div class="schedule-date">Aug 15<small>Saturday</small></div>
+        <div class="schedule-info">
+          <h4>Quarterfinals</h4>
+          <p>Top 8 teams. Single elimination. The bracket gets serious.</p>
+        </div>
+        <span class="schedule-tag">Weekend 2</span>
+      </div>
+      <div class="schedule-row reveal">
+        <div class="schedule-date">Aug 16<small>Sunday</small></div>
+        <div class="schedule-info">
+          <h4>Semifinals</h4>
+          <p>Four teams left. Two games. One step from the final.</p>
+        </div>
+        <span class="schedule-tag">Weekend 2</span>
+      </div>
+      <div class="schedule-row reveal">
+        <div class="schedule-date">Aug 22<small>Saturday</small></div>
+        <div class="schedule-info">
+          <h4>Battle for 3rd &amp; Skills Showcase</h4>
+          <p>Bronze medal game, three-point contest, slam dunk competition.</p>
+        </div>
+        <span class="schedule-tag">Weekend 3</span>
+      </div>
+      <div class="schedule-row reveal">
+        <div class="schedule-date">Aug 23<small>Sunday</small></div>
+        <div class="schedule-info">
+          <h4>Championship Night</h4>
+          <p>The final. Trophy presentation. Eagles awards. Stay for the after-party.</p>
+        </div>
+        <span class="schedule-tag">Weekend 3</span>
+      </div>
+    </div>
+
+    <p style="text-align:center; margin-top:2.5rem; color:rgba(232,220,200,0.5); font-size:0.85rem;" class="reveal">
+      Final dates and venue confirmed once title sponsorship is locked. Subscribe to the newsletter for the official drop.
+    </p>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<section class="info-section">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <div class="section-label reveal">What to Know</div>
+      <h2 class="section-title reveal">Before You <span>Show Up</span></h2>
+      <div class="gold-line reveal" style="margin:0 auto;"></div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <span class="info-icon" aria-hidden="true">📍</span>
+        <h4>Venue</h4>
+        <p>Cebu City — exact venue confirmed once finalized. Centrally accessible by jeep, taxi, and Grab. Parking available at Courtside and VIP rates.</p>
+      </div>
+      <div class="info-card reveal">
+        <span class="info-icon" aria-hidden="true">⏰</span>
+        <h4>Doors &amp; Gates</h4>
+        <p>Doors open 90 minutes before tip-off. National Anthem &amp; opening ceremony on Weekend 1, Saturday. Latecomers welcome — just don't miss the first quarter.</p>
+      </div>
+      <div class="info-card reveal">
+        <span class="info-icon" aria-hidden="true">🎟️</span>
+        <h4>Your Ticket</h4>
+        <p>You'll get a digital ticket via email plus a wristband at the gate. One ticket = full weekend access. Re-entry allowed with the wristband.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <div class="section-label reveal">Common Questions</div>
+      <h2 class="section-title reveal">Ticket <span>FAQs</span></h2>
+      <div class="gold-line reveal" style="margin:0 auto;"></div>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>How do I pay?</summary>
+        <p>Online payment options (GCash, PayMongo, credit card) are coming soon. For now, when you check out we'll connect you with our team via Messenger to confirm your seats and arrange payment by bank transfer or in-person reservation. Your seats are held for 24 hours.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Are these prices per game or per weekend?</summary>
+        <p>Per weekend. One ticket covers all the games scheduled for that weekend (Saturday + Sunday). Buying all three weekends? Message us — we'll do a 3-weekend bundle deal.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Can I bring my kids?</summary>
+        <p>Absolutely — this is a family event. Children under 5 are free if seated on a parent's lap. Otherwise, kids ages 5+ need their own ticket (any tier).</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What if I can't attend after buying?</summary>
+        <p>Tickets are transferable. Send us the new attendee's name and we'll re-issue. No refunds, but you can also gift your seat to a friend or donate it to one of our community guests.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Will there be food and drinks?</summary>
+        <p>Yes. Local vendors will be on-site for food and drinks at all weekends. VIP and Courtside guests get welcome drinks and light snacks included; Courtside has full F&amp;B service at your seat.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Is there a livestream if I can't make it?</summary>
+        <p>Yes — we'll livestream all games on the official Metro Sugbu Eagles Facebook page. But trust us: this one's better in person.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY CART BAR -->
+<div class="cart-bar" id="cartBar" role="region" aria-label="Cart summary">
+  <div class="cart-summary">
+    <div class="cart-count"><strong id="cartCount">0</strong> · Tickets in cart</div>
+    <div class="cart-total">Total <span id="cartTotal">₱0</span></div>
+  </div>
+  <button type="button" class="btn-primary" id="checkoutBtn">Checkout →</button>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button type="button" class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-eyebrow">Eagles Cup · Checkout</div>
+    <h3 id="modalTitle">Almost <span>Yours</span></h3>
+    <p style="color:rgba(232,220,200,0.65); font-size:0.9rem; margin-top:0.4rem;">Drop your details and we'll lock your seats. Payment options arrive next — for now we'll confirm via Messenger.</p>
+
+    <div class="modal-summary" id="modalSummary"></div>
+
+    <form id="checkoutForm" onsubmit="return submitCheckout(event)">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="co-name">Full Name *</label>
+          <input id="co-name" name="name" type="text" required placeholder="e.g. Juan dela Cruz">
+        </div>
+        <div class="form-field">
+          <label for="co-phone">Mobile *</label>
+          <input id="co-phone" name="phone" type="tel" required placeholder="+63 ___ ___ ____">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="co-email">Email *</label>
+        <input id="co-email" name="email" type="email" required placeholder="you@email.com">
+      </div>
+
+      <div class="placeholder-banner">
+        <strong>💳 Payment is set up next.</strong>
+        Online payment (GCash · Card · PayMongo) is rolling out soon. For now, hit the button — we'll DM you on Messenger to lock your seats.
+      </div>
+
+      <button type="submit" class="btn-primary" style="width:100%;">Reserve My Seats via Messenger ↗</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Metro Sugbu Eagles</div>
+  <div class="footer-sub">Eagles Invitational Cup · 2026</div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#events">All Events</a></li>
+    <li><a href="basketball-sponsor.html">Sponsor Us</a></li>
+    <li><a href="band-show.html">Soar High Concert</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener">Facebook</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Metro Sugbu International Eagles Club · IFOE Philippines</div>
+</footer>
+
+<script>
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 50);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // MOBILE DRAWER
+  const navToggle = document.getElementById('navToggle');
+  const drawer = document.getElementById('mobileDrawer');
+  const overlay = document.getElementById('drawerOverlay');
+  const body = document.body;
+  function setDrawer(open) {
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    drawer.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    body.classList.toggle('no-scroll', open);
+  }
+  navToggle.addEventListener('click', () => setDrawer(navToggle.getAttribute('aria-expanded') !== 'true'));
+  overlay.addEventListener('click', () => setDrawer(false));
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setDrawer(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('open')) setDrawer(false); });
+
+  // COUNTDOWN
+  const target = new Date('2026-08-08T18:00:00+08:00').getTime();
+  function tick() {
+    const now = Date.now();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '0';
+      document.getElementById('cd-hours').textContent = '0';
+      document.getElementById('cd-mins').textContent = '0';
+      document.getElementById('cd-secs').textContent = '0';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = d;
+    document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // CART STATE
+  const cart = {};
+  const cartBar = document.getElementById('cartBar');
+  const cartCountEl = document.getElementById('cartCount');
+  const cartTotalEl = document.getElementById('cartTotal');
+  const messengerFloat = document.getElementById('messengerFloat');
+
+  function fmtPrice(n) {
+    return '₱' + n.toLocaleString('en-PH');
+  }
+
+  function updateCardQty(card, qty) {
+    card.querySelector('.qty-display').textContent = qty;
+    card.querySelectorAll('.qty-btn').forEach(b => {
+      if (b.dataset.action === 'dec') b.disabled = qty <= 0;
+    });
+  }
+
+  function refreshCart() {
+    let count = 0, total = 0;
+    Object.values(cart).forEach(({qty, price}) => { count += qty; total += qty * price; });
+    cartCountEl.textContent = count;
+    cartTotalEl.textContent = fmtPrice(total);
+    const isVisible = count > 0;
+    cartBar.classList.toggle('visible', isVisible);
+    messengerFloat.classList.toggle('cart-active', isVisible);
+  }
+
+  // TICKET CARD INTERACTIONS
+  document.querySelectorAll('.ticket-card').forEach(card => {
+    const id = card.dataset.id;
+    const price = parseFloat(card.dataset.price);
+    const name = card.dataset.name;
+    cart[id] = cart[id] || { qty: 0, price, name };
+
+    card.querySelectorAll('.qty-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const action = btn.dataset.action;
+        if (action === 'inc') cart[id].qty += 1;
+        else if (action === 'dec' && cart[id].qty > 0) cart[id].qty -= 1;
+        updateCardQty(card, cart[id].qty);
+        refreshCart();
+      });
+    });
+
+    card.querySelector('[data-action="add"]').addEventListener('click', () => {
+      if (cart[id].qty === 0) cart[id].qty = 1;
+      updateCardQty(card, cart[id].qty);
+      refreshCart();
+      cartBar.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    });
+  });
+
+  // CHECKOUT MODAL
+  const modalBg = document.getElementById('modalBg');
+  const modalClose = document.getElementById('modalClose');
+  const modalSummary = document.getElementById('modalSummary');
+  const checkoutBtn = document.getElementById('checkoutBtn');
+
+  function buildSummary() {
+    let html = '';
+    let total = 0;
+    Object.values(cart).forEach(({ qty, price, name }) => {
+      if (qty <= 0) return;
+      const subtotal = qty * price;
+      total += subtotal;
+      html += `<div class="modal-summary-row"><span class="name">${name}</span><span class="qty">×${qty}</span><span class="price">${fmtPrice(subtotal)}</span></div>`;
+    });
+    html += `<div class="modal-summary-total"><span class="name">Total</span><span class="price">${fmtPrice(total)}</span></div>`;
+    modalSummary.innerHTML = html;
+  }
+
+  checkoutBtn.addEventListener('click', () => {
+    buildSummary();
+    modalBg.classList.add('open');
+    body.classList.add('no-scroll');
+  });
+  modalClose.addEventListener('click', () => {
+    modalBg.classList.remove('open');
+    body.classList.remove('no-scroll');
+  });
+  modalBg.addEventListener('click', (e) => {
+    if (e.target === modalBg) {
+      modalBg.classList.remove('open');
+      body.classList.remove('no-scroll');
+    }
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modalBg.classList.contains('open')) { modalBg.classList.remove('open'); body.classList.remove('no-scroll'); } });
+
+  function submitCheckout(e) {
+    e.preventDefault();
+    const f = e.target;
+    const items = Object.values(cart).filter(c => c.qty > 0);
+    let total = 0;
+    const lines = items.map(c => { total += c.qty * c.price; return `${c.name} × ${c.qty} = ${fmtPrice(c.qty * c.price)}`; });
+
+    const msg = [
+      'Hi! I\'d like to reserve Eagles Cup tickets.',
+      '',
+      'Name: ' + f.name.value.trim(),
+      'Mobile: ' + f.phone.value.trim(),
+      'Email: ' + f.email.value.trim(),
+      '',
+      'Tickets:',
+      ...lines.map(l => '• ' + l),
+      '',
+      'Total: ' + fmtPrice(total)
+    ].join('\n');
+
+    const url = 'https://m.me/61581058374151?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank', 'noopener');
+    return false;
+  }
+</script>
+</body>
+</html>
