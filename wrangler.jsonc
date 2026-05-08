@@ -4,5 +4,6 @@
   "compatibility_date": "2026-05-08",
   "assets": {
     "directory": "./"
-  }
+  },
+  "custom_domains": ["metrosugbu.com", "www.metrosugbu.com"]
 }

@@ -290,6 +290,7 @@
   /* RESPONSIVE */
   @media (max-width: 1024px) {
     .footer-grid { grid-template-columns: 1fr 1fr; }
+    .membership-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 900px) {
     .nav-links { display: none; }
@@ -297,20 +298,27 @@
     .nav-toggle { display: flex; }
     .about-grid { grid-template-columns: 1fr; }
     .about-visual { order: -1; }
-    .about-emblem-wrap { width: 240px; height: 240px; margin: 0 auto; }
+    .about-emblem-wrap { width: 240px; height: 240px; margin: 0 auto; overflow: hidden; }
     .about-emblem-wrap img { width: 210px; height: 210px; }
     .ring-1 { width: 224px; height: 224px; }
     .ring-2 { width: 240px; height: 240px; }
-    .membership-grid { grid-template-columns: 1fr; }
     .events-grid { grid-template-columns: 1fr; }
     .fb-post-inner { grid-template-columns: 1fr; }
+    .fb-post-embed { overflow: hidden; }
+    .fb-post-embed iframe { width: 100% !important; max-width: 100%; }
     .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-fb { overflow: hidden; }
+    .footer-fb iframe { width: 100% !important; max-width: 100%; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    footer { padding-bottom: calc(3rem + 56px); }
+  }
+  @media (max-width: 640px) {
+    .membership-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
     .about-values { grid-template-columns: 1fr; }
     .hero-cta-group { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
-    .hero-cta-group a { width: 100%; }
+    .hero-cta-group a { width: 100%; text-align: center; }
     .anthem-quote { padding: 1.5rem 0.5rem; }
     .anthem-quote::before { font-size: 3rem; }
     .anthem-quote::after { font-size: 3rem; bottom: -1rem; }
@@ -319,7 +327,12 @@
     .event-card { min-height: 0; }
     .event-card-art { height: 180px; }
     .stats-bar { padding: 1.6rem 5%; }
-    .footer-fb iframe { width: 100% !important; }
+    .stats-grid { gap: 1rem; }
+    .sponsors-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 420px) {
+    .nav-logo .nav-logo-acronym { display: none; }
+    .emblem-side { width: 60px; height: 60px; }
   }
 </style>
 </head>
@@ -515,7 +528,9 @@
       <a href="https://www.facebook.com/profile.php?id=61581058374151" target="_blank" rel="noopener" class="btn-secondary" style="margin-top:1rem;">Follow Our Page ↗</a>
     </div>
     <div class="fb-post-embed reveal">
-      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0QMAa2t78FKfAj3MD6myXjbeYFgwbrySRfYLDEnJz3KxQXbePsdvCg5PkKt8x99Ail%26id%3D61581058374151&show_text=true&width=500" width="500" height="500" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+      <div style="width:100%;max-width:500px;overflow:hidden;">
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0QMAa2t78FKfAj3MD6myXjbeYFgwbrySRfYLDEnJz3KxQXbePsdvCg5PkKt8x99Ail%26id%3D61581058374151&show_text=true&width=500" width="500" height="500" style="border:none;overflow:hidden;width:100%;max-width:500px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+      </div>
     </div>
   </div>
 </section>
@@ -701,7 +716,9 @@
   </div>
   <div class="footer-fb">
     <div class="footer-fb-label">Latest From Our Facebook Page</div>
-    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61581058374151&tabs=timeline&width=500&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" width="500" height="400" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+    <div style="width:100%;max-width:500px;overflow:hidden;">
+      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61581058374151&tabs=timeline&width=500&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" width="500" height="400" style="border:none;overflow:hidden;width:100%;max-width:500px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+    </div>
   </div>
   <div class="footer-copy">
     © 2025 Metro Sugbu International Eagles Club · A Chapter of IFOE Philippines<br>
