@@ -50,8 +50,9 @@
     border-bottom: 1px solid rgba(160,120,40,0.25); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     min-height: var(--nav-h);
   }
-  .nav-logo { font-family: 'Cinzel', serif; font-size: clamp(0.55rem, 1.2vw, 0.72rem); font-weight: 700; color: var(--gold-light); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; line-height: 1.4; max-width: 320px; }
+  .nav-logo { font-family: 'Cinzel', serif; font-size: clamp(0.68rem, 1.2vw, 0.75rem); font-weight: 700; color: var(--gold-light); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; line-height: 1.4; max-width: 300px; }
   .nav-logo .nav-logo-acronym { font-size: 0.85em; color: var(--gold); letter-spacing: 0.12em; }
+  .nav-logo-abbr { display: none; }
   .nav-links { display: flex; gap: 1.6rem; list-style: none; align-items: center; }
   .nav-links a { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.12em; color: var(--cream); text-decoration: none; text-transform: uppercase; transition: color 0.3s; padding: 0.4rem 0; position: relative; }
   .nav-links a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--gold-light); transform: scaleX(0); transition: transform 0.3s; }
@@ -233,6 +234,8 @@
     .nav-links { display: none; }
     .nav-cta { display: none; }
     .nav-toggle { display: flex; }
+    .nav-logo-full { display: none; }
+    .nav-logo-abbr { display: inline; }
     .why-grid { grid-template-columns: 1fr; }
     .why-image-stack { order: -1; min-height: 320px; }
     .reach-grid { grid-template-columns: 1fr; }
@@ -257,7 +260,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">Metro Sugbu International Eagles Club<br><span class="nav-logo-acronym">(CVIER-IFOE-PE)</span></a>
+  <a href="index.html" class="nav-logo"><span class="nav-logo-full">Metro Sugbu International Eagles Club</span><span class="nav-logo-abbr">Metro Sugbu Eagles</span><br><span class="nav-logo-acronym">(CVIER-IFOE-PE)</span></a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#events" class="active">Events</a></li>
