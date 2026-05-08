@@ -14,6 +14,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metrosugbu.com/basketball-tickets.html">
+<meta property="og:title" content="Eagles Cup Tickets — Metro Sugbu Eagles">
+<meta property="og:description" content="Get tickets for the Eagles Invitational Cup — Cebu's hardcourt tournament. GA, VIP, and Courtside seats. All proceeds go to community outreach.">
+<meta property="og:image" content="https://metrosugbu.com/Metro%20Sugbo%20Eagles.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   :root {
     --gold: #A07828;
@@ -673,36 +680,8 @@
   <div class="footer-copy">© 2026 Metro Sugbu International Eagles Club · IFOE Philippines</div>
 </footer>
 
+<script src="main.js"></script>
 <script>
-  // SCROLL REVEAL
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 50);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
-
-  // MOBILE DRAWER
-  const navToggle = document.getElementById('navToggle');
-  const drawer = document.getElementById('mobileDrawer');
-  const overlay = document.getElementById('drawerOverlay');
-  const body = document.body;
-  function setDrawer(open) {
-    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    drawer.classList.toggle('open', open);
-    overlay.classList.toggle('open', open);
-    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
-    body.classList.toggle('no-scroll', open);
-  }
-  navToggle.addEventListener('click', () => setDrawer(navToggle.getAttribute('aria-expanded') !== 'true'));
-  overlay.addEventListener('click', () => setDrawer(false));
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setDrawer(false)));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('open')) setDrawer(false); });
-
   // COUNTDOWN
   const target = new Date('2026-08-08T18:00:00+08:00').getTime();
   function tick() {
